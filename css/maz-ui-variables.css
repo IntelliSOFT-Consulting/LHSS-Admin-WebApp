@@ -15,20 +15,20 @@
   --maz-color-primary-alpha-05: hsla(150, 87%, 21%, 0.05);
   --maz-color-primary-contrast: hsl(0, 0%, 100%);
 
-  --maz-color-secondary-50: hsl(164, 76%, 86%);
-  --maz-color-secondary-100: hsl(164, 76%, 76%);
-  --maz-color-secondary-200: hsl(164, 76%, 71%);
-  --maz-color-secondary-300: hsl(164, 76%, 61%);
-  --maz-color-secondary-400: hsl(164, 76%, 56%);
-  --maz-color-secondary-600: hsl(164, 76%, 36%);
-  --maz-color-secondary-700: hsl(164, 76%, 26%);
-  --maz-color-secondary-800: hsl(164, 76%, 16%);
-  --maz-color-secondary-900: hsl(164, 76%, 6%);
-  --maz-color-secondary: hsl(164, 76%, 46%);
-  --maz-color-secondary-alpha: hsla(164, 76%, 46%, 0.6);
-  --maz-color-secondary-alpha-20: hsla(164, 76%, 46%, 0.2);
-  --maz-color-secondary-alpha-10: hsla(164, 76%, 46%, 0.1);
-  --maz-color-secondary-alpha-05: hsla(164, 76%, 46%, 0.05);
+  --maz-color-secondary-50: hsl(136, 86%, 68%);
+  --maz-color-secondary-100: hsl(136, 86%, 58%);
+  --maz-color-secondary-200: hsl(136, 86%, 53%);
+  --maz-color-secondary-300: hsl(136, 86%, 43%);
+  --maz-color-secondary-400: hsl(136, 86%, 38%);
+  --maz-color-secondary-600: hsl(136, 86%, 18%);
+  --maz-color-secondary-700: hsl(136, 86%, 8%);
+  --maz-color-secondary-800: hsl(0, 0%, 0%);
+  --maz-color-secondary-900: hsl(0, 0%, 0%);
+  --maz-color-secondary: hsl(136, 86%, 28%);
+  --maz-color-secondary-alpha: hsla(136, 86%, 28%, 0.6);
+  --maz-color-secondary-alpha-20: hsla(136, 86%, 28%, 0.2);
+  --maz-color-secondary-alpha-10: hsla(136, 86%, 28%, 0.1);
+  --maz-color-secondary-alpha-05: hsla(136, 86%, 28%, 0.05);
   --maz-color-secondary-contrast: hsl(0, 0%, 100%);
 
   --maz-color-info-50: hsl(188, 78%, 81%);

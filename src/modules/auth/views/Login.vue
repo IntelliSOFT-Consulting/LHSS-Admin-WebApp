@@ -9,7 +9,7 @@
         <p class="text-[11px] leading-[23px] text-[#707070] tracking-[0px] text-right w-fit my-[30px] ml-auto cursor-pointer">
           Forgot password?
         </p>
-        <maz-btn color="primary" class="ml-auto px-0 h-[45px] w-[200px]">Submit</maz-btn>
+        <maz-btn color="secondary" class="ml-auto px-0 h-[45px] w-[200px]">Login</maz-btn>
       </div>
     </div>
   </div>

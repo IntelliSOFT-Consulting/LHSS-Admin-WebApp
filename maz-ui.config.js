@@ -5,13 +5,12 @@ export default defineConfig({
     theme: {
         colors: {
             primary: 'hsl(150.32, 0.872, 0.206)',
-            secondary: 'hsl(164, 76%, 46%)',
+            secondary: 'hsl(137.647%, 86%, 28.4%)',
             info: 'hsl(188, 78%, 41%)',
             success: 'hsl(80, 61%, 50%)',
             warning: 'hsl(40, 97%, 59%)',
             danger: 'hsl(1, 100%, 71%)',
             bgOverlay: 'hsl(0, 0%, 0% / 30%)',
-            // myPrimary: 'hsl(150.32, 0.872, 0.206)',
             lightTheme: {
                 textColor: 'hsl(0, 0%, 85%)',
                 colorMuted: 'hsla(0, 0%, 0%, 0.54)',

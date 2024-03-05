@@ -1,6 +1,6 @@
 <template>
   <div class="login-bg w-screen h-screen flex justify-center align-center">
-    <div class="flex flex-col w-7/12 justify-center ">
+    <div class="flex flex-col w-5/12 justify-center gap-10">
       <p class="text-white text-center leading-[42px] text-[29px] font-bold">CB-DHS WEB APPLICATION</p>
       <div class="flex flex-col bg-white rounded-[10px] border-[.5px] border-[#c4c4c4] items-center justify-center text-center px-[97px] pt-[95px] pb-[44px]">
         <p class="font-[29px] leading-[42px] text-[#5c5c5c] mb-[40px]">LOGIN TO YOUR ACCOUNT</p>

@@ -3,6 +3,7 @@
     <div class="flex w-full gap-16">
       <stat-box v-for="item in dummyStats" :key="item.title" :item="item"/>
     </div>
+    <div class="flex"></div>
   </div>
 </template>
 

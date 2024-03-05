@@ -9,7 +9,7 @@
         <p class="text-[11px] leading-[23px] text-[#707070] tracking-[0px] text-right w-fit my-[30px] ml-auto cursor-pointer">
           Forgot password?
         </p>
-        <maz-btn color="secondary" class="ml-auto px-0 h-[45px] w-[200px]">Login</maz-btn>
+        <maz-btn @click="login" color="secondary" class="ml-auto px-0 h-[45px] w-[200px]">Login</maz-btn>
       </div>
     </div>
   </div>
@@ -20,9 +20,16 @@
 import MazInput from 'maz-ui/components/MazInput'
 import MazBtn from 'maz-ui/components/MazBtn'
 import {ref} from "vue";
+import {useRouter} from "vue-router";
 
 const password = ref("")
 const username = ref("")
+
+const router = useRouter()
+
+const login = () => {
+  router.push("/facility")
+}
 
 </script>
 

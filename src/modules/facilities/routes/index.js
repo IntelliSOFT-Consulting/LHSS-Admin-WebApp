@@ -28,6 +28,11 @@ export const facilityRoutes = [
                 path: "reports",
                 component: () => import ("../views/Reports.vue")
             },
+            {
+                name: "registered-patients",
+                path: "patients",
+                component: () => import ("../views/RegisteredPatients.vue")
+            },
         ]
     }
 ]

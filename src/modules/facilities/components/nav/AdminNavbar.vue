@@ -1,8 +1,8 @@
 <template>
   <div class="flex items-center justify-between px-[49px] py-6 border-[.5px] border-[#c4c4c4] shadow-lg">
-    <div class="text-secondary text-[18px] leading-[42px] font-semibold tracking-[0px]">
+    <router-link to="/facility" class="text-secondary text-[18px] leading-[42px] font-semibold tracking-[0px]">
       CB-DHS WEB APPLICATION
-    </div>
+    </router-link>
     <div class="flex items-center gap-16">
       <router-link
           class="text-[#292929] capitalize"

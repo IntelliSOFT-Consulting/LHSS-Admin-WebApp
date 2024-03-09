@@ -7,7 +7,12 @@ export const facilityRoutes = [
                 name: "Dashboard",
                 path: "",
                 component: () => import ("../views/Dashboard.vue")
-            }
+            },
+            {
+                name: "RegisterFacility",
+                path: "register",
+                component: () => import ("../views/RegisterFacility.vue")
+            },
         ]
     }
 ]

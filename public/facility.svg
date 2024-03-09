@@ -1,0 +1,9 @@
+<svg id="vuesax_bulk_hospital" data-name="vuesax/bulk/hospital" xmlns="http://www.w3.org/2000/svg" width="57.515" height="57.515" viewBox="0 0 57.515 57.515">
+  <g id="hospital">
+    <path id="Vector" d="M57.515,0V57.515H0V0Z" fill="#0b8648" opacity="0"/>
+    <path id="Vector-2" data-name="Vector" d="M1.8,0A1.81,1.81,0,0,0,0,1.8a1.81,1.81,0,0,0,1.8,1.8H49.727a1.81,1.81,0,0,0,1.8-1.8,1.81,1.81,0,0,0-1.8-1.8Z" transform="translate(2.996 50.925)" fill="#0b8648"/>
+    <path id="Vector-3" data-name="Vector" d="M9.586,0C2.4,0,0,4.29,0,9.586V47.929H43.136V9.586c0-5.3-2.4-9.586-9.586-9.586Z" transform="translate(7.189 4.793)" fill="#0b8648" opacity="0.4"/>
+    <path id="Vector-4" data-name="Vector" d="M2.253,0A2.265,2.265,0,0,0,0,2.253V16.775H14.379V2.253A2.215,2.215,0,0,0,12.15,0Z" transform="translate(21.544 35.947)" fill="#0b8648"/>
+    <path id="Vector-5" data-name="Vector" d="M9.586,5.991V1.8a1.8,1.8,0,0,0-3.595,0V5.991H1.8a1.8,1.8,0,0,0,0,3.595H5.991V13.78a1.8,1.8,0,1,0,3.595,0V9.586H13.78a1.8,1.8,0,1,0,0-3.595Z" transform="translate(20.969 12.581)" fill="#0b8648"/>
+  </g>
+</svg>

@@ -6,5 +6,12 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+.customize-table {
+    --easy-table-header-font-size: .71rem;
+    --easy-table-header-font-color: #292929;
+    --easy-table-header-background-color: #067B401A;
+    --easy-table-header-item-padding: 15px 10px;
+}
+
 @layer components {
 }

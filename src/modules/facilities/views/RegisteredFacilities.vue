@@ -4,12 +4,12 @@
     <div class="flex items-center gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
       <maz-icon name="facility" class="w-6 h-6"/>
       <p class="text-xl font-medium text-[#292929]">Registered Facilities</p>
-      <maz-btn class="w-[165px] h-[40px] ml-auto">Add New</maz-btn>
+      <maz-btn @click="add" class="w-[165px] h-[40px] ml-auto">Add New</maz-btn>
     </div>
 
     <div class="flex flex-col lg:p-11 gap-[55px]">
       <div class="flex items-center gap-5">
-        <maz-input placeholder="Use health facility name, code" />
+        <maz-input placeholder="Use health facility name, code"/>
         <maz-btn outline class="h-full w-[165px]">Search</maz-btn>
       </div>
       <EasyDataTable
@@ -34,7 +34,11 @@ import MazIcon from 'maz-ui/components/MazIcon'
 import MazBtn from 'maz-ui/components/MazBtn'
 import MazInput from 'maz-ui/components/MazInput'
 import {dummyFacilities} from "../data/dummy.js";
+import {useRouter} from "vue-router";
 
+const router = useRouter()
+
+const add = () => router.push("/facility/register")
 
 const headers = [
   {

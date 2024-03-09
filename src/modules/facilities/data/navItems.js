@@ -20,7 +20,7 @@ export const navItems = [
     {
         id: "4",
         icon: true,
-        path: "/facility/reports",
+        path: "/facility/referrals",
         iconPath: "user-circle",
     },
 

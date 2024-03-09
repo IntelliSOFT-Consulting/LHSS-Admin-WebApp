@@ -15,7 +15,7 @@
     <div class="flex flex-col gap-[34px] px-[27px] py-[20px] border-[.5px] border-[#c4c4c4] bg-white shadow-md rounded-[10px]">
       <div class="flex w-0full justify-between">
         <p class="">Registered Facilities</p>
-        <router-link class="text-[#067B40]  leading-[29px] font-medium underline" to="/">View all</router-link>
+        <router-link class="text-[#067B40]  leading-[29px] font-medium underline" to="/facility/register">View all</router-link>
       </div>
       <EasyDataTable
           border-cell
@@ -24,8 +24,8 @@
           :headers="headers">
         <template #item-id="item">
           <div class="flex items-center gap-4">
-            <router-link class="underline text-[#2b4fb1] font-medium" to="/">View</router-link>
-            <router-link class="underline text-[#2b4fb1] font-medium" to="/">Edit</router-link>
+            <router-link class="underline text-[#2b4fb1] font-medium" to="/facility/details">View</router-link>
+            <router-link class="underline text-[#2b4fb1] font-medium" to="/facility/register">Edit</router-link>
           </div>
         </template>
       </EasyDataTable>

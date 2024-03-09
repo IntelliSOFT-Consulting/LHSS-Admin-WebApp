@@ -3,7 +3,7 @@
 
     <div class="flex items-center gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
       <maz-icon name="user-circle" class="w-6 h-6"/>
-      <p class="text-xl font-medium text-[#292929]">Registered patients</p>
+      <p class="text-xl font-medium text-[#292929]">Referrals</p>
       <div class="flex items-center gap-[10px] ml-auto">
         <maz-btn @click="print" class="w-[165px] h-[40px] ml-auto">Print Report</maz-btn>
         <maz-btn @click="router.back()" outline class="w-[165px] h-[40px] ml-auto">Back</maz-btn>
@@ -39,8 +39,8 @@
       <EasyDataTable
           border-cell
           table-class-name="customize-table"
-          :items="dummyPatients"
-          :headers="patientHeaders">
+          :items="dummyReferrals"
+          :headers="referralHeaders">
         <template #item-registrationDate="item">
           <p class="">{{new Date(item.registrationDate).toDateString()}}</p>
         </template>
@@ -56,16 +56,16 @@ import MazBtn from "maz-ui/components/MazBtn";
 import MazIcon from "maz-ui/components/MazIcon";
 import MazPicker from 'maz-ui/components/MazPicker'
 import {ref} from "vue";
-import {dummyPatients} from "../data/dummy.js";
-import {patientHeaders} from "../data/table.js";
+import {dummyReferrals} from "../data/dummy.js";
+import { referralHeaders} from "../data/table.js";
 import {useRouter} from "vue-router";
-
-const router = useRouter()
 
 const rangeValues = ref({
   start: '2022-02-03',
   end: '2022-02-28',
 })
+
+const router = useRouter()
 
 const print = () => null
 

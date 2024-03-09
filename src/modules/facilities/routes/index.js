@@ -23,6 +23,11 @@ export const facilityRoutes = [
                 path: "details",
                 component: () => import ("../views/FacilityDetails.vue")
             },
+            {
+                name: "facility-reports",
+                path: "reports",
+                component: () => import ("../views/Reports.vue")
+            },
         ]
     }
 ]

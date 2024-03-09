@@ -22,7 +22,7 @@
       <div class="flex flex-col items-center gap-8">
         <maz-icon name="tick-circle" />
         <p class="text-center">Facility registered successfully!</p>
-        <maz-btn @click="isOpen =false" size="lg">Close</maz-btn>
+        <maz-btn @click="close" size="lg">Close</maz-btn>
       </div>
     </maz-dialog>
   </div>
@@ -80,6 +80,11 @@ const router = useRouter()
 
 const submit = () => {
   isOpen.value = !isOpen.value
+}
+
+const close = () =>{
+  isOpen.value = false
+  router.push('/facility/registered-facilities')
 }
 
 </script>

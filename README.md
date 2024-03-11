@@ -1,7 +1,34 @@
-# Vue 3 + Vite
+## About
+A web application for administration purposes to oversee the cross-border mobile application, including tasks such as user creation and facility addition.
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### Getting started
 
-## Recommended IDE Setup
+- Clone this repo
+```
+git clone git@github.com:IntelliSOFT-Consulting/LHSS-Admin-WebApp.git
+```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Install dependencies
+```
+npm install
+```
+- Start the server in watch mode
+```
+npm run dev
+
+```
+- Build and run the project
+```
+npm run build
+npm start
+```
+
+### Using docker
+- Build
+```
+docker compose build
+```
+- Spin-up
+```
+docker compose up 
+```

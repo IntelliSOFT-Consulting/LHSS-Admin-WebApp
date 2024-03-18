@@ -6,11 +6,11 @@
       <p class="text-xl font-medium text-[#292929]">Register Facility</p>
     </div>
 
-    <form @submit="submit" class="grid grid-cols-1 lg:grid-cols-2 lg:px-11 pt-11 gap-x-[100px] gap-y-10">
+    <form @submit="submit" class="grid grid-cols-1 md:grid-cols-2 px-4 pb-24 lg:px-11 pt-11 gap-8 lg:gap-x-[100px] gap-y-10">
       <maz-input v-for="item in forms" :key="item.id" v-bind="item" class="outline-[#4E4E4E] focus:outline-[#4E4E4E] w-full"/>
       <div class="flex items-center w-full col-span-full justify-end gap-[25px] border-t-[.5px] border-t-[#C4C4C4] py-[11px] px-5 mt-auto absolute bottom-0 left-0">
-        <maz-btn type="button" @click="router.back()" class="w-[165px] h-[46px]" outline>Back</maz-btn>
-        <maz-btn type="button" @click="isOpen=true" class="w-[165px] h-[46px]">Submit</maz-btn>
+        <maz-btn type="button" @click="router.back()" class="w-20 h-8 lg:w-[165px] lg:h-[46px]" outline>Back</maz-btn>
+        <maz-btn type="button" @click="isOpen=true" class="w-20 h-8 lg:w-[165px] lg:h-[46px]">Submit</maz-btn>
       </div>
 
     </form>

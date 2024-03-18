@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-10 w-full">
 
-    <div class="flex w-full gap-16 ">
+    <div class="flex flex-col md:flex-row w-full gap-16 ">
       <stat-box v-for="item in dummyStats" :key="item.title" :item="item"/>
     </div>
 

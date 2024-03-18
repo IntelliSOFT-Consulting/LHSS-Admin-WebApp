@@ -24,7 +24,7 @@
     <div class="flex flex-col gap-[34px] px-[27px] py-[20px] border-[.5px] border-[#c4c4c4] bg-white shadow-md rounded-[10px]">
       <div class="flex w-full justify-between">
         <p class="">Referrals</p>
-        <router-link class="text-[#067B40]  leading-[29px] font-medium underline" to="/">View all</router-link>
+        <router-link class="text-[#067B40]  leading-[29px] font-medium underline" to="/facility/referrals">View all</router-link>
       </div>
       <EasyDataTable
           border-cell

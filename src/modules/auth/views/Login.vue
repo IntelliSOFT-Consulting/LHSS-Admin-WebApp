@@ -1,8 +1,9 @@
 <template>
   <div class="login-bg w-screen h-screen flex justify-center align-center">
-    <div class="flex flex-col w-5/12 justify-center gap-10">
-      <p class="text-white text-center leading-[42px] text-[29px] font-bold">CB-DHS WEB APPLICATION</p>
-      <div class="flex flex-col bg-white rounded-[10px] border-[.5px] border-[#c4c4c4] items-center justify-center text-center px-[97px] pt-[95px] pb-[44px]">
+    <div class="flex flex-col w-11/12 lg:w-5/12 justify-center gap-10">
+      <p class="text-white text-center leading-[42px] lg:text-[29px] font-bold">CB-DHS WEB APPLICATION</p>
+      <div
+          class="flex flex-col bg-white rounded-[10px] border-[.5px] border-[#c4c4c4] items-center justify-center text-center px-4 py-6 lg:px-[97px] lg:pt-[95px] pb-[44px]">
         <p class="font-[29px] leading-[42px] text-[#5c5c5c] mb-[40px]">LOGIN TO YOUR ACCOUNT</p>
         <maz-input class="mb-[29px] w-full" v-model="username" left-icon="envelope" placeholder="Username"/>
         <maz-input class="w-full" v-model="password" left-icon="lock-closed" placeholder="Password" type="password"/>

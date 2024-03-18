@@ -7,10 +7,25 @@ body {
 }
 
 .customize-table {
-    --easy-table-header-font-size: .71rem;
+    --easy-table-header-font-size: 8px;
     --easy-table-header-font-color: #292929;
     --easy-table-header-background-color: #067B401A;
     --easy-table-header-item-padding: 15px 10px;
+    --easy-table-body-row-font-size: 6px;
+}
+
+@media (min-width: 768px) {
+    .customize-table {
+        --easy-table-header-font-size: 10px;
+        --easy-table-body-row-font-size: 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .customize-table {
+        --easy-table-header-font-size: 11px;
+        --easy-table-body-row-font-size: 12px;
+    }
 }
 
 @layer components {

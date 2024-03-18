@@ -1,16 +1,18 @@
 <template>
   <div class="flex flex-col bg-white rounded-[10px] border-[.5px] border-[#C4C4C4] w-full gap-[34.5px]">
 
-    <div class="flex items-center gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
-      <maz-icon name="facility" class="w-6 h-6"/>
-      <p class="text-xl font-medium text-[#292929]">Registered Facilities</p>
-      <maz-btn @click="add" class="w-[165px] h-[40px] ml-auto">Add New</maz-btn>
+    <div class="flex flex-row md:flex-row lg:items-center gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
+      <div class="flex items-center gap-2">
+        <maz-icon name="facility" class="w-4 h-4 lg:w-6 lg:h-6"/>
+        <p class="text-sm lg:text-lg font-medium text-[#292929]">Registered Facilities</p>
+      </div>
+      <maz-btn size="mini" @click="add" class="w-20 h-8 lg:w-[165px] lg:h-[40px] ml-auto">Add New</maz-btn>
     </div>
 
-    <div class="flex flex-col lg:p-11 gap-[55px]">
+    <div class="flex flex-col lg:p-11 gap-[55px] px-4 lg:px-8">
       <div class="flex items-center gap-5">
-        <maz-input placeholder="Use health facility name, code"/>
-        <maz-btn outline class="h-full w-[165px]">Search</maz-btn>
+        <maz-input size="xs" placeholder="Use health facility name, code"/>
+        <maz-btn size="xs" outline class="h-full">Search</maz-btn>
       </div>
       <EasyDataTable
           border-cell

@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-col w-full gap-10">
 
-    <div class="flex w-full gap-16 ">
+    <div class="flex flex-col md:flex-row w-full gap-16 ">
       <stat-box v-for="item in dummyStats" :key="item.title" :item="item"/>
     </div>
 
     <div class="flex flex-col px-[27px] py-10 border-[.5px] border-[#c4c4c4c] shadow-md gap-[35px] bg-white rounded-[10px]">
       <p class="text-[19px] leading-[29px] font-semibold">Quick Actions</p>
-      <div class="flex items-center gap-[28px]">
+      <div class="flex flex-col md:flex-row items-center gap-[28px]">
         <quick-action-card v-for="item in quickActions" :key="item.title" :item="item"/>
       </div>
     </div>

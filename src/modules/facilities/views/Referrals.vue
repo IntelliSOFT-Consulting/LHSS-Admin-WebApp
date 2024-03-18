@@ -1,18 +1,21 @@
 <template>
   <div class="flex flex-col bg-white w-full rounded-[10px]">
 
-    <div class="flex items-center gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
-      <maz-icon name="user-circle" class="w-6 h-6"/>
-      <p class="text-xl font-medium text-[#292929]">Referrals</p>
+    <div class="flex flex-col  gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
+      <div class="flex items-center gap-2">
+        <maz-icon name="user-circle" class="w-6 h-6"/>
+        <p class="text-xs lg:text-lg font-medium text-[#292929]">Referrals</p>
+      </div>
+
       <div class="flex items-center gap-[10px] ml-auto">
-        <maz-btn @click="print" class="w-[165px] h-[40px] ml-auto">Print Report</maz-btn>
-        <maz-btn @click="router.back()" outline class="w-[165px] h-[40px] ml-auto">Back</maz-btn>
+        <maz-btn size="mini" @click="print" class="md:w-40 md:h-8 ml-auto">Print Report</maz-btn>
+        <maz-btn size="mini" @click="router.back()" outline class="md:w-40 md:h-8 ml-auto">Back</maz-btn>
       </div>
     </div>
 
     <div class="flex flex-col p-6 gap-11">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-[30px] w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-4 w-full">
           <div
               v-for="item in badges"
               :key="item.text"
@@ -26,6 +29,7 @@
 
         <div class="flex items-center gap-5 w-full">
           <MazPicker
+              size="sm"
               v-model="rangeValues"
               label="Select range"
               color="secondary"

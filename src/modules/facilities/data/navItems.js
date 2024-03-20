@@ -24,7 +24,13 @@ export const navItems = [
         title: "Referrals",
     },
     {
-        id: "4",
+        id: "5",
+        icon: false,
+        path: "/facility/patients",
+        title: "Patients",
+    },
+    {
+        id: "6",
         icon: true,
         path: "/facility",
         iconPath: "user-circle",

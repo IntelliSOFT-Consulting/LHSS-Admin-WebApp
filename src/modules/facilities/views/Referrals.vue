@@ -14,33 +14,19 @@
     </div>
 
     <div class="flex flex-col p-6 gap-11">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-4 w-full">
-          <div
-              v-for="item in badges"
-              :key="item.text"
-              class="flex items-center gap-8 border-[.5px]  border-[#C4C4C4] rounded-full px-4 py-1 text-xs text-[#707070] ">
-            <p class="font-bold">{{ item.text }}</p>
-            <div class="w-2 h-2 bg-[#EAEAEA] rounded-full flex items-center justify-center p-[15px] font-semibold">
-              {{ item.value }}
-            </div>
-          </div>
-        </div>
 
-        <div class="flex items-center gap-5 w-full">
-          <MazPicker
-              size="sm"
-              v-model="rangeValues"
-              label="Select range"
-              color="secondary"
-              double
-              class="w-full"
+        <form class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-4 w-full">
+          <field-generator
+              v-for="item in forms"
+              :config="item"
+              :key="item.id"
+              v-model="item.refName.value"
+              class="outline-[#4E4E4E] focus:outline-[#4E4E4E] w-full"
           />
-          <maz-btn outline>Search</maz-btn>
-        </div>
-      </div>
+          <maz-btn class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1" outline>Search</maz-btn>
+        </form>
 
-      <div class="relative">
+
         <EasyDataTable
             border-cell
             table-class-name="customize-table"
@@ -50,14 +36,16 @@
             <p class="">{{ new Date(item.registrationDate).toDateString() }}</p>
           </template>
           <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
-            <maz-icon name="left-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer" :disabled="isFirstPage" @click="prevPage"/>
-            <maz-icon name="right-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer" :disabled="isLastPage" @click="nextPage"/>
-            <maz-icon name="export-file" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-6 lg:mx-2  cursor-pointer"  @click="print"/>
+            <maz-icon name="left-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer"
+                      :disabled="isFirstPage" @click="prevPage"/>
+            <maz-icon name="right-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer"
+                      :disabled="isLastPage" @click="nextPage"/>
+            <maz-icon name="export-file" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-6 lg:mx-2  cursor-pointer"
+                      @click="print"/>
           </template>
         </EasyDataTable>
       </div>
 
-    </div>
 
   </div>
 </template>
@@ -65,33 +53,44 @@
 <script setup>
 import MazBtn from "maz-ui/components/MazBtn";
 import MazIcon from "maz-ui/components/MazIcon";
-import MazPicker from 'maz-ui/components/MazPicker'
 import {ref} from "vue";
 import {dummyReferrals} from "../data/dummy.js";
 import {referralHeaders} from "../data/table.js";
 import {useRouter} from "vue-router";
+import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
 
 const rangeValues = ref({
   start: '2022-02-03',
   end: '2022-02-28',
 })
 
+const gender = ref("")
+const facility = ref("")
+
 const router = useRouter()
 
 const print = () => null
 
-const badges = [
+const forms = [
   {
-    text: "All",
-    value: 200
+    id: "gender",
+    type: "select",
+    label: "Gender",
+    options: ['all', 'male', 'female'],
+    refName: gender
   },
   {
-    text: "Male",
-    value: 150
+    id: "facility",
+    type: "select",
+    label: "Facility",
+    options: ['Ethiopian health facility', 'Djiboutian health facility'],
+    refName: facility
   },
   {
-    text: "Ethiopia health facility",
-    value: 30
+    id: "range",
+    type: "date-range",
+    label: "Date range",
+    refName: rangeValues
   },
 ]
 

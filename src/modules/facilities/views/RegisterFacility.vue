@@ -76,7 +76,7 @@ const forms = [
     type: "select",
     label: "Level",
     required: true,
-    options: ['I', 'II', 'III', 'IV'],
+    options: ['Hospital', 'Health Centre_IV', 'Health Centre_III', 'Health Centre_II', 'Health Post'],
     refName: level
   },
   {

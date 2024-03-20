@@ -50,10 +50,9 @@
             <p class="">{{ new Date(item.registrationDate).toDateString() }}</p>
           </template>
           <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
-            <div class="flex flex-row gap-4 w-full reative">
-              <maz-btn size="mini" @click="print" class="md:w-40 md:h-8 ml-auto absolute left-4 bottom-4">Print Report</maz-btn>
-
-            </div>
+            <maz-icon name="left-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer" :disabled="isFirstPage" @click="prevPage"/>
+            <maz-icon name="right-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer" :disabled="isLastPage" @click="nextPage"/>
+            <maz-icon name="export-file" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-6 lg:mx-2  cursor-pointer"  @click="print"/>
           </template>
         </EasyDataTable>
       </div>

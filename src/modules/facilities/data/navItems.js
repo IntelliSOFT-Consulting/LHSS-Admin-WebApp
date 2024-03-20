@@ -19,8 +19,14 @@ export const navItems = [
     },
     {
         id: "4",
-        icon: true,
+        icon: false,
         path: "/facility/referrals",
+        title: "Referrals",
+    },
+    {
+        id: "4",
+        icon: true,
+        path: "/facility",
         iconPath: "user-circle",
     },
 

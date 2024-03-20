@@ -4,32 +4,32 @@ export const facilityRoutes = [
         component: () => import("../parent/FacilityParent.vue"),
         children: [
             {
-                name: "dash",
+                name: "dashboard",
                 path: "",
                 component: () => import ("../views/Dashboard.vue")
             },
             {
-                name: "register-facility",
+                name: "register facility",
                 path: "register",
                 component: () => import ("../views/RegisterFacility.vue")
             },
             {
-                name: "registered-facilities",
+                name: "registered facilities",
                 path: "registered-facilities",
                 component: () => import ("../views/RegisteredFacilities.vue")
             },
             {
-                name: "facility-details",
+                name: "facility details",
                 path: "details",
                 component: () => import ("../views/FacilityDetails.vue")
             },
             {
-                name: "facility-reports",
+                name: "facility reports",
                 path: "reports",
                 component: () => import ("../views/Reports.vue")
             },
             {
-                name: "registered-patients",
+                name: "registered patients",
                 path: "patients",
                 component: () => import ("../views/RegisteredPatients.vue")
             },

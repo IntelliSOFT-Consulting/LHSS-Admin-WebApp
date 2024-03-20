@@ -8,7 +8,7 @@
       </div>
 
       <div class="flex items-center gap-[10px] ml-auto">
-        <maz-btn size="mini" @click="print" class="md:w-40 md:h-8 ml-auto">Print Report</maz-btn>
+
         <maz-btn size="mini" @click="router.back()" outline class="md:w-40 md:h-8 ml-auto">Back</maz-btn>
       </div>
     </div>
@@ -40,15 +40,23 @@
         </div>
       </div>
 
-      <EasyDataTable
-          border-cell
-          table-class-name="customize-table"
-          :items="dummyReferrals"
-          :headers="referralHeaders">
-        <template #item-registrationDate="item">
-          <p class="">{{new Date(item.registrationDate).toDateString()}}</p>
-        </template>
-      </EasyDataTable>
+      <div class="relative">
+        <EasyDataTable
+            border-cell
+            table-class-name="customize-table"
+            :items="dummyReferrals"
+            :headers="referralHeaders">
+          <template #item-registrationDate="item">
+            <p class="">{{ new Date(item.registrationDate).toDateString() }}</p>
+          </template>
+          <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
+            <div class="flex flex-row gap-4 w-full reative">
+              <maz-btn size="mini" @click="print" class="md:w-40 md:h-8 ml-auto absolute left-4 bottom-4">Print Report</maz-btn>
+
+            </div>
+          </template>
+        </EasyDataTable>
+      </div>
 
     </div>
 
@@ -61,7 +69,7 @@ import MazIcon from "maz-ui/components/MazIcon";
 import MazPicker from 'maz-ui/components/MazPicker'
 import {ref} from "vue";
 import {dummyReferrals} from "../data/dummy.js";
-import { referralHeaders} from "../data/table.js";
+import {referralHeaders} from "../data/table.js";
 import {useRouter} from "vue-router";
 
 const rangeValues = ref({

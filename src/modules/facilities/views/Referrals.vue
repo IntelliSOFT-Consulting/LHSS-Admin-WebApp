@@ -65,7 +65,8 @@ const rangeValues = ref({
 })
 
 const gender = ref("")
-const facility = ref("")
+const facilityFrom = ref("")
+const facilityTo = ref("")
 
 const router = useRouter()
 
@@ -80,11 +81,18 @@ const forms = [
     refName: gender
   },
   {
-    id: "facility",
+    id: "from",
     type: "select",
-    label: "Facility",
+    label: "Referred from",
     options: ['Ethiopian health facility', 'Djiboutian health facility'],
-    refName: facility
+    refName: facilityFrom
+  },
+  {
+    id: "to",
+    type: "select",
+    label: "Referred to",
+    options: ['Ethiopian health facility', 'Djiboutian health facility'],
+    refName: facilityTo
   },
   {
     id: "range",

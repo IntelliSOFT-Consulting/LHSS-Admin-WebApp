@@ -82,7 +82,7 @@ const forms = [
   {
     id: "region",
     type: "select",
-    label: "Region",
+    label: "Region/District",
     required: true,
     options: ['Addis', 'Afmadow', 'Djibouti', 'Lower Nile'],
     refName: region
@@ -97,7 +97,7 @@ const forms = [
   {
     id: "district",
     type: "select",
-    label: "District",
+    label: "District/Village",
     required: true,
     options: ['Addis', 'Afmadow', 'Djibouti', 'Lower Nile'],
     refName: district

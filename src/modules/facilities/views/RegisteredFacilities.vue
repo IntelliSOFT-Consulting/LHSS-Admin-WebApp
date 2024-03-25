@@ -11,14 +11,19 @@
 
     <div class="flex flex-col lg:p-11 gap-[55px] px-4 lg:px-8">
       <div class="flex items-center gap-5">
-        <maz-input size="xs" placeholder="Use health facility name, code"/>
-        <maz-btn size="xs" outline class="h-full">Search</maz-btn>
+        <maz-input v-model="searchString" size="xs" placeholder="Use health facility name"/>
       </div>
+      <MazSpinner color="secondary" v-if="loading" class="text-center self-center"/>
       <EasyDataTable
           border-cell
           table-class-name="customize-table"
-          :items="dummyFacilities"
+          :items="data"
           :headers="headers">
+        <template #item-country="item">
+          <div class="flex items-center gap-4">
+            <p>{{ item.resource.partOf.reference.split('/')[1] }}</p>
+          </div>
+        </template>
         <template #item-id="item">
           <div class="flex items-center gap-4">
             <router-link class="underline text-[#2b4fb1] font-medium" to="/facility/details">View</router-link>
@@ -35,21 +40,28 @@
 import MazIcon from 'maz-ui/components/MazIcon'
 import MazBtn from 'maz-ui/components/MazBtn'
 import MazInput from 'maz-ui/components/MazInput'
-import {dummyFacilities} from "../data/dummy.js";
 import {useRouter} from "vue-router";
+import {useAxios} from "../../../shared/hooks/useAxios.js";
+import {useToast} from "maz-ui";
+import {onMounted, ref, watch} from "vue";
+import MazSpinner from "maz-ui/components/MazSpinner";
 
 const router = useRouter()
 
 const add = () => router.push("/facility/register")
 
+const data = ref([])
+
+const searchString = ref(null)
+
 const headers = [
   {
     text: "HEALTH FACILITY NAME",
-    value: "name",
+    value: "resource.name",
   },
   {
     text: "FACILITY CODE",
-    value: "code",
+    value: "",
   },
   {
     text: "COUNTY OF ORIGIN",
@@ -57,20 +69,54 @@ const headers = [
   },
   {
     text: "REGION",
-    value: "region",
+    value: "",
   },
   {
     text: "LEVEL",
-    value: "level",
+    value: "",
   },
   {
     text: "DISTRICT",
-    value: "district",
+    value: "",
   },
   {
     text: "ACTION",
     value: "id",
   },
 ]
+
+const {makeRequest, loading} = useAxios()
+
+const toast = useToast()
+
+const getAllFacilities = async ({filter = ""}) => {
+  try {
+    const response = await makeRequest({
+      url: `/Location?type=FACILITY&${filter}`,
+    })
+    if (response.entry)
+      data.value = response?.entry
+    else
+      data.value = []
+  } catch (e) {
+    toast.error('Error getting facilities')
+  }
+}
+
+
+const handleSearch = () => {
+  if (searchString.value.length > 0)
+    getAllFacilities({filter: `name=${searchString.value}`})
+  else if (searchString.value === "")
+    getAllFacilities({})
+}
+
+watch(searchString, () => {
+  handleSearch()
+})
+
+onMounted(() => {
+  getAllFacilities({})
+})
 
 </script>

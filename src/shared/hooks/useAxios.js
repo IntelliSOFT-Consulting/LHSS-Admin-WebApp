@@ -13,10 +13,7 @@ export const useAxios = () => {
             "Content-Type": "application/fhir+json"
         }
     })
-    //
-    // const request = new Promise(async (resolve, reject) => {
-    //
-    // })
+
 
     const makeRequest = async (config) => {
         return new Promise(async (resolve, reject) => {

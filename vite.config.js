@@ -12,7 +12,5 @@ export default defineConfig({
             resolvers: [UnpluginVueComponentsResolver()],
         }),
     ],
-    server: {
-        host: true,
-    },
+
 })

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.6.8",
     "maz-ui": "^3.34.0",
     "unplugin-vue-components": "^0.25.2",
     "vue": "^3.4.19",

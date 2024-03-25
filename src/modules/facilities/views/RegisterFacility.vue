@@ -18,9 +18,13 @@
       />
       <div
           class="flex items-center w-full col-span-full justify-end gap-[25px] border-t-[.5px] border-t-[#C4C4C4] py-[11px] px-5 mt-auto absolute bottom-0 left-0">
-        <maz-btn type="button" @click="router.back()" class="w-20 h-8 lg:w-[165px] lg:h-[46px]" outline>Back</maz-btn>
-        <maz-btn type="submit" class="w-20 h-8 lg:w-[165px] lg:h-[46px]">Submit</maz-btn>
+        <MazSpinner color="secondary" v-if="loading"/>
+        <div class="flex items-center gap-[25px]" v-else>
+          <maz-btn type="button" @click="router.back()" class="w-20 h-8 lg:w-[165px] lg:h-[46px]" outline>Back</maz-btn>
+          <maz-btn type="submit" class="w-20 h-8 lg:w-[165px] lg:h-[46px]">Submit</maz-btn>
+        </div>
       </div>
+
 
     </form>
 
@@ -40,10 +44,13 @@
 <script setup>
 import MazIcon from 'maz-ui/components/MazIcon'
 import MazDialog from 'maz-ui/components/MazDialog'
+import MazSpinner from 'maz-ui/components/MazSpinner'
 import MazBtn from 'maz-ui/components/MazBtn'
 import {useRouter} from "vue-router";
 import {ref,} from "vue";
 import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
+import {useAxios} from "../../../shared/hooks/useAxios.js";
+import {useToast} from "maz-ui";
 
 const isOpen = ref(false)
 
@@ -76,7 +83,7 @@ const forms = [
     type: "select",
     label: "Level",
     required: true,
-    options: ['Hospital', 'Health Centre_IV', 'Health Centre_III', 'Health Centre_II', 'Health Post'],
+    options: ["1", "2", "3", "4"],
     refName: level
   },
   {
@@ -90,7 +97,7 @@ const forms = [
   {
     id: "code",
     type: "text",
-    label: "Facility code(id any)",
+    label: "Facility code(if any)",
     required: false,
     refName: code
   },
@@ -102,20 +109,50 @@ const forms = [
     options: ['Addis', 'Afmadow', 'Djibouti', 'Lower Nile'],
     refName: district
   },
-
-
 ]
+
 const router = useRouter()
 
+const {makeRequest, data, loading, status, error} = useAxios()
 
-const submit = (evt) => {
+const toast = useToast()
+
+const submit = async (evt) => {
   evt.preventDefault()
-  isOpen.value = !isOpen.value
-  setTimeout(() => {
-    isOpen.value = false
-    router.push('/facility/registered-facilities')
-  }, 1000)
+
+  try {
+    const response = await makeRequest({
+      method: "POST",
+      url: "Location",
+      data: {
+        resourceType: "Location",
+        id: name.value,
+        name: name.value,
+        region: region.value,
+        district: district.value,
+        level: level.value,
+        "partOf": {
+          "reference": `Location/${country.value}`
+        },
+        "search": {
+          "mode": "match"
+        }
+      }
+    })
+
+    if (response.id){
+      isOpen.value = !isOpen.value
+      setTimeout(() => {
+        isOpen.value = false
+        router.push('/facility/registered-facilities')
+      }, 1000)
+    }
+  } catch (e) {
+    toast.error('Error creating facility', e)
+  }
+
 }
+
 
 const close = () => {
   isOpen.value = false

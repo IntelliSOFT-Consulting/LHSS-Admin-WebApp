@@ -37,8 +37,6 @@ defineProps(['isOpen'])
 
 const route = useRoute()
 
-console.log('route', route.name)
-
 </script>
 
 <style scoped>

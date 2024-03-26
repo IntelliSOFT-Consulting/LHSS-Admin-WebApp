@@ -20,7 +20,7 @@ export const facilityRoutes = [
             },
             {
                 name: "facility details",
-                path: "details",
+                path: ":resourceID",
                 component: () => import ("../views/FacilityDetails.vue")
             },
             {

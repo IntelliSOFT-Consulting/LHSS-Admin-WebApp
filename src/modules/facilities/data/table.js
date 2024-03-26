@@ -5,7 +5,7 @@ export const patientHeaders = [
     },
     {
         text: "Gender",
-        value: "gender",
+        value: "resource.gender",
     },
     {
         text: "Registration Date",
@@ -13,12 +13,16 @@ export const patientHeaders = [
     },
     {
         text: "CB-ID",
-        value: "cbID",
+        value: "cb-id",
     },
     {
-        text: "Facility",
-        value: "facility",
+        text: "Phone",
+        value: "phone",
     },
+    // {
+    //     text: "Facility",
+    //     value: "facility",
+    // },
 ]
 
 

@@ -8,7 +8,7 @@ export const useAxios = () => {
     const loading = ref(false)
 
     const axiosInstance = axios.create({
-        baseURL: import.meta.env.VITE_BASE_URL,
+        baseURL: import.meta.env.VITE_FHIR_BASE_URL,
         headers: {
             "Content-Type": "application/fhir+json"
         }

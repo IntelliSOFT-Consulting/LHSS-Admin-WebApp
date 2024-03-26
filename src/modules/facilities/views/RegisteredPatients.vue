@@ -23,9 +23,9 @@
             v-model="item.refName.value"
             class="outline-[#4E4E4E] focus:outline-[#4E4E4E] w-full"
         />
-        <maz-btn class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1" outline>Search</maz-btn>
+        <maz-btn @click="handleSearch" class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1" outline>Search</maz-btn>
       </form>
-
+      <MazSpinner color="secondary" v-if="loading" class="text-center self-center"/>
       <EasyDataTable
           border-cell
           table-class-name="customize-table"
@@ -69,6 +69,7 @@ import {useRouter} from "vue-router";
 import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {useToast} from "maz-ui";
+import MazSpinner from "maz-ui/components/MazSpinner";
 
 const router = useRouter()
 const toast = useToast()
@@ -92,6 +93,7 @@ const forms = [
     id: "gender",
     type: "select",
     label: "Gender",
+    defaultValue: "all",
     options: ['all', 'male', 'female'],
     refName: gender
   },
@@ -113,10 +115,10 @@ const forms = [
 
 const {makeRequest, loading} = useAxios()
 
-const getPatients = async () => {
+const getPatients = async ({genderFilter=""}) => {
   try {
     const response = await makeRequest({
-      url: "/Patient"
+      url: `/Patient?${genderFilter}`
     })
 
     data.value = response.entry
@@ -132,8 +134,15 @@ const getCBDId = (array) => {
   return null
 }
 
+const handleSearch = () => {
+  if(gender.value !== 'all')
+    getPatients({genderFilter: `gender=${gender.value}`})
+  else
+    getPatients({})
+}
+
 onMounted(() => {
-  getPatients()
+  getPatients({})
 })
 
 </script>

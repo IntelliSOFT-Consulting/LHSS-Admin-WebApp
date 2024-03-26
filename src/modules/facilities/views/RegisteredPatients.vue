@@ -85,9 +85,6 @@ const gender = ref("")
 
 const facility = ref("")
 
-
-const print = () => null
-
 const forms = [
   {
     id: "gender",
@@ -139,6 +136,20 @@ const handleSearch = () => {
     getPatients({genderFilter: `gender=${gender.value}`})
   else
     getPatients({})
+}
+
+const print = () =>{
+  const csvHeaders =  ['Name', 'Age', 'Gender', 'Registration Date', 'CB-ID', 'Phone']
+
+  const csvData = data.value.map(item=>{
+    console.log('item', item)
+    return [
+        `${item.resource.name[0].family} ${item?.resource?.name[0]?.given[0]}`
+    ]
+  })
+
+
+  console.log('csv data', csvData)
 }
 
 onMounted(() => {

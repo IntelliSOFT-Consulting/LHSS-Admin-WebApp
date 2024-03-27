@@ -13,10 +13,20 @@
       <EasyDataTable
           border-cell
           table-class-name="customize-table"
-          :items="dummyPatients"
+          :items="patients"
           :headers="patientHeaders">
+        <template #item-name="item">
+          <p class="">{{ item.resource.name[0].family }}
+            {{ item?.resource?.name[0]?.given ? item?.resource?.name[0]?.given[0] : null }}</p>
+        </template>
         <template #item-registrationDate="item">
-          <p class="">{{new Date(item.registrationDate).toDateString()}}</p>
+          <p class="">{{ new Date(item.resource.meta.lastUpdated).toLocaleDateString() }}</p>
+        </template>
+        <template #item-cb-id="item">
+          <p class="">{{ getCBDId(item.resource.identifier) }}</p>
+        </template>
+        <template #item-phone="item">
+          <p class="">{{item.resource.contact ? item?.resource?.contact[0]?.telecom[0]?.value : item?.resource?.telecom ? item?.resource?.telecom[0]?.value: ''}}</p>
         </template>
       </EasyDataTable>
     </div>
@@ -51,6 +61,8 @@ import {useAxios} from "../../../shared/hooks/useAxios.js";
 const loading = ref(false)
 
 const stats = ref([])
+
+const patients = ref([])
 
 const toast = useToast()
 
@@ -88,8 +100,35 @@ const getStats = async () => {
 }
 
 
+
+const getCBDId = (array) => {
+  if (array)
+    return (array.find(obj => obj?.type?.text?.toLowerCase()?.includes('cross')))?.value || " "
+  return " "
+}
+
+const getPatients = async () => {
+  try {
+    loading.value=true
+    const response = await makeRequest({
+      url: `/Patient?_count=4`
+    })
+
+    if (response.entry)
+      patients.value = response.entry
+    else
+      patients.value = []
+  } catch (e) {
+    toast.error("Error fetching patients")
+  }finally {
+    loading.value=false
+  }
+}
+
+
 onMounted(() => {
   getStats()
+  getPatients()
 })
 
 </script>

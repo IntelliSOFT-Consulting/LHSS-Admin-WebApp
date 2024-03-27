@@ -44,7 +44,7 @@
           <p class="">{{ getCBDId(item.resource.identifier) }}</p>
         </template>
         <template #item-phone="item">
-          <p class="">{{ item?.resource?.contact ? item?.resource?.contact[0]?.telecom[0]?.value : null }}</p>
+          <p class="">{{item.resource.contact ? item?.resource?.contact[0]?.telecom[0]?.value : item?.resource?.telecom ? item?.resource?.telecom[0]?.value: ''}}</p>
         </template>
         <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
           <maz-icon name="left-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer"
@@ -148,7 +148,7 @@ const print = () => {
 
   let csvData = data.value.map(item => {
     return [
-      `${item.resource.name[0].family}`, `${item.resource.gender}`, `${new Date(item.resource.meta.lastUpdated).toLocaleDateString()}`, `${getCBDId(item.resource.identifier)}`, `${item?.resource?.contact[0]?.telecom[0]?.value || ''}`
+      `${item.resource.name[0].family}`, `${item.resource.gender}`, `${new Date(item.resource.meta.lastUpdated).toLocaleDateString()}`, `${getCBDId(item.resource.identifier)}`, `${item.resource.contact ? item?.resource?.contact[0]?.telecom[0]?.value : item?.resource?.telecom ? item?.resource?.telecom[0]?.value: ''}`
     ]
   })
 

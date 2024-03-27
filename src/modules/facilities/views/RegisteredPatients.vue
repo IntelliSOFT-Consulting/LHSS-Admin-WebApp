@@ -23,7 +23,9 @@
             v-model="item.refName.value"
             class="outline-[#4E4E4E] focus:outline-[#4E4E4E] w-full"
         />
-        <maz-btn @click="handleSearch" class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1" outline>Search</maz-btn>
+        <maz-btn @click="handleSearch" class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1" outline>
+          Search
+        </maz-btn>
       </form>
       <MazSpinner color="secondary" v-if="loading" class="text-center self-center"/>
       <EasyDataTable
@@ -42,7 +44,7 @@
           <p class="">{{ getCBDId(item.resource.identifier) }}</p>
         </template>
         <template #item-phone="item">
-          <p class="">{{item?.resource?.telecom ? item?.resource?.telecom[0]?.value: null }}</p>
+          <p class="">{{ item?.resource?.contact ? item?.resource?.contact[0]?.telecom[0]?.value : null }}</p>
         </template>
         <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
           <maz-icon name="left-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer"
@@ -112,13 +114,16 @@ const forms = [
 
 const {makeRequest, loading} = useAxios()
 
-const getPatients = async ({genderFilter=""}) => {
+const getPatients = async ({genderFilter = ""}) => {
   try {
     const response = await makeRequest({
       url: `/Patient?${genderFilter}`
     })
 
-    data.value = response.entry
+    if (response.entry)
+      data.value = response.entry
+    else
+      data.value = []
   } catch (e) {
     toast.error("Error fetching patients")
   }
@@ -127,29 +132,44 @@ const getPatients = async ({genderFilter=""}) => {
 
 const getCBDId = (array) => {
   if (array)
-    return (array.find(obj => obj?.type?.text?.toLowerCase()?.includes('cross')))?.value
-  return null
+    return (array.find(obj => obj?.type?.text?.toLowerCase()?.includes('cross')))?.value || " "
+  return " "
 }
 
 const handleSearch = () => {
-  if(gender.value !== 'all')
+  if (gender.value !== 'all')
     getPatients({genderFilter: `gender=${gender.value}`})
   else
     getPatients({})
 }
 
-const print = () =>{
-  const csvHeaders =  ['Name', 'Age', 'Gender', 'Registration Date', 'CB-ID', 'Phone']
+const print = () => {
+  const csvHeaders = ['Name', 'Gender', 'Registration Date', 'CB-ID', 'Phone']
 
-  const csvData = data.value.map(item=>{
-    console.log('item', item)
+  let csvData = data.value.map(item => {
     return [
-        `${item.resource.name[0].family} ${item?.resource?.name[0]?.given[0]}`
+      `${item.resource.name[0].family}`, `${item.resource.gender}`, `${new Date(item.resource.meta.lastUpdated).toLocaleDateString()}`, `${getCBDId(item.resource.identifier)}`, `${item?.resource?.contact[0]?.telecom[0]?.value || ''}`
     ]
   })
 
+  csvData = [csvHeaders, ...csvData]
 
-  console.log('csv data', csvData)
+
+
+  const csvContent = "data:text/csv;charset=utf-8,"+csvData.map(row=> row.join(",")).join("\n")
+
+  const encodedUri = encodeURI(csvContent)
+
+  const link = document.createElement("a")
+
+  link.setAttribute("href", encodedUri)
+
+  link.setAttribute("download", "Patients.csv")
+
+  document.body.appendChild(link)
+
+  link.click()
+
 }
 
 onMounted(() => {

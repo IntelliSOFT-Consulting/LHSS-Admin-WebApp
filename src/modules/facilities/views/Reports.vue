@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-10 w-full">
 
     <div class="flex flex-col md:flex-row w-full gap-16 ">
-      <stat-box v-for="item in dummyStats" :key="item.title" :item="item"/>
+      <stat-box v-for="item in stats" :key="item.title" :item="item"/>
     </div>
 
     <div class="flex flex-col gap-[34px] px-[27px] py-[20px] border-[.5px] border-[#c4c4c4] bg-white shadow-md rounded-[10px]">
@@ -44,6 +44,52 @@
 import {dummyPatients, dummyReferrals, dummyStats} from "../data/dummy.js";
 import StatBox from "../components/cards/StatBox.vue";
 import {patientHeaders, referralHeaders} from "../data/table.js";
+import {onMounted, ref} from "vue";
+import {useToast} from "maz-ui";
+import {useAxios} from "../../../shared/hooks/useAxios.js";
 
+const loading = ref(false)
+
+const stats = ref([])
+
+const toast = useToast()
+
+
+const {makeRequest} = useAxios()
+
+
+const getStats = async () => {
+  try {
+
+    loading.value = true
+
+    const patientResponse = await makeRequest({
+      url: `/Patient?_summary=count`
+    })
+
+    stats.value = [
+      {
+        id: "0",
+        title: "Total number of Cross Border Patients",
+        number: patientResponse.total
+      },
+      {
+        id: "1",
+        title: "Total number of referrals",
+        number: patientResponse.total
+      },
+    ]
+
+  } catch (e) {
+    toast.error("Error fetching stats")
+  } finally {
+    loading.value = false
+  }
+}
+
+
+onMounted(() => {
+  getStats()
+})
 
 </script>

@@ -40,9 +40,9 @@
         <template #item-registrationDate="item">
           <p class="">{{ new Date(item.resource.meta.lastUpdated).toLocaleDateString() }}</p>
         </template>
-        <template #item-cb-id="item">
-          <p class="">{{ getCBDId(item.resource.identifier) }}</p>
-        </template>
+<!--        <template #item-cb-id="item">-->
+<!--          <p class="">{{}}</p>-->
+<!--        </template>-->
         <template #item-phone="item">
           <p class="">{{item.resource.contact ? item?.resource?.contact[0]?.telecom[0]?.value : item?.resource?.telecom ? item?.resource?.telecom[0]?.value: ''}}</p>
         </template>

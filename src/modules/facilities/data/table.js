@@ -13,7 +13,7 @@ export const patientHeaders = [
     },
     {
         text: "CB-ID",
-        value: "cb-id",
+        value: "resource.id",
     },
     {
         text: "Phone",

@@ -19,10 +19,6 @@ export const patientHeaders = [
         text: "Phone",
         value: "phone",
     },
-    // {
-    //     text: "Facility",
-    //     value: "facility",
-    // },
 ]
 
 

@@ -73,7 +73,7 @@ const forms = [
   {
     id: "country",
     type: "select",
-    label: "Country of origin",
+    label: "Country",
     required: true,
     options: ['Ethiopia', 'Djibouti'],
     refName: country

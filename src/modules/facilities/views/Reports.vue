@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import {dummyPatients, dummyReferrals, dummyStats} from "../data/dummy.js";
+import { dummyReferrals} from "../data/dummy.js";
 import StatBox from "../components/cards/StatBox.vue";
 import {patientHeaders, referralHeaders} from "../data/table.js";
 import {onMounted, ref} from "vue";

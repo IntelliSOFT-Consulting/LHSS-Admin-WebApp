@@ -1,0 +1,38 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "5ba2990a-7186-4de3-ae09-d5eae3f24b67",
+  "intent": "order",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/ValueSet",
+          "code": "510",
+          "display": "service-referral-method"
+        }
+      ],
+      "text": "service-referral-method"
+    }
+  ],
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "3457005",
+        "display": "Referral procedure"
+      }
+    ],
+    "text": "Referral procedure"
+  },
+  "subject": {
+    "reference": "Patient/2acc77e5-234c-43af-a0dc-475bca536c0e"
+  },
+  "encounter": {
+    "reference": "Encounter/8d8cfb3c-e707-4816-a413-cb79167642e7"
+  },
+  "occurrenceDateTime": "2024-04-02T17:34:00+03:00",
+  "requester": {
+    "reference": "Location/Dichioto Health Center"
+  }
+}

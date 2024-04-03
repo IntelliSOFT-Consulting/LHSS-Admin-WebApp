@@ -1,7 +1,7 @@
 <template>
-  <div  class="flex flex-col w-screen  overflow-y-scroll">
+  <div  class="flex flex-col w-screen  overflow-y-scroll relative">
     <AdminNavbar :is-open="isOpen" />
-    <div class="flex px-4 py-8 lg:px-16 lg:py-10 bg-[#f5f5f5] min-h-[90vh] w-full">
+    <div class="flex px-4 pb-8 lg:px-16 lg:pb-10 pt-20 md:pt-40 lg:pt-40 bg-[#f5f5f5] min-h-[90vh] w-full">
       <router-view/>
     </div>
   </div>

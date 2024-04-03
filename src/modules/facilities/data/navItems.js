@@ -17,12 +17,12 @@ export const navItems = [
         path: "/facility/registered-facilities",
         title: "Registered facilities",
     },
-    {
-        id: "4",
-        icon: false,
-        path: "/facility/reports",
-        title: "Reports",
-    },
+    // {
+    //     id: "4",
+    //     icon: false,
+    //     path: "/facility/reports",
+    //     title: "Reports",
+    // },
     {
         id: "5",
         icon: false,

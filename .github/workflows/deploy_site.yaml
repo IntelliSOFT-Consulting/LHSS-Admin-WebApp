@@ -1,0 +1,22 @@
+name: Deploy site workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: deploy site
+        run: echo "Deploying...."
+        shell: bash
+
+
+

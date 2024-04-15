@@ -34,4 +34,4 @@ jobs:
           port: 22
           script: |
             cd /opt
-            sudo docker pull intellisoftdev/lhss_admin_webapp:v1-release
+            docker pull intellisoftdev/lhss_admin_webapp:v1-release

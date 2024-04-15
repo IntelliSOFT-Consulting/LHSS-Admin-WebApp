@@ -34,9 +34,4 @@ jobs:
           port: 22
           script: |
             cd /opt
-            docker pull intellisoftdev/lhss_admin_webapp:v1-release
-            exit 1
-            cd lhss_admin_webapp:v1-release
-            docker stop your_container_name || true
-            docker rm your_container_name || true
-            docker run -d --name your_container_name -p 5173:5173 intellisoftdev/lhss_admin_webapp:v1-release
+            sudo docker pull intellisoftdev/lhss_admin_webapp:v1-release

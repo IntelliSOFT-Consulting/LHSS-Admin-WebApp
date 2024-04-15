@@ -35,7 +35,7 @@ jobs:
           script: |
             cd /opt
             docker pull intellisoftdev/lhss_admin_webapp:v1-release
-            exit
+            exit 1
             cd lhss_admin_webapp:v1-release
             docker stop your_container_name || true
             docker rm your_container_name || true

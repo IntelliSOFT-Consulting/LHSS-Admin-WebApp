@@ -34,4 +34,8 @@ jobs:
           port: 22
           script: |
             cd /opt
+            docker stop lhss_frontend || true
+            docker rm lhss_frontend || true
+            docker rmi intellisoftdev/lhss_admin_webapp:v1-release || true
             docker pull intellisoftdev/lhss_admin_webapp:v1-release
+            docker run -d --name lhss_frontend -p 5173:5173 intellisoftdev/lhss_admin_webapp:v1-release

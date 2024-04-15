@@ -46,11 +46,12 @@ import MazIcon from 'maz-ui/components/MazIcon'
 import MazDialog from 'maz-ui/components/MazDialog'
 import MazSpinner from 'maz-ui/components/MazSpinner'
 import MazBtn from 'maz-ui/components/MazBtn'
-import {useRouter} from "vue-router";
-import {ref,} from "vue";
+import {useRoute, useRouter} from "vue-router";
+import {onMounted, ref, watch,} from "vue";
 import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {useToast} from "maz-ui";
+import {useFacilityDetails} from "../../../shared/hooks/useFacilityDetails.js";
 
 const isOpen = ref(false)
 
@@ -61,6 +62,28 @@ const region = ref("")
 const district = ref("")
 const code = ref("")
 
+const route = useRoute()
+
+const {resourceID} = route.params
+
+const {getDetails, state} = useFacilityDetails()
+
+
+watch(state, value => {
+  if (value) {
+    name.value = value.name
+    country.value = value.country
+    country.value = value.country
+    district.value = value.district
+    region.value = value.region
+    region.value = value.region
+  }
+})
+
+onMounted(() => {
+  if (resourceID)
+    getDetails(resourceID)
+})
 
 const forms = [
   {
@@ -113,7 +136,7 @@ const forms = [
 
 const router = useRouter()
 
-const {makeRequest, data, loading, status, error} = useAxios()
+const {makeRequest, loading} = useAxios()
 
 const toast = useToast()
 
@@ -122,11 +145,11 @@ const submit = async (evt) => {
 
   try {
     const response = await makeRequest({
-      method: "POST",
-      url: "Location",
+      method: resourceID ? "PUT" : "POST",
+      url: resourceID ? `Location/${resourceID}` : "Location",
       data: {
         resourceType: "Location",
-        id: name.value,
+        id: resourceID ? resourceID : name.value,
         name: name.value,
         region: region.value,
         district: district.value,
@@ -140,7 +163,7 @@ const submit = async (evt) => {
       }
     })
 
-    if (response.id){
+    if (response.id) {
       isOpen.value = !isOpen.value
       setTimeout(() => {
         isOpen.value = false

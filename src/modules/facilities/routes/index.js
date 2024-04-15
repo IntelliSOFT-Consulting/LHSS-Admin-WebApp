@@ -14,6 +14,11 @@ export const facilityRoutes = [
                 component: () => import ("../views/RegisterFacility.vue")
             },
             {
+                name: "edit facility",
+                path: "edit/:resourceID",
+                component: () => import ("../views/RegisterFacility.vue")
+            },
+            {
                 name: "registered facilities",
                 path: "registered-facilities",
                 component: () => import ("../views/RegisteredFacilities.vue")

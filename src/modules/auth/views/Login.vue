@@ -6,7 +6,7 @@
           autocomplete="off"
           @submit="login"
           class="flex flex-col bg-white rounded-[10px] border-[.5px] border-[#c4c4c4] items-center justify-center text-center px-4 py-6 lg:px-[97px] lg:pt-[95px] pb-[44px]">
-        <p class="font-[29px] leading-[42px] text-[#5c5c5c] mb-[40px]">LOGIN TO YOUR ACCOUNT</p>
+        <p class="font-[29px] leading-[42px] text-[#5c5c5c] mb-[40px]">SIGN IN TO YOUR ACCOUNT</p>
         <maz-input
             required
             text="date"

@@ -53,25 +53,26 @@ const router = useRouter()
 
 const toast = useToast()
 
-const login = async (evt) => {
+const login =  (evt) => {
   evt.preventDefault()
-  loading.value = true
-  try {
-    const {data} = await axios({
-      url: import.meta.env.VITE_BASE_URL + '/auth/provider/login',
-      method: "POST",
-      data: {
-        idNumber: username.value,
-        password: password.value
-      }
-    })
-
-    router.push("/facility")
-  } catch (e) {
-    toast.error('Invalid credentials')
-  } finally {
-    loading.value = false
-  }
+  router.push("/facility")
+  // try {
+  // loading.value = true
+  //   await axios({
+  //     url: import.meta.env.VITE_BASE_URL + '/auth/provider/login',
+  //     method: "POST",
+  //     data: {
+  //       idNumber: username.value,
+  //       password: password.value
+  //     }
+  //   })
+  //
+  //   router.push("/facility")
+  // } catch (e) {
+  //   toast.error('Invalid credentials')
+  // } finally {
+  //   loading.value = false
+  // }
 
 }
 

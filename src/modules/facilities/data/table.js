@@ -45,10 +45,10 @@ export const referralHeaders = [
     },
     {
         text: "Reason for referral",
-        value: "reasonForReferral",
+        value: "reason",
     },
     {
         text: "Referral Received",
-        value: "referralReceived",
+        value: "status",
     },
 ]

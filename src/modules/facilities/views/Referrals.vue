@@ -188,7 +188,6 @@ const handleClear = () => {
 
 
 watch(referrals, value => {
-  console.log("referrals", referrals.value)
   if (value.length > 0 && filteredReferrals.value.length === 0)
     filteredReferrals.value = value
 })

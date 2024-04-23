@@ -1,22 +1,41 @@
-name: Deploy site workflow
+name: Deploy to Server
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: deploy site
-        run: echo "Deploying...."
-        shell: bash
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
+      - name: Build Docker image
+        run: docker build -t intellisoftdev/lhss_admin_webapp:v1 .
 
+      - name: Log in to Docker registry
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
+      - name: Tag the Docker Image
+        run: docker tag intellisoftdev/lhss_admin_webapp:v1 intellisoftdev/lhss_admin_webapp:v1-release
+
+      - name: Push Docker image to registry
+        run: docker push intellisoftdev/lhss_admin_webapp:v1-release
+
+      - name: SSH into the server and update Docker container
+        uses: appleboy/ssh-action@master
+        with:
+          host: hiedhs.intellisoftkenya.com
+          username: pius
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: 22
+          script: |
+            cd /opt
+            docker stop lhss_frontend || true
+            docker rm lhss_frontend || true
+            docker rmi intellisoftdev/lhss_admin_webapp:v1-release || true
+            docker pull intellisoftdev/lhss_admin_webapp:v1-release
+            docker run -d --name lhss_frontend -p 5173:5173 intellisoftdev/lhss_admin_webapp:v1-release

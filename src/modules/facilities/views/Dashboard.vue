@@ -134,9 +134,6 @@ const getStats = async () => {
       url: `ServiceRequest?_summary=count`
     })
 
-    console.log("referralsResponse", referralsResponse)
-
-
     stats.value = [
       {
         id: "0",

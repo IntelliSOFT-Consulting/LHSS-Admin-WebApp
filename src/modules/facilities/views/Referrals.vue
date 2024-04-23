@@ -106,7 +106,22 @@ const router = useRouter()
 const toast = useToast()
 
 
-const print = () => null
+const print = () => {
+  const csvHeaders = ["Name", "Gender", "Registration Date", "Referred From", "Referred To", "Reason For Referral", "Referral Received"];
+
+  let csvData = filteredReferrals.value.map(item => [`${item?.patient?.name[0]?.text}`, `${item?.patient?.gender}`, `${new Date(item.service.occurrenceDateTime).toDateString()}`, `${(item?.service?.supportingInfo?.find(item => item?.display === "REFERRING_FROM"))?.reference.split("/")[1]}`, `${(item?.service?.supportingInfo?.find(item => item?.display === "REFERRING_TO"))?.reference?.split("/")[1]}`, `${item?.service?.reasonCode[0].text}`, `${item?.service?.status == 'draft' ? 'Pending' : item?.service?.status == 'active' ? 'Recieved' : ''}`])
+
+  csvData = [csvHeaders, ...csvData]
+
+  const csvContent = "data:text/csv;charset=utf-8," + csvData.map(row => row.join(",")).join("\n")
+  const encodedUri = encodeURI(csvContent)
+  const link = document.createElement("a")
+
+  link.setAttribute("href", encodedUri)
+  link.setAttribute("download", "Referrals.csv")
+  document.body.appendChild(link)
+  link.click()
+}
 
 const {makeRequest} = useAxios()
 

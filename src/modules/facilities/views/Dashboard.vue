@@ -87,6 +87,7 @@ const headers = [
 ]
 
 const facilities = ref([])
+const referrals = ref([])
 
 
 const loading = ref(false)
@@ -119,6 +120,7 @@ const getAllFacilities = async () => {
 }
 
 
+
 const getStats = async () => {
   try {
 
@@ -127,6 +129,13 @@ const getStats = async () => {
     const patientResponse = await makeRequest({
       url: `/Patient?_summary=count`
     })
+
+    const referralsResponse = await makeRequest({
+      url: `ServiceRequest?_summary=count`
+    })
+
+    console.log("referralsResponse", referralsResponse)
+
 
     stats.value = [
       {
@@ -137,7 +146,7 @@ const getStats = async () => {
       {
         id: "1",
         title: "Total number of referrals",
-        number: patientResponse.total
+        number: referralsResponse.total
       },
     ]
 

@@ -16,14 +16,17 @@
     <div class="flex flex-col p-6 gap-11">
 
       <form class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-4 w-full">
-        <field-generator
-            v-for="item in forms"
-            :config="item"
-            :key="item.id"
-            v-model="item.refName.value"
-            class="outline-[#4E4E4E] focus:outline-[#4E4E4E] w-full"
-        />
-        <maz-btn class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1" outline>Search</maz-btn>
+        <maz-select :options=" ['all', 'male', 'female']" label="Gender" v-model="gender"/>
+        <maz-select :options="facilities" label="Reffered from" v-model="facilityFrom"/>
+        <maz-select :options="facilities" label="Reffered to" v-model="facilityTo"/>
+        <maz-picker label="Select range" color="secondary" double v-model="rangeValues"/>
+        <maz-btn
+            @click="handleClear"
+            class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1"
+            color="danger"
+            outline>
+          Clear
+        </maz-btn>
       </form>
 
       <MazSpinner color="secondary" v-if="loading" class="text-center self-center"/>
@@ -77,17 +80,18 @@
 <script setup>
 import MazBtn from "maz-ui/components/MazBtn";
 import MazIcon from "maz-ui/components/MazIcon";
+import MazPicker from 'maz-ui/components/MazPicker'
 import {onMounted, ref, watch} from "vue";
 import MazSpinner from "maz-ui/components/MazSpinner";
 import {referralHeaders} from "../data/table.js";
 import {useRouter} from "vue-router";
-import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import Chip from "../../../shared/components/badges/Chip.vue";
+import {useToast} from "maz-ui";
 
 const rangeValues = ref({
-  start: '2022-02-03',
-  end: '2022-02-28',
+  start: '',
+  end: '',
 })
 
 const gender = ref("")
@@ -96,40 +100,13 @@ const facilityTo = ref("")
 const loading = ref(false)
 const referrals = ref([])
 const filteredReferrals = ref([])
+const facilities = ref([]);
 
 const router = useRouter()
+const toast = useToast()
+
 
 const print = () => null
-
-const forms = [
-  {
-    id: "gender",
-    type: "select",
-    label: "Gender",
-    options: ['all', 'male', 'female'],
-    refName: gender
-  },
-  {
-    id: "from",
-    type: "select",
-    label: "Referred from",
-    options: ['Ethiopian health facility', 'Djiboutian health facility'],
-    refName: facilityFrom
-  },
-  {
-    id: "to",
-    type: "select",
-    label: "Referred to",
-    options: ['Ethiopian health facility', 'Djiboutian health facility'],
-    refName: facilityTo
-  },
-  {
-    id: "range",
-    type: "date-range",
-    label: "Date range",
-    refName: rangeValues
-  },
-]
 
 const {makeRequest} = useAxios()
 
@@ -138,7 +115,8 @@ const getPatient = async (patientID) => {
     const response = await makeRequest({url: `/Patient/${patientID}`})
     return response
   } catch (error) {
-    console.error("error", error)
+    toast.error('Error getting patient')
+
   }
 }
 
@@ -159,23 +137,82 @@ const getReferrals = async () => {
         }];
     }
   } catch (e) {
-    console.log("Error", e)
+    toast.error('Error getting referrals')
+
   } finally {
     loading.value = false;
   }
 }
 
+const getFacilities = async () => {
+  try {
+    loading.value = true;
+    const response = await makeRequest({url: `Location?type=FACILITY`})
+    facilities.value = response?.entry?.map(entry => entry.resource.name)
+  } catch (error) {
+    toast.error('Error getting facilities')
+  } finally {
+    loading.value = false;
+  }
+}
+
+const filterFacilityFrom = (facility) => {
+  filteredReferrals.value = filteredReferrals.value.filter(item => (item.service.supportingInfo.find(info => info.display === "REFERRING_FROM")).reference.toLowerCase().includes(facility.split(" ")[0].toLowerCase()))
+}
+
+const filterFacilityTo = (facility) => {
+  filteredReferrals.value = filteredReferrals.value.filter(item => (item.service.supportingInfo.find(info => info.display === "REFERRING_TO")).reference.toLowerCase().includes(facility.split(" ")[0].toLowerCase()))
+}
+
+const handleRange = () => {
+  filteredReferrals.value = filteredReferrals.value.filter(item => (new Date(rangeValues.value.start) <= new Date(item.service.occurrenceDateTime)) && (new Date(rangeValues.value.end) >= new Date(item.service.occurrenceDateTime)))
+}
+
+const filterByGender = () => {
+  if (gender.value === "all")
+    filteredReferrals.value = referrals.value
+  else
+    filteredReferrals.value = filteredReferrals.value.filter(referral => referral.patient.gender === gender.value)
+}
+
+const handleClear = () => {
+  gender.value = "all";
+  facilityFrom.value = "";
+  facilityTo.value = "";
+  rangeValues.value = {
+    start: "",
+    end: ""
+  }
+  filteredReferrals.value = referrals.value;
+}
+
+
 watch(referrals, value => {
+  console.log("referrals", referrals.value)
   if (value.length > 0 && filteredReferrals.value.length === 0)
     filteredReferrals.value = value
 })
 
 watch(gender, value => {
-  console.log('gender', gender.value)
+  filterByGender()
+})
+
+watch(facilityFrom, value => {
+  filterFacilityFrom(value)
+})
+
+watch(facilityTo, value => {
+  filterFacilityTo(value)
+})
+
+watch(rangeValues, value => {
+  if (rangeValues.value.start)
+    handleRange()
 })
 
 onMounted(() => {
   getReferrals()
+  getFacilities()
 })
 
 

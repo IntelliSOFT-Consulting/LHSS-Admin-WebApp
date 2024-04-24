@@ -47,6 +47,20 @@ export const useRegistration = () => {
 
     const toast = useToast()
 
+    const getCountries = async () => {
+        try {
+            loading.value = true;
+            const response = await makeRequest({url: `Location?type=COUNTRY`})
+            if (!response?.entry)
+                return
+            countryOptions.value = response.entry.map(entry => entry.resource.id)
+        } catch (error) {
+            toast.error('Error getting countries')
+        } finally {
+            loading.value = false;
+        }
+    }
+
     const getRegions = async (partOf) => {
         try {
             loading.value = true;
@@ -78,21 +92,6 @@ export const useRegistration = () => {
             loading.value = false;
         }
     }
-
-    const getCountries = async () => {
-        try {
-            loading.value = true;
-            const response = await makeRequest({url: `Location?type=COUNTRY`})
-            if (!response?.entry)
-                return
-            countryOptions.value = response.entry.map(entry => entry.resource.id)
-        } catch (error) {
-            toast.error('Error getting countries')
-        } finally {
-            loading.value = false;
-        }
-    }
-
 
     const submit = async (evt) => {
         evt.preventDefault()

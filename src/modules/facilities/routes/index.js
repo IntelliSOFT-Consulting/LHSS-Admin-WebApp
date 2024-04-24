@@ -21,7 +21,7 @@ export const facilityRoutes = [
             {
                 name: "registered facilities",
                 path: "registered-facilities",
-                component: () => import ("../views/RegisteredFacilities.vue")
+                component: () => import ("../views/AllFacilities.vue")
             },
             {
                 name: "facility details",

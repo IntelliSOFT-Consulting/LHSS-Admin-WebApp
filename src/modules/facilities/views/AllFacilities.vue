@@ -40,7 +40,6 @@
         </template>
       </EasyDataTable>
     </div>
-
   </div>
 </template>
 

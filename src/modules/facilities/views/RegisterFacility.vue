@@ -46,10 +46,12 @@ import MazIcon from 'maz-ui/components/MazIcon'
 import MazDialog from 'maz-ui/components/MazDialog'
 import MazSpinner from 'maz-ui/components/MazSpinner'
 import MazBtn from 'maz-ui/components/MazBtn'
-import {onMounted, ref, watch,} from "vue";
+import {onMounted, watch,} from "vue";
 import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
-
 import {useRegistration} from "../hooks/useRegistration.js";
+import {useRouter} from "vue-router";
+
+const router = useRouter()
 
 
 const {

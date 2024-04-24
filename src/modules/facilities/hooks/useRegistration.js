@@ -134,12 +134,19 @@ export const useRegistration = () => {
                     region: region.value,
                     district: district.value,
                     level: level.value,
-                    "partOf": {
-                        "reference": `Location/${country.value}`
+                    partOf: {
+                        reference: `Location/${country.value}`
                     },
-                    "search": {
-                        "mode": "match"
-                    }
+                    search: {
+                        mode: "match"
+                    },
+                    type: [
+                        {
+                            coding: [
+                                {code: "FACILITY"}
+                            ]
+                        }
+                    ]
                 }
             })
 

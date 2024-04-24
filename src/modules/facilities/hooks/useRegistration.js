@@ -3,6 +3,7 @@ import {useRoute, useRouter} from "vue-router";
 import {useFacilityDetails} from "./useFacilityDetails.js";
 import {useToast} from "maz-ui";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
+import {useAddresses} from "./useAddresses.js";
 
 export const useRegistration = () => {
 
@@ -17,6 +18,18 @@ export const useRegistration = () => {
     const regionOptions = ref([])
     const countryOptions = ref([])
 
+    const levelOptions = ref([
+        "Hospital",
+        "Health Centre_IV",
+        "Health Centre_III",
+        "Health Centre_II",
+        "Health Post",
+        "Comprehensive Health Post",
+        "Surveillance office",
+        "Primary Clinic",
+        "Drug Vendor"
+    ])
+
     const route = useRoute()
 
     const router = useRouter()
@@ -26,67 +39,11 @@ export const useRegistration = () => {
 
     const {getDetails, state} = useFacilityDetails()
 
+    const {getLocationByName} = useAddresses()
+
+
     const {makeRequest} = useAxios()
 
-
-    const forms = [
-        {
-            id: "name",
-            type: "text",
-            label: "Health facility name",
-            required: true,
-            refName: name
-        },
-        {
-            id: "country",
-            type: "select",
-            label: "Country",
-            required: true,
-            options: ['Ethiopia', 'Djibouti'],
-            refName: country
-        },
-        {
-            id: "level",
-            type: "select",
-            label: "Level",
-            required: true,
-            options: [
-                "Hospital",
-                "Health Centre_IV",
-                "Health Centre_III",
-                "Health Centre_II",
-                "Health Post",
-                "Comprehensive Health Post",
-                "Surveillance office",
-                "Primary Clinic",
-                "Drug Vender",
-            ],
-            refName: level
-        },
-        {
-            id: "region",
-            type: "select",
-            label: "Region/District",
-            required: true,
-            options: ['Addis', 'Afmadow', 'Djibouti', 'Lower Nile'],
-            refName: region
-        },
-        {
-            id: "code",
-            type: "text",
-            label: "Facility code(if any)",
-            required: false,
-            refName: code
-        },
-        {
-            id: "district",
-            type: "select",
-            label: "District/Village",
-            required: true,
-            options: ['Addis', 'Afmadow', 'Djibouti', 'Lower Nile'],
-            refName: district
-        },
-    ]
 
     const toast = useToast()
 
@@ -96,7 +53,7 @@ export const useRegistration = () => {
             const response = await makeRequest({url: `Location?type=REGION&partof=${partOf}`})
             if (!response?.entry)
                 return
-            regionOptions.value = response.entry.map(entry => entry.resource.id)
+            regionOptions.value = response.entry.map(entry => entry.resource.name)
         } catch (error) {
             toast.error('Error getting regions')
         } finally {
@@ -104,11 +61,28 @@ export const useRegistration = () => {
         }
     }
 
+    const populateFields = async (originalState) => {
+        try {
+            loading.value = true;
+
+            name.value = originalState.name
+            region.value = originalState.region
+
+            const location = await getLocationByName(originalState.region)
+
+            country.value = location.resource?.partOf?.reference?.split('/')[1]
+
+        } catch (error) {
+            toast.error('Error populating fields')
+        } finally {
+            loading.value = false;
+        }
+    }
 
     const getCountries = async () => {
         try {
             loading.value = true;
-            const response = await makeRequest({url: `Location?type=COUNTRY}`})
+            const response = await makeRequest({url: `Location?type=COUNTRY`})
             if (!response?.entry)
                 return
             countryOptions.value = response.entry.map(entry => entry.resource.id)
@@ -122,7 +96,7 @@ export const useRegistration = () => {
 
     const submit = async (evt) => {
         evt.preventDefault()
-
+        loading.value = true;
         try {
             const response = await makeRequest({
                 method: resourceID ? "PUT" : "POST",
@@ -131,11 +105,9 @@ export const useRegistration = () => {
                     resourceType: "Location",
                     id: resourceID ? resourceID : name.value,
                     name: name.value,
-                    region: region.value,
-                    district: district.value,
                     level: level.value,
                     partOf: {
-                        reference: `Location/${country.value}`
+                        reference: `Location/${region.value}`
                     },
                     search: {
                         mode: "match"
@@ -159,6 +131,8 @@ export const useRegistration = () => {
             }
         } catch (e) {
             toast.error('Error creating facility', e)
+        } finally {
+            loading.value = false;
         }
 
     }
@@ -183,11 +157,12 @@ export const useRegistration = () => {
         countryOptions,
         getDetails,
         state,
-        forms,
         getRegions,
         getCountries,
         submit,
         close,
-        resourceID
+        resourceID,
+        levelOptions,
+        populateFields
     }
 }

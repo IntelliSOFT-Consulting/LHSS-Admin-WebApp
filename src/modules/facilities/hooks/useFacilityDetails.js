@@ -12,10 +12,9 @@ export const useFacilityDetails = () => {
 
     const state = reactive({
         "name": "",
-        "level": "",
-        "district": "",
-        "region": "",
         "country": "",
+        "level": "",
+        "region": "",
         "code": "",
     })
 
@@ -27,11 +26,9 @@ export const useFacilityDetails = () => {
             })
             state['name'] = response?.name
             state['country'] = response?.partOf?.reference?.split('/')[1]
-            state['district'] = response?.partOf?.reference?.split('/')[1]
             state['region'] = response?.partOf?.reference?.split('/')[1]
             facility.value = response
         } catch (e) {
-            console.error("error", e)
             toast.error('Error getting facility', e)
         }
     }

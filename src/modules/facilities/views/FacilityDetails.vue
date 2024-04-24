@@ -3,7 +3,7 @@
 
     <div class="flex items-center gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
       <maz-icon name="facility" class="w-6 h-6"/>
-      <p class="text-xl font-medium text-[#292929]">{{resourceID}}</p>
+      <p class="text-xl font-medium text-[#292929]">{{state.name}}</p>
       <maz-btn @click="router.back()" outline class="w-[165px] h-[40px] ml-auto">Back</maz-btn>
     </div>
 
@@ -22,49 +22,19 @@
 import MazBtn from "maz-ui/components/MazBtn";
 import MazIcon from "maz-ui/components/MazIcon";
 import {useRoute, useRouter} from "vue-router";
-import {useAxios} from "../../../shared/hooks/useAxios.js";
-import {onMounted, reactive, ref, watch} from "vue";
-import {useToast} from "maz-ui";
+import {onMounted} from "vue";
+import {useFacilityDetails} from "../hooks/useFacilityDetails.js";
 
 const router = useRouter()
 const route = useRoute()
 
 const {resourceID} = route.params
 
-const state = reactive({
-  "Health facility name": "",
-  "Level": "",
-  "District": "",
-  "Region": "",
-  "Country of origin": "",
-  "Facility code (if any)": "",
-})
+const {getDetails, state} = useFacilityDetails()
 
-
-const {makeRequest, loading} = useAxios()
-
-const toast = useToast()
-
-const getDetails = async () => {
-  try {
-    const response = await makeRequest({
-      url: `/Location/${resourceID}`
-    })
-    state['Health facility name'] = response.name
-    state['Country of origin'] = response.partOf.reference.split('/')[1]
-    state['District'] = response.partOf.reference.split('/')[1]
-    state['Region'] = response.partOf.reference.split('/')[1]
-  } catch (e) {
-    toast.error('Error getting facility', e)
-  }
-}
-
-watch(state, value => {
-  console.log('value', value)
-})
 
 onMounted(() => {
-  getDetails()
+  getDetails(resourceID)
 })
 
 </script>

@@ -6,16 +6,14 @@
       <p class="text-xl font-medium text-[#292929]">Register Facility</p>
     </div>
 
-    <form @submit="submit"
-          class="grid grid-cols-1 md:grid-cols-2 px-4 pb-24 lg:px-11 pt-11 gap-8 lg:gap-x-[100px] gap-y-10">
-
-      <field-generator
-          v-for="item in forms"
-          :config="item"
-          :key="item.id"
-          v-model="item.refName.value"
-          class="outline-[#4E4E4E] focus:outline-[#4E4E4E] w-full"
-      />
+    <form
+        @submit="submit"
+        class="grid grid-cols-1 md:grid-cols-2 px-4 pb-24 lg:px-11 pt-11 gap-8 lg:gap-x-[100px] gap-y-10">
+      <maz-input label="Health facility name" required v-model="name"/>
+      <maz-select label="Country" required v-model="country" :options="countryOptions"/>
+      <maz-select label="Level" v-model="level" :options="levelOptions"/>
+      <maz-select label="Region" :disabled="!country" required v-model="region" :options="regionOptions"/>
+      <maz-input label="Code" v-model="code"/>
       <div
           class="flex items-center w-full col-span-full justify-end gap-[25px] border-t-[.5px] border-t-[#C4C4C4] py-[11px] px-5 mt-auto absolute bottom-0 left-0">
         <MazSpinner color="secondary" v-if="loading"/>
@@ -47,7 +45,6 @@ import MazDialog from 'maz-ui/components/MazDialog'
 import MazSpinner from 'maz-ui/components/MazSpinner'
 import MazBtn from 'maz-ui/components/MazBtn'
 import {onMounted, watch,} from "vue";
-import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
 import {useRegistration} from "../hooks/useRegistration.js";
 import {useRouter} from "vue-router";
 
@@ -60,30 +57,35 @@ const {
   name,
   country,
   region,
-  district,
   getDetails,
   state,
-  forms,
   submit,
   close,
-  resourceID
+  resourceID,
+  getRegions,
+  getCountries,
+  countryOptions,
+  regionOptions,
+  levelOptions,
+  level,
+  code,
+  populateFields
 } = useRegistration()
 
-watch(state, value => {
-  if (value) {
-    name.value = value.name
-    country.value = value.country
-    country.value = value.country
-    district.value = value.district
-    region.value = value.region
-    region.value = value.region
-  }
-})
 
 onMounted(() => {
+  getCountries()
   if (resourceID)
     getDetails(resourceID)
 })
 
+
+watch(state, value => {
+  if (value) populateFields(value)
+})
+
+watch(country, value => {
+  getRegions(value)
+})
 
 </script>

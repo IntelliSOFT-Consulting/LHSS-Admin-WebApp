@@ -46,28 +46,32 @@ import MazIcon from 'maz-ui/components/MazIcon'
 import MazDialog from 'maz-ui/components/MazDialog'
 import MazSpinner from 'maz-ui/components/MazSpinner'
 import MazBtn from 'maz-ui/components/MazBtn'
-import {useRoute, useRouter} from "vue-router";
 import {onMounted, ref, watch,} from "vue";
 import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
-import {useAxios} from "../../../shared/hooks/useAxios.js";
-import {useToast} from "maz-ui";
-import {useFacilityDetails} from "../../../shared/hooks/useFacilityDetails.js";
 
-const isOpen = ref(false)
+import {useRegistration} from "../hooks/useRegistration.js";
 
-const name = ref("")
-const country = ref("")
-const level = ref("")
-const region = ref("")
-const district = ref("")
-const code = ref("")
 
-const route = useRoute()
-
-const {resourceID} = route.params
-
-const {getDetails, state} = useFacilityDetails()
-
+const {
+  isOpen,
+  loading,
+  name,
+  country,
+  level,
+  region,
+  district,
+  code,
+  regionOptions,
+  countryOptions,
+  getDetails,
+  state,
+  forms,
+  getRegions,
+  getCountries,
+  submit,
+  close,
+  resourceID
+} = useRegistration()
 
 watch(state, value => {
   if (value) {
@@ -84,103 +88,6 @@ onMounted(() => {
   if (resourceID)
     getDetails(resourceID)
 })
-
-const forms = [
-  {
-    id: "name",
-    type: "text",
-    label: "Health facility name",
-    required: true,
-    refName: name
-  },
-  {
-    id: "country",
-    type: "select",
-    label: "Country",
-    required: true,
-    options: ['Ethiopia', 'Djibouti'],
-    refName: country
-  },
-  {
-    id: "level",
-    type: "select",
-    label: "Level",
-    required: true,
-    options: ["1", "2", "3", "4"],
-    refName: level
-  },
-  {
-    id: "region",
-    type: "select",
-    label: "Region/District",
-    required: true,
-    options: ['Addis', 'Afmadow', 'Djibouti', 'Lower Nile'],
-    refName: region
-  },
-  {
-    id: "code",
-    type: "text",
-    label: "Facility code(if any)",
-    required: false,
-    refName: code
-  },
-  {
-    id: "district",
-    type: "select",
-    label: "District/Village",
-    required: true,
-    options: ['Addis', 'Afmadow', 'Djibouti', 'Lower Nile'],
-    refName: district
-  },
-]
-
-const router = useRouter()
-
-const {makeRequest, loading} = useAxios()
-
-const toast = useToast()
-
-const submit = async (evt) => {
-  evt.preventDefault()
-
-  try {
-    const response = await makeRequest({
-      method: resourceID ? "PUT" : "POST",
-      url: resourceID ? `Location/${resourceID}` : "Location",
-      data: {
-        resourceType: "Location",
-        id: resourceID ? resourceID : name.value,
-        name: name.value,
-        region: region.value,
-        district: district.value,
-        level: level.value,
-        "partOf": {
-          "reference": `Location/${country.value}`
-        },
-        "search": {
-          "mode": "match"
-        }
-      }
-    })
-
-    if (response.id) {
-      isOpen.value = !isOpen.value
-      setTimeout(() => {
-        isOpen.value = false
-        router.push('/facility/registered-facilities')
-      }, 1000)
-    }
-  } catch (e) {
-    toast.error('Error creating facility', e)
-  }
-
-}
-
-
-const close = () => {
-  isOpen.value = false
-  router.push('/facility/registered-facilities')
-}
 
 
 </script>

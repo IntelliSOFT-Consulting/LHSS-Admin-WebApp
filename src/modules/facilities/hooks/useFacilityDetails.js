@@ -1,4 +1,4 @@
-import {useAxios} from "./useAxios.js";
+import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {reactive, ref} from "vue";
 import {useToast} from "maz-ui";
 

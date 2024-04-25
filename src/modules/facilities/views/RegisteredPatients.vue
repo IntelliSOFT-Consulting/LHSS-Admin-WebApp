@@ -15,7 +15,7 @@
 
     <div class="flex flex-col p-6 gap-11">
 
-      <form class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-4 w-full">
+      <form class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 w-full">
         <field-generator
             v-for="item in forms"
             :config="item"
@@ -92,13 +92,6 @@ const forms = [
     defaultValue: "all",
     options: ['all', 'male', 'female'],
     refName: gender
-  },
-  {
-    id: "facility",
-    type: "select",
-    label: "Facility",
-    options: ['Ethiopian health facility', 'Djiboutian health facility'],
-    refName: facility
   },
   {
     id: "range",

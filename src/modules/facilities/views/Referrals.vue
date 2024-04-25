@@ -141,6 +141,8 @@ const getReferrals = async () => {
     const response = await makeRequest({
       url: `ServiceRequest`
     })
+    if (response.entry)
+      referrals.value = []
 
     for (const entry of response.entry) {
       let patientObject = await getPatient(entry.resource.subject.reference.split("/")[1])
@@ -150,6 +152,15 @@ const getReferrals = async () => {
           service: {...entry.resource},
           patient: {...patientObject}
         }];
+
+      filteredReferrals.value = [
+        ...filteredReferrals.value,
+        {
+          service: {...entry.resource},
+          patient: {...patientObject}
+        }
+      ]
+
     }
   } catch (e) {
     toast.error('Error getting referrals')
@@ -187,7 +198,7 @@ const filterByGender = () => {
   if (gender.value === "all")
     filteredReferrals.value = referrals.value
   else
-    filteredReferrals.value = filteredReferrals.value.filter(referral => referral.patient.gender === gender.value)
+    filteredReferrals.value = referrals.value.filter(referral => referral.patient.gender === gender.value)
 }
 
 const handleClear = () => {
@@ -201,11 +212,6 @@ const handleClear = () => {
   filteredReferrals.value = referrals.value;
 }
 
-
-watch(referrals, value => {
-  if (value.length > 0 && filteredReferrals.value.length === 0)
-    filteredReferrals.value = value
-})
 
 watch(gender, value => {
   filterByGender()

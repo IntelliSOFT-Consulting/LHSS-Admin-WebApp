@@ -7,6 +7,7 @@
     </div>
 
     <form
+        autocomplete="off"
         @submit="submit"
         class="grid grid-cols-1 md:grid-cols-2 px-4 pb-24 lg:px-11 pt-11 gap-8 lg:gap-x-[100px] gap-y-10">
       <maz-input label="Health facility name" required v-model="name"/>

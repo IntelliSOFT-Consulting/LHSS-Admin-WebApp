@@ -48,8 +48,14 @@
                     :disabled="isFirstPage" @click="prevPage"/>
           <maz-icon name="right-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer"
                     :disabled="isLastPage" @click="nextPage"/>
-          <maz-icon name="export-file" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-6 lg:mx-2  cursor-pointer"
-                    @click="print"/>
+          <div class="flex relative group">
+            <maz-icon name="export-file" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-6 lg:mx-2  cursor-pointer"
+                      @click="print"/>
+            <div
+                class="hidden group-hover:flex absolute px-4 z-10 -top-6 -left-6 bg-white px-2 py-0 rounded-lg shadow-xl text-primary font-semibold w-full whitespace-nowrap">
+              print csv!
+            </div>
+          </div>
         </template>
       </EasyDataTable>
     </div>

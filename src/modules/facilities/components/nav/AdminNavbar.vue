@@ -24,6 +24,7 @@
         <p v-if="!item.icon" class="whitespace-nowrap">{{ item.title }}</p>
         <maz-icon v-else :name="item.iconPath" size="2rem" class="text-primary"/>
       </router-link>
+      <maz-icon name="logout" size="2rem" class="text-primary cursor-pointer"/>
     </div>
   </div>
 </template>

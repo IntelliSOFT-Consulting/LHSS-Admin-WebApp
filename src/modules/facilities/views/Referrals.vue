@@ -15,14 +15,13 @@
 
     <div class="flex flex-col p-6 gap-11">
 
-      <form class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-4 w-full">
+      <form class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-4 w-full">
         <maz-select :options=" ['all', 'male', 'female']" label="Gender" v-model="gender"/>
         <maz-input list="facilities" id="from" v-model="facilityFrom" label="Referred from"/>
         <maz-input list="facilities" id="to" v-model="facilityTo" label="Referred to"/>
         <datalist id="facilities">
           <option v-for="item in facilities" :value="item" :key="item" />
         </datalist>
-        <maz-select :options="facilities" label="Referred to" v-model="facilityTo"/>
         <maz-picker label="Select range" color="secondary" double v-model="rangeValues"/>
         <maz-btn
             @click="handleClear"
@@ -97,13 +96,10 @@ const {
   facilityTo,
   facilityFrom,
   loading,
-  referrals,
   filteredReferrals,
   facilities,
   router,
-  toast,
   print,
-  getPatient,
   getReferrals,
   getFacilities,
   filterFacilityFrom,
@@ -113,9 +109,6 @@ const {
   handleClear
 } = useReferrals()
 
-watch(facilities, value=>{
-  console.log('facilities', value)
-})
 
 watch(gender, value => {
   filterByGender()

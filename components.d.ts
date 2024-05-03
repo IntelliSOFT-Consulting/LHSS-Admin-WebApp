@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    MazDataList: typeof import('maz-ui/components/MazDataList')['default']
+    MazDataListItem: typeof import('maz-ui/components/MazDataListItem')['default']
     MazIcon: typeof import('maz-ui/components/MazIcon')['default']
     MazInput: typeof import('maz-ui/components/MazInput')['default']
     MazSelect: typeof import('maz-ui/components/MazSelect')['default']

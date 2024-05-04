@@ -1,12 +1,17 @@
 <template>
   <div class="login-bg w-screen h-screen flex justify-center align-center">
     <div class="flex flex-col w-11/12 lg:w-5/12 justify-center gap-10">
-      <p class="text-white text-center leading-[42px] lg:text-[29px] font-bold">CB-DHS WEB APPLICATION</p>
       <form
           autocomplete="off"
           @submit="login"
-          class="flex flex-col bg-white rounded-[10px] border-[.5px] border-[#c4c4c4] items-center justify-center text-center px-4 py-6 lg:px-[97px] lg:pt-[95px] pb-[44px]">
-        <p class="font-[29px] leading-[42px] text-[#5c5c5c] mb-[40px]">SIGN IN TO YOUR ACCOUNT</p>
+          class="flex flex-col bg-white rounded-[10px] border-[.5px] border-[#c4c4c4] items-center justify-center text-center px-4 py-6 lg:px-[97px] lg:pt-[95px] pb-[44px] relative">
+
+        <div class="flex flex-col justify-center items-center gap-6 absolute border-2 border-white px-6 py-6 top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-primary rounded-md text-white">
+          <maz-icon name="white-facility" class=""/>
+          <p class="leading-none ">CB-DHS <br> APPLICATION</p>
+        </div>
+
+        <p class="font-[29px] leading-[42px] text-[#5c5c5c] mb-[40px] mt-32 lg:mt-0">SIGN IN TO YOUR ACCOUNT</p>
         <maz-input
             required
             text="date"

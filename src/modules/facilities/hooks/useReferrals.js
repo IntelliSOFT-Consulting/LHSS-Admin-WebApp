@@ -88,7 +88,7 @@ export const useReferrals = () => {
     const getFacilities = async () => {
         try {
             loading.value = true;
-            const response = await makeRequest({url: `Location?type=FACILITY`})
+            const response = await makeRequest({url: `Location?type=FACILITY&_count=1000`})
             facilities.value = response?.entry?.map(entry => entry.resource.name)
         } catch (error) {
             toast.error('Error getting facilities')

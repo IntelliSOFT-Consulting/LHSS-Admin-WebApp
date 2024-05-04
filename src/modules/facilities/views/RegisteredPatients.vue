@@ -16,16 +16,16 @@
     <div class="flex flex-col p-6 gap-11">
 
       <form class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 w-full">
-        <field-generator
-            v-for="item in forms"
-            :config="item"
-            :key="item.id"
-            v-model="item.refName.value"
-            class="outline-[#4E4E4E] focus:outline-[#4E4E4E] w-full"
-        />
-        <maz-btn @click="handleSearch" class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1" outline>
-          Search
+        <maz-input id="name" v-model="surname" label="Name"/>
+        <maz-select :options=" ['male', 'female']" label="Gender" v-model="gender"/>
+        <maz-btn
+            @click="clearFilters"
+            class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1"
+            color="danger"
+            outline>
+          Clear
         </maz-btn>
+
       </form>
       <MazSpinner color="secondary" v-if="loading" class="text-center self-center"/>
       <EasyDataTable
@@ -41,7 +41,10 @@
           <p class="">{{ new Date(item.resource.meta.lastUpdated).toLocaleDateString() }}</p>
         </template>
         <template #item-phone="item">
-          <p class="">{{item.resource.contact ? item?.resource?.contact[0]?.telecom[0]?.value : item?.resource?.telecom ? item?.resource?.telecom[0]?.value: ''}}</p>
+          <p class="">
+            {{
+              item.resource.contact ? item?.resource?.contact[0]?.telecom[0]?.value : item?.resource?.telecom ? item?.resource?.telecom[0]?.value : ''
+            }}</p>
         </template>
         <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
           <maz-icon name="left-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer"
@@ -68,105 +71,20 @@
 <script setup>
 import MazBtn from "maz-ui/components/MazBtn";
 import MazIcon from "maz-ui/components/MazIcon";
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import {patientHeaders} from "../data/table.js";
 import {useRouter} from "vue-router";
-import FieldGenerator from "../../../shared/components/forms/FieldGenerator.vue";
-import {useAxios} from "../../../shared/hooks/useAxios.js";
-import {useToast} from "maz-ui";
 import MazSpinner from "maz-ui/components/MazSpinner";
+import {usePatients} from "../hooks/usePatients.js";
 
 const router = useRouter()
-const toast = useToast()
 
-const rangeValues = ref({
-  start: '2022-02-03',
-  end: '2022-02-28',
+const {data, gender, getPatients, print, loading, filterPatients, surname, clearFilters} = usePatients()
+
+watch([gender, surname], () => {
+  filterPatients()
 })
 
-const data = ref([])
-
-const gender = ref("")
-
-const facility = ref("")
-
-const forms = [
-  {
-    id: "gender",
-    type: "select",
-    label: "Gender",
-    defaultValue: "all",
-    options: ['all', 'male', 'female'],
-    refName: gender
-  },
-  {
-    id: "range",
-    type: "date-range",
-    label: "Date range",
-    refName: rangeValues
-  },
-]
-
-
-const {makeRequest, loading} = useAxios()
-
-const getPatients = async ({genderFilter = ""}) => {
-  try {
-    const response = await makeRequest({
-      url: `/Patient?${genderFilter}`
-    })
-
-    if (response.entry)
-      data.value = response.entry
-    else
-      data.value = []
-  } catch (e) {
-    toast.error("Error fetching patients")
-  }
-}
-
-
-const getCBDId = (array) => {
-  if (array)
-    return (array.find(obj => obj?.type?.text?.toLowerCase()?.includes('cross')))?.value || " "
-  return " "
-}
-
-const handleSearch = () => {
-  if (gender.value !== 'all')
-    getPatients({genderFilter: `gender=${gender.value}`})
-  else
-    getPatients({})
-}
-
-const print = () => {
-  const csvHeaders = ['Name', 'Gender', 'Registration Date', 'CB-ID', 'Phone']
-
-  let csvData = data.value.map(item => {
-    return [
-      `${item.resource.name[0].family}`, `${item.resource.gender}`, `${new Date(item.resource.meta.lastUpdated).toLocaleDateString()}`, `${getCBDId(item.resource.identifier)}`, `${item.resource.contact ? item?.resource?.contact[0]?.telecom[0]?.value : item?.resource?.telecom ? item?.resource?.telecom[0]?.value: ''}`
-    ]
-  })
-
-  csvData = [csvHeaders, ...csvData]
-
-
-
-  const csvContent = "data:text/csv;charset=utf-8,"+csvData.map(row=> row.join(",")).join("\n")
-
-  const encodedUri = encodeURI(csvContent)
-
-  const link = document.createElement("a")
-
-  link.setAttribute("href", encodedUri)
-
-  link.setAttribute("download", "Patients.csv")
-
-  document.body.appendChild(link)
-
-  link.click()
-
-}
 
 onMounted(() => {
   getPatients({})

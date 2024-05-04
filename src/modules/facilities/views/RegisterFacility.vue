@@ -32,7 +32,7 @@
         <p class="flex bg-[#0B8648] w-full px-8 py-[15px] text-white font-medium text-[14px]">Success.</p>
       </template>
       <div class="flex flex-col items-center gap-8">
-        <font-awesome-icon icon="fa-solid fa-check-circle" class="w-full text-primary h-full" />
+        <font-awesome-icon icon="fa-solid fa-check-circle" class="w-1/2 h-1/2 text-primary" />
         <p class="text-center">Facility registered successfully!</p>
         <maz-btn @click="close" size="lg">Close</maz-btn>
       </div>

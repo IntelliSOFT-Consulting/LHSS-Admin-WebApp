@@ -3,7 +3,7 @@
 
     <div class="flex flex-col  gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
       <div class="flex items-center gap-2">
-        <maz-icon name="user-circle" class="w-6 h-6"/>
+        <font-awesome-icon icon="fa-solid fa-user-circle" class="w-6 h-6 text-primary"/>
         <p class="text-xs lg:text-lg font-medium text-[#292929]">Referrals</p>
       </div>
 
@@ -66,16 +66,24 @@
               :text="item?.service?.status == 'draft' ? 'Pending':item?.service?.status == 'active' ? 'Recieved': '' "/>
         </template>
         <template #pagination="{ prevPage, nextPage, isFirstPage, isLastPage }">
-          <maz-icon name="left-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer"
-                    :disabled="isFirstPage" @click="prevPage"/>
-          <maz-icon name="right-chevron" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-8 lg:mx-2  cursor-pointer"
-                    :disabled="isLastPage" @click="nextPage"/>
-          <div class="flex relative group">
-            <maz-icon name="export-file" class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-6 lg:mx-2  cursor-pointer"
-                      @click="print"/>
-            <div
-                class="hidden group-hover:flex absolute px-4 z-10 -top-6 -left-6 bg-white px-2 py-0 rounded-lg shadow-xl text-primary font-semibold w-full whitespace-nowrap">
-              print csv!
+          <div class="flex items-center gap-4">
+            <font-awesome-icon
+                :class="[isFirstPage ? 'text-gray-300': 'text-primary']"
+                class="cursor-pointer w-4 h-4 md:w-8 md:h-4 lg:h-4" :disabled="isLastPage"
+                @click="prevPage" icon="fa-solid fa-chevron-left"/>
+            <font-awesome-icon
+                :class="[isLastPage ? 'text-gray-300': 'text-primary']"
+                class="cursor-pointer w-4 h-4 md:w-8 md:h-4 lg:h-4" :disabled="isLastPage"
+                @click="nextPage" icon="fa-solid fa-chevron-right"/>
+            <div class="flex relative group">
+              <font-awesome-icon
+                  icon="fa-solid fa-file-export"
+                  class="w-4 h-4 md:w-8 md:h-4 lg:w-8 lg:h-6 lg:mx-2  cursor-pointer text-primary"
+                  @click="print"/>
+              <div
+                  class="hidden group-hover:flex absolute px-4 z-10 -top-6 -left-6 bg-white px-2 py-0 rounded-lg shadow-xl text-primary font-semibold w-full whitespace-nowrap">
+                print csv!
+              </div>
             </div>
           </div>
         </template>
@@ -88,13 +96,13 @@
 
 <script setup>
 import MazBtn from "maz-ui/components/MazBtn";
-import MazIcon from "maz-ui/components/MazIcon";
 import MazPicker from 'maz-ui/components/MazPicker'
 import {onMounted, watch} from "vue";
 import MazSpinner from "maz-ui/components/MazSpinner";
 import {referralHeaders} from "../data/table.js";
 import Chip from "../../../shared/components/badges/Chip.vue";
 import {useReferrals} from "../hooks/useReferrals.js";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const {
   rangeValues,

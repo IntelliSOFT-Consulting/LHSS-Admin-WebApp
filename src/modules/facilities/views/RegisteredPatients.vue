@@ -80,7 +80,6 @@ import {patientHeaders} from "../data/table.js";
 import {useRouter} from "vue-router";
 import MazSpinner from "maz-ui/components/MazSpinner";
 import {usePatients} from "../hooks/usePatients.js";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const router = useRouter()
 

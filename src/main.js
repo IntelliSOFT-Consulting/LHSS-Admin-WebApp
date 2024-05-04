@@ -9,9 +9,15 @@ import {router} from "./shared/router/index.js";
 import {installToaster} from 'maz-ui'
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {faChevronLeft, faChevronRight, faFileExport, faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import {
+    faCheckCircle,
+    faChevronLeft,
+    faChevronRight,
+    faFileExport,
+    faUserCircle
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faChevronRight, faChevronLeft, faUserCircle, faFileExport)
+library.add(faChevronRight, faChevronLeft, faUserCircle, faFileExport, faCheckCircle)
 
 const app = createApp(App)
 

@@ -102,7 +102,6 @@ import MazSpinner from "maz-ui/components/MazSpinner";
 import {referralHeaders} from "../data/table.js";
 import Chip from "../../../shared/components/badges/Chip.vue";
 import {useReferrals} from "../hooks/useReferrals.js";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const {
   rangeValues,

@@ -3,7 +3,7 @@
       class="flex items-center justify-between px-4 py-2 md:px-[49px] md:py-6 border-[.5px] border-[#c4c4c4] shadow-lg bg-secondary  text-white fixed top-0 w-full z-50">
     <div class="flex items-center w-full justify-between lg:gap-2">
       <div class="flex items-center gap-2 lg:hidden">
-        <maz-icon @click="isOpen = !isOpen" name="bars-4" class="w-6 cursor-pointer "/>
+        <font-awesome-icon  @click="isOpen = !isOpen" icon="fa-solid fa-bars" class="w-6 cursor-pointer" />
         |
         <p class="capitalize text-xs">{{ route.name }}</p>
       </div>
@@ -15,7 +15,10 @@
     <div
         :class="[isOpen ? 'flex': 'hidden lg:flex']"
         class="fixed  top-0 left-0 h-screen w-4/5 z-20 flex-col px-4 pt-4 gap-8 text-lg md:text-sm  text-white lg:relative lg:h-full lg:flex-row lg:items-center lg:justify-end  bg-secondary lg:bg-transparent">
-      <maz-icon @click="isOpen = false" name="x-circle" size="2rem" class=" text-white cursor-pointer lg:hidden"/>
+      <font-awesome-icon
+          @click="isOpen = false"
+          icon="fa-solid fa-xmark-circle"
+          class="text-white cursor-pointer lg:hidden w-6"/>
       <router-link
           @click="isOpen = false"
           class="capitalize"
@@ -23,17 +26,17 @@
           :key="item.id"
           :to="item.path">
         <p v-if="!item.icon" class="whitespace-nowrap">{{ item.title }}</p>
-        <maz-icon v-else :name="item.iconPath" size="2rem" class="text-primary"/>
+        <font-awesome-icon v-else :icon="item.iconName" class="text-white lg:w-6 lg:h-6"/>
       </router-link>
-      <maz-icon @click="logout" name="logout" size="2rem" class="text-primary cursor-pointer"/>
+      <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" @click="logout" class="text-primary cursor-pointer w-6 text-white lg:w-6 lg:h-6" />
     </div>
   </div>
 </template>
 
 <script setup>
-import MazIcon from 'maz-ui/components/MazIcon'
 import {navItems} from "../../data/navItems.js";
 import {useRoute, useRouter} from "vue-router";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 defineProps(['isOpen'])
 

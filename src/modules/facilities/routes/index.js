@@ -43,6 +43,11 @@ export const facilityRoutes = [
                 path: "referrals",
                 component: () => import ("../views/Referrals.vue")
             },
+            {
+                name: "register-user",
+                path: "register-user",
+                component: () => import ("../views/RegisterUser.vue")
+            },
         ]
     }
 ]

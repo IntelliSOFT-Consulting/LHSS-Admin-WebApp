@@ -10,14 +10,18 @@ import {installToaster} from 'maz-ui'
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import {
+    faArrowRightFromBracket,
+    faBars,
     faCheckCircle,
     faChevronLeft,
     faChevronRight,
     faFileExport,
-    faUserCircle
+    faUserCircle,
+    faUserPlus,
+    faXmarkCircle
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faChevronRight, faChevronLeft, faUserCircle, faFileExport, faCheckCircle)
+library.add(faChevronRight, faChevronLeft, faUserCircle, faFileExport, faCheckCircle, faUserPlus, faXmarkCircle, faBars, faArrowRightFromBracket)
 
 const app = createApp(App)
 

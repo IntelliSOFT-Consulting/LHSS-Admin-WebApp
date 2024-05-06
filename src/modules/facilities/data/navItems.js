@@ -17,29 +17,23 @@ export const navItems = [
         path: "/facility/registered-facilities",
         title: "Registered facilities",
     },
-    // {
-    //     id: "4",
-    //     icon: false,
-    //     path: "/facility/reports",
-    //     title: "Reports",
-    // },
     {
-        id: "5",
+        id: "4",
         icon: false,
         path: "/facility/referrals",
         title: "Referrals",
     },
     {
-        id: "6",
+        id: "5",
         icon: false,
         path: "/facility/patients",
         title: "Patients",
     },
     {
-        id: "7",
+        id: "6",
         icon: true,
-        path: "/facility",
-        iconPath: "user-circle",
+        path: "/facility/register-user",
+        iconName: "fa-solid fa-user-plus",
     },
 
 ]

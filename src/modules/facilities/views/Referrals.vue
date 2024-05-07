@@ -17,8 +17,8 @@
 
       <form class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-4 w-full">
         <maz-select :options=" ['all', 'male', 'female']" label="Gender" v-model="gender"/>
-        <maz-input list="facilities" id="from" v-model="facilityFrom" label="Referred from"/>
-        <maz-input list="facilities" id="to" v-model="facilityTo" label="Referred to"/>
+        <maz-select  :options="facilities" v-model="facilityFrom" label="Referred from" search/>
+        <maz-select  :options="facilities" v-model="facilityTo" label="Referred to" search/>
         <datalist id="facilities">
           <option v-for="item in facilities" :value="item" :key="item"/>
         </datalist>

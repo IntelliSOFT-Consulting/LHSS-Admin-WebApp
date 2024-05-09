@@ -15,6 +15,7 @@
       <maz-select label="Level" v-model="level" :options="levelOptions"/>
       <maz-select label="Region" :disabled="!country" required v-model="region" :options="regionOptions"/>
       <maz-input label="Code" v-model="code"/>
+      <maz-select label="District" :disabled="!region" required v-model="district" :options="districtOptions"/>
       <div
           class="flex items-center w-full col-span-full justify-end gap-[25px] border-t-[.5px] border-t-[#C4C4C4] py-[11px] px-5 mt-auto absolute bottom-0 left-0">
         <MazSpinner color="secondary" v-if="loading"/>
@@ -32,7 +33,7 @@
         <p class="flex bg-[#0B8648] w-full px-8 py-[15px] text-white font-medium text-[14px]">Success.</p>
       </template>
       <div class="flex flex-col items-center gap-8">
-        <font-awesome-icon icon="fa-solid fa-check-circle" class="w-1/2 h-1/2 text-primary" />
+        <font-awesome-icon icon="fa-solid fa-check-circle" class="w-1/2 h-1/2 text-primary"/>
         <p class="text-center">Facility registered successfully!</p>
         <maz-btn @click="close" size="lg">Close</maz-btn>
       </div>
@@ -70,7 +71,10 @@ const {
   levelOptions,
   level,
   code,
-  populateFields
+  populateFields,
+  district,
+  getDistricts,
+  districtOptions,
 } = useRegistration()
 
 
@@ -88,5 +92,10 @@ watch(state, value => {
 watch(country, value => {
   getRegions(value)
 })
+
+watch(region, value => {
+  getDistricts(value)
+})
+
 
 </script>

@@ -15,6 +15,7 @@ export const useRegistration = () => {
     const region = ref("")
     const district = ref("")
     const code = ref("")
+    const districtOptions = ref([])
     const regionOptions = ref([])
     const countryOptions = ref([])
 
@@ -61,15 +62,29 @@ export const useRegistration = () => {
         }
     }
 
-    const getRegions = async (partOf) => {
+    const getRegions = async (country) => {
         try {
             loading.value = true;
-            const response = await makeRequest({url: `Location?type=REGION&partof=${partOf}`})
+            const response = await makeRequest({url: `Location?type=REGION&partof=${country}`})
             if (!response?.entry)
                 return
             regionOptions.value = response.entry.map(entry => entry.resource.name)
         } catch (error) {
             toast.error('Error getting regions')
+        } finally {
+            loading.value = false;
+        }
+    }
+
+    const getDistricts = async (region) => {
+        try {
+            loading.value = true;
+            const response = await makeRequest({url: `Location?type=DISTRICT&partof=${region}`});
+            if (!response?.entry)
+                return
+            districtOptions.value = response.entry.map(entry => entry.resource.id)
+        } catch (e) {
+            toast.error('Error getting districts')
         } finally {
             loading.value = false;
         }
@@ -106,7 +121,7 @@ export const useRegistration = () => {
                     name: name.value,
                     level: level.value,
                     partOf: {
-                        reference: `Location/${region.value}`
+                        reference: `Location/${district.value}`
                     },
                     search: {
                         mode: "match"
@@ -162,6 +177,8 @@ export const useRegistration = () => {
         close,
         resourceID,
         levelOptions,
-        populateFields
+        populateFields,
+        getDistricts,
+        districtOptions
     }
 }

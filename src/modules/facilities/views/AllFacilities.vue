@@ -25,9 +25,19 @@
           table-class-name="customize-table"
           :items="data"
           :headers="headers">
-        <template #item-region="item">
+        <template #item-district="item">
           <div class="flex items-center gap-4">
             <p>{{ item.resource.partOf.reference.split('/')[1] }}</p>
+          </div>
+        </template>
+        <template #item-region="item">
+          <div class="flex items-center gap-4">
+            <p>{{ getParentLocation(item.resource.partOf.reference.split('/')[1]) }}</p>
+          </div>
+        </template>
+        <template #item-country="item">
+          <div class="flex items-center gap-4">
+            <p>{{ getParentLocation(getParentLocation(item.resource.partOf.reference.split('/')[1])) }}</p>
           </div>
         </template>
         <template #item-id="item">
@@ -52,11 +62,12 @@ import MazSpinner from "maz-ui/components/MazSpinner";
 import {useAllFacilities} from "../hooks/useAllFacilities.js";
 
 
-const {handleSearch, getAllFacilities, data, searchString, headers, add, loading} = useAllFacilities()
+const {handleSearch, getAllFacilities, data, searchString, headers, add, loading, getAllLocations, getParentLocation} = useAllFacilities()
 
 
 onMounted(() => {
   getAllFacilities({})
+  getAllLocations()
 })
 
 </script>

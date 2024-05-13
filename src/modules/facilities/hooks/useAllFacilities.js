@@ -2,9 +2,9 @@ import {useRouter} from "vue-router";
 import {ref} from "vue";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {useToast} from "maz-ui";
-import {useAddresses} from "./useAddresses.js";
 
 export const useAllFacilities = () => {
+    const locations = ref([])
 
     const data = ref([])
 
@@ -16,7 +16,6 @@ export const useAllFacilities = () => {
 
     const {makeRequest} = useAxios()
 
-    const {getLocationByName} = useAddresses()
 
     const toast = useToast()
 
@@ -40,6 +39,10 @@ export const useAllFacilities = () => {
         {
             text: "REGION",
             value: "region",
+        },
+        {
+            text: "DISTRICT",
+            value: "district",
         },
         {
             text: "ACTION",
@@ -88,5 +91,44 @@ export const useAllFacilities = () => {
             getAllFacilities({})
     }
 
-    return {handleSearch, getAllFacilities, data, searchString, headers, add, getCountry, loading}
+    const getAllLocations = async () => {
+        try {
+            const response = await makeRequest({url: 'Location'})
+            locations.value = response.entry
+            return response.entry
+        } catch (error) {
+            toast.error("Error getting locations")
+        }
+    }
+
+    const getLocationByName = async (region) => {
+        try {
+            const response = await makeRequest({url: `Location?name=${region}`})
+            return response?.entry[0]
+
+        } catch (error) {
+            return error?.message
+        }
+    }
+
+    const getParentLocation = (name) => {
+        const locationObject = locations?.value?.find(item => item.resource.name === name)
+        if (!locationObject)
+            return null;
+        return locationObject.resource.partOf.reference.split("/")[1]
+    }
+
+    return {
+        handleSearch,
+        getAllFacilities,
+        data,
+        searchString,
+        headers,
+        add,
+        getCountry,
+        loading,
+        getAllLocations,
+        locations,
+        getParentLocation
+    }
 }

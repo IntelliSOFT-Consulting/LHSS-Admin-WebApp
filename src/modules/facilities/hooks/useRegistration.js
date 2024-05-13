@@ -1,12 +1,11 @@
 import {ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
-import {useFacilityDetails} from "./useFacilityDetails.js";
 import {useToast} from "maz-ui";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
-import {useAddresses} from "./useAddresses.js";
 
 export const useRegistration = () => {
 
+    const locations = ref([])
     const isOpen = ref(false)
     const loading = ref(false)
     const name = ref("")
@@ -35,16 +34,9 @@ export const useRegistration = () => {
 
     const router = useRouter()
 
-
     const {resourceID} = route.params
 
-    const {getDetails, state} = useFacilityDetails()
-
-    const {getLocationByName} = useAddresses()
-
-
     const {makeRequest} = useAxios()
-
 
     const toast = useToast()
 
@@ -54,7 +46,7 @@ export const useRegistration = () => {
             const response = await makeRequest({url: `Location?type=COUNTRY`})
             if (!response?.entry)
                 return
-            countryOptions.value = response.entry.map(entry => entry.resource.id)
+            countryOptions.value = response.entry.map(entry => entry.resource.name)
         } catch (error) {
             toast.error('Error getting countries')
         } finally {
@@ -82,7 +74,7 @@ export const useRegistration = () => {
             const response = await makeRequest({url: `Location?type=DISTRICT&partof=${region}`});
             if (!response?.entry)
                 return
-            districtOptions.value = response.entry.map(entry => entry.resource.id)
+            districtOptions.value = response.entry.map(entry => entry.resource.name)
         } catch (e) {
             toast.error('Error getting districts')
         } finally {
@@ -90,17 +82,18 @@ export const useRegistration = () => {
         }
     }
 
-    const populateFields = async (originalState) => {
+    const populateFields = async () => {
         try {
             loading.value = true;
 
-            name.value = originalState.name
-            region.value = originalState.region
+            const response = await makeRequest({
+                url: `/Location/${resourceID}`
+            })
 
-            const location = await getLocationByName(originalState.region)
-
-            country.value = location.resource?.partOf?.reference?.split('/')[1]
-
+            name.value = response.name
+            district.value = response.partOf.reference.split("/")[1]
+            region.value = getParentLocation(response.partOf.reference.split("/")[1])
+            country.value = getParentLocation(getParentLocation(response.partOf.reference.split("/")[1]))
         } catch (error) {
             toast.error('Error populating fields')
         } finally {
@@ -151,6 +144,26 @@ export const useRegistration = () => {
 
     }
 
+    const getAllLocations = async () => {
+        try {
+            loading.value = true
+            const response = await makeRequest({url: 'Location'})
+            locations.value = response.entry
+            return response.entry
+        } catch (error) {
+            toast.error("Error getting locations")
+        } finally {
+            loading.value = false
+        }
+    }
+
+    const getParentLocation = (name) => {
+        const locationObject = locations?.value?.find(item => item.resource.name === name)
+        if (!locationObject)
+            return null;
+        return locationObject.resource.partOf.reference.split("/")[1]
+    }
+
 
     const close = () => {
         isOpen.value = false
@@ -169,8 +182,6 @@ export const useRegistration = () => {
         code,
         regionOptions,
         countryOptions,
-        getDetails,
-        state,
         getRegions,
         getCountries,
         submit,
@@ -179,6 +190,7 @@ export const useRegistration = () => {
         levelOptions,
         populateFields,
         getDistricts,
-        districtOptions
+        districtOptions,
+        getAllLocations,
     }
 }

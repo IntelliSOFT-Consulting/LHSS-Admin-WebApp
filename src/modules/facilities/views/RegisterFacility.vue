@@ -24,8 +24,6 @@
           <maz-btn type="submit" class="w-20 h-8 lg:w-[165px] lg:h-[46px]">Submit</maz-btn>
         </div>
       </div>
-
-
     </form>
 
     <maz-dialog v-model="isOpen" title="Success" class="border-[.5px]">
@@ -59,8 +57,6 @@ const {
   name,
   country,
   region,
-  getDetails,
-  state,
   submit,
   close,
   resourceID,
@@ -75,19 +71,17 @@ const {
   district,
   getDistricts,
   districtOptions,
+  getAllLocations
 } = useRegistration()
 
 
 onMounted(() => {
   getCountries()
-  if (resourceID)
-    getDetails(resourceID)
+  getAllLocations()
+  if(resourceID)
+    populateFields()
 })
 
-
-watch(state, value => {
-  if (value) populateFields(value)
-})
 
 watch(country, value => {
   getRegions(value)

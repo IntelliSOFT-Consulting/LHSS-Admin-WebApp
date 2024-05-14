@@ -71,13 +71,11 @@ const {
   district,
   getDistricts,
   districtOptions,
-  getAllLocations
 } = useRegistration()
 
 
 onMounted(() => {
   getCountries()
-  getAllLocations()
   if(resourceID)
     populateFields()
 })

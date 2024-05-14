@@ -2,10 +2,10 @@ import {ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import {useToast} from "maz-ui";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
+import {useLocationStore} from "../../../shared/store/locationStore.js";
 
 export const useRegistration = () => {
 
-    const locations = ref([])
     const isOpen = ref(false)
     const loading = ref(false)
     const name = ref("")
@@ -29,6 +29,8 @@ export const useRegistration = () => {
         "Primary Clinic",
         "Drug Vendor"
     ])
+
+    const locationStore = useLocationStore()
 
     const route = useRoute()
 
@@ -90,14 +92,14 @@ export const useRegistration = () => {
                 url: `/Location/${resourceID}`
             })
 
-            await getRegions(getParentLocation(response.partOf.reference.split("/")[1]))
+            await getRegions(locationStore.getParentLocation(response.partOf.reference.split("/")[1]))
 
-            await getCountries(getParentLocation(getParentLocation(response.partOf.reference.split("/")[1])))
+            await getCountries(locationStore.getParentLocation(locationStore.getParentLocation(response.partOf.reference.split("/")[1])))
 
             name.value = response.name
             district.value = response.partOf.reference.split("/")[1]
-            region.value = getParentLocation(response.partOf.reference.split("/")[1])
-            country.value = getParentLocation(getParentLocation(response.partOf.reference.split("/")[1]))
+            region.value = locationStore.getParentLocation(response.partOf.reference.split("/")[1])
+            country.value = locationStore.getParentLocation(locationStore.getParentLocation(response.partOf.reference.split("/")[1]))
         } catch (error) {
             toast.error('Error populating fields')
         } finally {
@@ -148,26 +150,6 @@ export const useRegistration = () => {
 
     }
 
-    const getAllLocations = async () => {
-        try {
-            loading.value = true
-            const response = await makeRequest({url: 'Location'})
-            locations.value = response.entry
-            return response.entry
-        } catch (error) {
-            toast.error("Error getting locations")
-        } finally {
-            loading.value = false
-        }
-    }
-
-    const getParentLocation = (name) => {
-        const locationObject = locations?.value?.find(item => item.resource.name === name)
-        if (!locationObject)
-            return null;
-        return locationObject.resource.partOf.reference.split("/")[1]
-    }
-
 
     const close = () => {
         isOpen.value = false
@@ -195,6 +177,5 @@ export const useRegistration = () => {
         populateFields,
         getDistricts,
         districtOptions,
-        getAllLocations,
     }
 }

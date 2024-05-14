@@ -1,14 +1,12 @@
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {reactive, ref} from "vue";
 import {useToast} from "maz-ui";
-import {useAddresses} from "./useAddresses.js";
 import {useLocationStore} from "../../../shared/store/locationStore.js";
 
 
 export const useFacilityDetails = () => {
     const {makeRequest} = useAxios()
 
-    const {getLocationByName} = useAddresses()
 
     const locationStore = useLocationStore()
 
@@ -37,7 +35,6 @@ export const useFacilityDetails = () => {
             state['country'] = locationStore.getParentLocation(locationStore.getParentLocation(response?.partOf?.reference?.split('/')[1]))
             facility.value = response
         } catch (e) {
-            console.error("e", e)
             toast.error('Error getting facility', e)
         }
     }

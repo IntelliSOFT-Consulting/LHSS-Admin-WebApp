@@ -65,7 +65,7 @@ export const useAllFacilities = () => {
         try {
             loading.value = true;
             const response = await makeRequest({
-                url: `/Location?type=FACILITY&${filter}&_count=1000`,
+                url: `/Location?type=FACILITY&${filter}&_count=5000`,
             })
             if (response.entry) {
                 data.value = []

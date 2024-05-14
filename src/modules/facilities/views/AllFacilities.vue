@@ -25,21 +25,6 @@
           table-class-name="customize-table"
           :items="data"
           :headers="headers">
-        <template #item-district="item">
-          <div class="flex items-center gap-4">
-            <p>{{ item.resource.partOf.reference.split('/')[1] }}</p>
-          </div>
-        </template>
-        <template #item-region="item">
-          <div class="flex items-center gap-4">
-            <p>{{ getParentLocation(item.resource.partOf.reference.split('/')[1]) }}</p>
-          </div>
-        </template>
-        <template #item-country="item">
-          <div class="flex items-center gap-4">
-            <p>{{ getParentLocation(getParentLocation(item.resource.partOf.reference.split('/')[1])) }}</p>
-          </div>
-        </template>
         <template #item-id="item">
           <div class="flex items-center gap-4">
             <router-link class="underline text-[#2b4fb1] font-medium" :to="`/facility/${item.resource.id}`">View
@@ -62,12 +47,11 @@ import MazSpinner from "maz-ui/components/MazSpinner";
 import {useAllFacilities} from "../hooks/useAllFacilities.js";
 
 
-const {handleSearch, getAllFacilities, data, searchString, headers, add, loading, getAllLocations, getParentLocation} = useAllFacilities()
+const {handleSearch, getAllFacilities, data, searchString, headers, add, loading, getAllLocations} = useAllFacilities()
 
 
 onMounted(() => {
   getAllFacilities({})
-  getAllLocations()
 })
 
 </script>

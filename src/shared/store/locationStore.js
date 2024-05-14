@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import {useAxios} from "../hooks/useAxios.js";
 
 
 export const useLocationStore = defineStore("locations", {
@@ -17,6 +18,15 @@ export const useLocationStore = defineStore("locations", {
     actions: {
         setLocations(entries) {
             this.locations = entries
-        }
+        },
+        async fetchLocations(){
+            const {makeRequest} = useAxios()
+            try {
+                const response = await makeRequest({url: 'Location'})
+                this.locations = response.entry
+            } catch (error) {
+                console.error("error", error)
+            }
+        },
     }
 })

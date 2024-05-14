@@ -9,9 +9,28 @@
 
 <script setup>
 import AdminNavbar from "../components/nav/AdminNavbar.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {useLocationStore} from "../../../shared/store/locationStore.js";
+import {useAxios} from "../../../shared/hooks/useAxios.js";
 
 const isOpen = ref(false)
 
+const locationStore = useLocationStore()
+
+const {makeRequest} = useAxios()
+
+
+const getAllLocations = async () => {
+  try {
+    const response = await makeRequest({url: 'Location'})
+    locationStore.setLocations(response.entry)
+  } catch (error) {
+    console.error("error", error)
+  }
+}
+
+onMounted(()=>{
+  getAllLocations()
+})
 
 </script>

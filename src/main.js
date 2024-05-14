@@ -20,10 +20,13 @@ import {
     faUserPlus,
     faXmarkCircle
 } from "@fortawesome/free-solid-svg-icons";
+import {createPinia} from "pinia";
 
 library.add(faChevronRight, faChevronLeft, faUserCircle, faFileExport, faCheckCircle, faUserPlus, faXmarkCircle, faBars, faArrowRightFromBracket)
 
 const app = createApp(App)
+
+const pinia = createPinia()
 
 // DEFAULT OPTIONS
 const toasterOptions = {
@@ -34,6 +37,7 @@ const toasterOptions = {
 
 app
     .component('font-awesome-icon', FontAwesomeIcon)
+    .use(pinia)
     .use(router)
     .use(installToaster, toasterOptions)
     .component("EasyDataTable", Vue3EasyDataTable)

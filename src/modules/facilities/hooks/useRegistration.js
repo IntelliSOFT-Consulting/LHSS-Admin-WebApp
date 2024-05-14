@@ -90,6 +90,10 @@ export const useRegistration = () => {
                 url: `/Location/${resourceID}`
             })
 
+            await getRegions(getParentLocation(response.partOf.reference.split("/")[1]))
+
+            await getCountries(getParentLocation(getParentLocation(response.partOf.reference.split("/")[1])))
+
             name.value = response.name
             district.value = response.partOf.reference.split("/")[1]
             region.value = getParentLocation(response.partOf.reference.split("/")[1])

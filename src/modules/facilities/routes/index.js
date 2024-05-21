@@ -57,6 +57,11 @@ export const facilityRoutes = [
                 path: "users",
                 component: () => import ("../views/Users.vue")
             },
+            {
+                name: "profile",
+                path: "profile",
+                component: () => import ("../views/Profile.vue")
+            },
         ]
     }
 ]

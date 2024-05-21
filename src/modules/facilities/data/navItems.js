@@ -29,5 +29,11 @@ export const navItems = [
         path: "/facility/users",
         title: "Users",
     },
+    {
+        id: "6",
+        icon: true,
+        path: "/facility/profile",
+        iconName: "fa-solid fa-user-circle"
+    },
 
 ]

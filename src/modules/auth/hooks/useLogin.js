@@ -17,12 +17,13 @@ export const useLogin = () => {
     const authStore = useAuthStore()
 
     const login = async (evt) => {
+        const baseUrl = "https://hiedhs.intellisoftkenya.com"
         evt.preventDefault()
         try {
             loading.value = true
 
             const {data} = await axios({
-                url: import.meta.env.VITE_BASE_URL + '/auth/provider/login',
+                url: baseUrl + '/auth/provider/login',
                 method: "POST",
                 data: {
                     idNumber: username.value,
@@ -32,7 +33,7 @@ export const useLogin = () => {
 
 
             const {data: userInfoData} = await axios({
-                url: import.meta.env.VITE_BASE_URL + '/auth/provider/me',
+                url: baseUrl + '/auth/provider/me',
                 headers: {
                     Authorization: `Bearer ${data?.access_token}`
                 }

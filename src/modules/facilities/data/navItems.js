@@ -8,38 +8,26 @@ export const navItems = [
     {
         id: "2",
         icon: false,
-        path: "/facility/register",
-        title: "Register facility",
+        path: "/facility/registered-facilities",
+        title: "Facilities",
     },
     {
         id: "3",
-        icon: false,
-        path: "/facility/registered-facilities",
-        title: "Registered facilities",
-    },
-    {
-        id: "4",
         icon: false,
         path: "/facility/referrals",
         title: "Referrals",
     },
     {
-        id: "5",
+        id: "4",
         icon: false,
         path: "/facility/patients",
         title: "Patients",
     },
     {
-        id: "6",
+        id: "5",
         icon: false,
         path: "/facility/users",
         title: "Users",
-    },
-    {
-        id: "7",
-        icon: true,
-        path: "/facility/register-user",
-        iconName: "fa-solid fa-user-plus",
     },
 
 ]

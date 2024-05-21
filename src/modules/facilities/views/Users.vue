@@ -5,7 +5,7 @@
       <div class="flex items-center gap-2">
         <font-awesome-icon icon="fa-solid fa-user-circle" class="w-6 h-6 text-primary"/>
         <p class="text-xs lg:text-lg font-medium text-[#292929]">Users</p>
-        <maz-btn size="mini" @click="router.back()" outline class="md:w-40 md:h-8 ml-auto">Back</maz-btn>
+        <maz-btn size="mini" @click="router.push('/facility/register-user')" class="md:w-40 md:h-8 ml-auto">Add New</maz-btn>
       </div>
 
 

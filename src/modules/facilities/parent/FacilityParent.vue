@@ -17,12 +17,12 @@ const isOpen = ref(false)
 
 const locationStore = useLocationStore()
 
-const {makeRequest} = useAxios()
+const {makeFHIRRequest} = useAxios()
 
 
 const getAllLocations = async () => {
   try {
-    const response = await makeRequest({url: 'Location'})
+    const response = await makeFHIRRequest({url: 'Location'})
     locationStore.setLocations(response.entry)
   } catch (error) {
     console.error("error", error)

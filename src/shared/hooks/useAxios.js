@@ -1,5 +1,6 @@
 import {ref} from "vue";
 import axios from "axios"
+import {useAuthStore} from "../store/authStore.js";
 
 export const useAxios = () => {
     const data = ref(null)
@@ -7,20 +8,28 @@ export const useAxios = () => {
     const error = ref(null)
     const loading = ref(false)
 
-    const axiosInstance = axios.create({
-        // baseURL: import.meta.env.VITE_FHIR_BASE_URL,
+    const authStore = useAuthStore()
+
+    const FHIRAxiosInstance = axios.create({
         baseURL: "https://hiedhs.intellisoftkenya.com/hapi/fhir",
         headers: {
             "Content-Type": "application/fhir+json"
         }
     })
 
+    const normalAxiosInstance = axios.create({
+        baseURL: "https://hiedhs.intellisoftkenya.com",
+        headers: {
+            Authorization: `Bearer ${authStore.accessToken}`,
+        }
+    })
 
-    const makeRequest = async (config) => {
+
+    const makeFHIRRequest = async (config) => {
         return new Promise(async (resolve, reject) => {
             try {
                 loading.value = true
-                const response = await axiosInstance(config)
+                const response = await FHIRAxiosInstance(config)
                 data.value = response?.data
                 status.value = response.status
                 resolve(response.data)
@@ -31,9 +40,25 @@ export const useAxios = () => {
                 loading.value = false
             }
         })
-
     }
 
-    return {loading, data, status, error, makeRequest}
+    const makeNormalRequest = async (config) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                loading.value = true
+                const response = await normalAxiosInstance(config)
+                data.value = response?.data
+                status.value = response.status
+                resolve(response.data)
+            } catch (e) {
+                error.value = e
+                reject(e)
+            } finally {
+                loading.value = false
+            }
+        })
+    }
+
+    return {loading, data, status, error, makeFHIRRequest, makeNormalRequest}
 
 }

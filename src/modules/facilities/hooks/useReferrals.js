@@ -38,11 +38,11 @@ export const useReferrals = () => {
         link.click()
     }
 
-    const {makeRequest} = useAxios()
+    const {makeFHIRRequest} = useAxios()
 
     const getPatient = async (patientID) => {
         try {
-            const response = await makeRequest({url: `/Patient/${patientID}`})
+            const response = await makeFHIRRequest({url: `/Patient/${patientID}`})
             return response
         } catch (error) {
             toast.error('Error getting patient')
@@ -53,7 +53,7 @@ export const useReferrals = () => {
     const getReferrals = async () => {
         loading.value = true;
         try {
-            const response = await makeRequest({
+            const response = await makeFHIRRequest({
                 url: `ServiceRequest`
             })
             if (response.entry)
@@ -88,7 +88,7 @@ export const useReferrals = () => {
     const getFacilities = async () => {
         try {
             loading.value = true;
-            const response = await makeRequest({url: `Location?type=FACILITY&_count=1000`})
+            const response = await makeFHIRRequest({url: `Location?type=FACILITY&_count=1000`})
             facilities.value = response?.entry?.map(entry => entry.resource.name)
         } catch (error) {
             toast.error('Error getting facilities')

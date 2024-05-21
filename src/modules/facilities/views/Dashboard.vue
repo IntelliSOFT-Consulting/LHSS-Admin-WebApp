@@ -32,7 +32,7 @@ const stats = ref([])
 
 const toast = useToast()
 
-const {makeRequest} = useAxios()
+const {makeFHIRRequest} = useAxios()
 
 
 const getStats = async () => {
@@ -40,11 +40,11 @@ const getStats = async () => {
 
     loading.value = true
 
-    const patientResponse = await makeRequest({
+    const patientResponse = await makeFHIRRequest({
       url: `/Patient?_summary=count`
     })
 
-    const referralsResponse = await makeRequest({
+    const referralsResponse = await makeFHIRRequest({
       url: `ServiceRequest?_summary=count`
     })
 

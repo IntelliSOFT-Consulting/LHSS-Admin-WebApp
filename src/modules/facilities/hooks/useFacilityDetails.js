@@ -5,7 +5,7 @@ import {useLocationStore} from "../../../shared/store/locationStore.js";
 
 
 export const useFacilityDetails = () => {
-    const {makeRequest} = useAxios()
+    const {makeFHIRRequest} = useAxios()
 
 
     const locationStore = useLocationStore()
@@ -26,7 +26,7 @@ export const useFacilityDetails = () => {
 
     const getDetails = async (resourceID) => {
         try {
-            const response = await makeRequest({
+            const response = await makeFHIRRequest({
                 url: `/Location/${resourceID}`
             })
             state['name'] = response?.name

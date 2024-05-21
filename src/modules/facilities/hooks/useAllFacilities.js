@@ -15,7 +15,7 @@ export const useAllFacilities = () => {
 
     const router = useRouter()
 
-    const {makeRequest} = useAxios()
+    const {makeFHIRRequest} = useAxios()
 
     const locationStore = useLocationStore()
 
@@ -62,7 +62,7 @@ export const useAllFacilities = () => {
 
             await locationStore.fetchLocations()
 
-            const response = await makeRequest({
+            const response = await makeFHIRRequest({
                 url: `/Location?type=FACILITY&${filter}&_count=5000`,
             })
 

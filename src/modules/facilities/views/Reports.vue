@@ -67,7 +67,7 @@ const patients = ref([])
 const toast = useToast()
 
 
-const {makeRequest} = useAxios()
+const {makeFHIRRequest} = useAxios()
 
 
 const getStats = async () => {
@@ -75,7 +75,7 @@ const getStats = async () => {
 
     loading.value = true
 
-    const patientResponse = await makeRequest({
+    const patientResponse = await makeFHIRRequest({
       url: `/Patient?_summary=count`
     })
 
@@ -110,7 +110,7 @@ const getCBDId = (array) => {
 const getPatients = async () => {
   try {
     loading.value=true
-    const response = await makeRequest({
+    const response = await makeFHIRRequest({
       url: `/Patient?_count=4`
     })
 

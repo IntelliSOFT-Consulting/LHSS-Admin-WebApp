@@ -38,14 +38,14 @@ export const useRegistration = () => {
 
     const {resourceID} = route.params
 
-    const {makeRequest} = useAxios()
+    const {makeFHIRRequest} = useAxios()
 
     const toast = useToast()
 
     const getCountries = async () => {
         try {
             loading.value = true;
-            const response = await makeRequest({url: `Location?type=COUNTRY`})
+            const response = await makeFHIRRequest({url: `Location?type=COUNTRY`})
             if (!response?.entry)
                 return
             countryOptions.value = response.entry.map(entry => entry.resource.name)
@@ -59,7 +59,7 @@ export const useRegistration = () => {
     const getRegions = async (country) => {
         try {
             loading.value = true;
-            const response = await makeRequest({url: `Location?type=REGION&partof=${country}`})
+            const response = await makeFHIRRequest({url: `Location?type=REGION&partof=${country}`})
             if (!response?.entry)
                 return
             regionOptions.value = response.entry.map(entry => entry.resource.name)
@@ -73,7 +73,7 @@ export const useRegistration = () => {
     const getDistricts = async (region) => {
         try {
             loading.value = true;
-            const response = await makeRequest({url: `Location?type=DISTRICT&partof=${region}`});
+            const response = await makeFHIRRequest({url: `Location?type=DISTRICT&partof=${region}`});
             if (!response?.entry)
                 return
             districtOptions.value = response.entry.map(entry => entry.resource.name)
@@ -88,7 +88,7 @@ export const useRegistration = () => {
         try {
             loading.value = true;
 
-            const response = await makeRequest({
+            const response = await makeFHIRRequest({
                 url: `/Location/${resourceID}`
             })
 
@@ -111,7 +111,7 @@ export const useRegistration = () => {
         evt.preventDefault()
         loading.value = true;
         try {
-            const response = await makeRequest({
+            const response = await makeFHIRRequest({
                 method: resourceID ? "PUT" : "POST",
                 url: resourceID ? `Location/${resourceID}` : "Location",
                 data: {

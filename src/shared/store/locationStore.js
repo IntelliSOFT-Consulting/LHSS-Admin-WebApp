@@ -20,9 +20,9 @@ export const useLocationStore = defineStore("locations", {
             this.locations = entries
         },
         async fetchLocations(){
-            const {makeRequest} = useAxios()
+            const {makeFHIRRequest} = useAxios()
             try {
-                const response = await makeRequest({url: 'Location'})
+                const response = await makeFHIRRequest({url: 'Location'})
                 this.locations = response.entry
             } catch (error) {
                 console.error("error", error)

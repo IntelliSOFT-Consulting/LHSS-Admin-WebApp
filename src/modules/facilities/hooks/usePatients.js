@@ -11,11 +11,11 @@ export const usePatients = () => {
 
     const surname = ref("")
 
-    const {makeRequest, loading} = useAxios()
+    const {makeFHIRRequest, loading} = useAxios()
 
     const getPatients = async ({filter = ""}) => {
         try {
-            const response = await makeRequest({
+            const response = await makeFHIRRequest({
                 url: `/Patient?${filter}&_count=1000`
             })
 

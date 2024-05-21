@@ -31,6 +31,12 @@ export const navItems = [
     },
     {
         id: "6",
+        icon: false,
+        path: "/facility/users",
+        title: "Users",
+    },
+    {
+        id: "7",
         icon: true,
         path: "/facility/register-user",
         iconName: "fa-solid fa-user-plus",

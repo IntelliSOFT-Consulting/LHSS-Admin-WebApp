@@ -1,7 +1,11 @@
 export const facilityRoutes = [
     {
+        name: "facilityParent",
         path: "/facility",
         component: () => import("../parent/FacilityParent.vue"),
+        meta: {
+            requiresAuth: true,
+        },
         children: [
             {
                 name: "dashboard",

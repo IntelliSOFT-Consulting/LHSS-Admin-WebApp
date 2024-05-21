@@ -6,7 +6,8 @@
           @submit="login"
           class="flex flex-col bg-white rounded-[10px] border-[.5px] border-[#c4c4c4] items-center justify-center text-center px-4 py-6 lg:px-[97px] lg:pt-[95px] pb-[44px] relative">
 
-        <div class="flex flex-col justify-center items-center gap-6 absolute border-2 border-white px-6 py-6 top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-primary rounded-md text-white">
+        <div
+            class="flex flex-col justify-center items-center gap-6 absolute border-2 border-white px-6 py-6 top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-primary rounded-md text-white">
           <maz-icon name="white-facility" class=""/>
           <p class="leading-none ">CB-DHS <br> APPLICATION</p>
         </div>
@@ -49,38 +50,9 @@ import {useRouter} from "vue-router";
 import axios from "axios";
 import {useToast} from "maz-ui";
 import MazSpinner from "maz-ui/components/MazSpinner";
+import {useLogin} from "../hooks/useLogin.js";
 
-const password = ref("")
-const username = ref("")
-const loading = ref(false)
-
-const router = useRouter()
-
-const toast = useToast()
-
-const login =  (evt) => {
-  evt.preventDefault()
-  router.push("/facility")
-  // try {
-  // loading.value = true
-  //   await axios({
-  //     url: import.meta.env.VITE_BASE_URL + '/auth/provider/login',
-  //     method: "POST",
-  //     data: {
-  //       idNumber: username.value,
-  //       password: password.value
-  //     }
-  //   })
-  //
-  //   router.push("/facility")
-  // } catch (e) {
-  //   toast.error('Invalid credentials')
-  // } finally {
-  //   loading.value = false
-  // }
-
-}
-
+const {password, username, loading, login} = useLogin()
 
 </script>
 

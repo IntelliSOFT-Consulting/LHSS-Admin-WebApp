@@ -5,7 +5,7 @@ import "../css/maz-ui-variables.css"
 import './style.css'
 import 'vue3-easy-data-table/dist/style.css';
 import App from './App.vue'
-import {router} from "./shared/router/index.js";
+import router from "./shared/router/index.js";
 import {installToaster} from 'maz-ui'
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
@@ -20,13 +20,12 @@ import {
     faUserPlus,
     faXmarkCircle
 } from "@fortawesome/free-solid-svg-icons";
-import {createPinia} from "pinia";
+import pinia from "./shared/store/index.js";
 
 library.add(faChevronRight, faChevronLeft, faUserCircle, faFileExport, faCheckCircle, faUserPlus, faXmarkCircle, faBars, faArrowRightFromBracket)
 
 const app = createApp(App)
 
-const pinia = createPinia()
 
 // DEFAULT OPTIONS
 const toasterOptions = {

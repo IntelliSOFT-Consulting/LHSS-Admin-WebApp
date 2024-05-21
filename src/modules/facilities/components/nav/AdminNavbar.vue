@@ -3,7 +3,7 @@
       class="flex items-center justify-between px-4 py-2 md:px-[49px] md:py-6 border-[.5px] border-[#c4c4c4] shadow-lg bg-secondary  text-white fixed top-0 w-full z-50">
     <div class="flex items-center w-full justify-between lg:gap-2">
       <div class="flex items-center gap-2 lg:hidden">
-        <font-awesome-icon  @click="isOpen = !isOpen" icon="fa-solid fa-bars" class="w-6 cursor-pointer" />
+        <font-awesome-icon @click="isOpen = !isOpen" icon="fa-solid fa-bars" class="w-6 cursor-pointer"/>
         |
         <p class="capitalize text-xs">{{ route.name }}</p>
       </div>
@@ -28,7 +28,8 @@
         <p v-if="!item.icon" class="whitespace-nowrap">{{ item.title }}</p>
         <font-awesome-icon v-else :icon="item.iconName" class="text-white lg:w-6 lg:h-6"/>
       </router-link>
-      <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" @click="logout" class="text-primary cursor-pointer w-6 text-white lg:w-6 lg:h-6" />
+      <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" @click="logout"
+                         class="text-primary cursor-pointer w-6 text-white lg:w-6 lg:h-6"/>
     </div>
   </div>
 </template>
@@ -37,6 +38,7 @@
 import {navItems} from "../../data/navItems.js";
 import {useRoute, useRouter} from "vue-router";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import {useAuthStore} from "../../../../shared/store/authStore.js";
 
 defineProps(['isOpen'])
 
@@ -44,7 +46,12 @@ const route = useRoute()
 
 const router = useRouter()
 
-const logout = () => router.push("/")
+const logout = () => {
+  authStore.logout()
+  router.replace('/')
+}
+
+const authStore = useAuthStore()
 
 </script>
 

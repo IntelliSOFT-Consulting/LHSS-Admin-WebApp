@@ -5,6 +5,7 @@ import {useToast} from "maz-ui";
 
 export const useUsers = () => {
     const users = ref([])
+    const searchString = ref("")
     const loading = ref(false)
 
     const toast = useToast()
@@ -49,5 +50,5 @@ export const useUsers = () => {
         },
     ]
 
-    return {getUsers, users, tableHeaders, loading}
+    return {getUsers, users, tableHeaders, loading, searchString}
 }

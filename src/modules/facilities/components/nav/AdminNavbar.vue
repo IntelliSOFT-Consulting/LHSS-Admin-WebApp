@@ -14,7 +14,7 @@
 
     <div
         :class="[isOpen ? 'flex': 'hidden lg:flex']"
-        class="fixed  top-0 left-0 h-screen w-4/5 z-20 flex-col px-4 pt-4 gap-8 text-lg md:text-sm  text-white lg:relative lg:h-full lg:flex-row lg:items-center lg:justify-end  bg-secondary lg:bg-transparent">
+        class="fixed  top-0 left-0 h-screen w-4/5 z-20 flex-col px-4 pt-4 gap-8 text-lg md:text-sm lg:text-lg  text-white lg:relative lg:h-full lg:flex-row lg:items-center lg:justify-end  bg-secondary lg:bg-transparent">
       <font-awesome-icon
           @click="isOpen = false"
           icon="fa-solid fa-xmark-circle"

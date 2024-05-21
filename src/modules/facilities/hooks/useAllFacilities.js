@@ -77,6 +77,7 @@ export const useAllFacilities = () => {
                     }]
                 }
             } else data.value = []
+            return response?.entry
         } catch (e) {
             toast.error('Error getting facilities')
         } finally {

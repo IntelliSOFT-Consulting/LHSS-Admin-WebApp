@@ -12,6 +12,14 @@
       <maz-input v-model="firstname" required label="First Name"/>
       <maz-input v-model="lastname" required label="Last Name"/>
       <maz-input v-model="idNumber" required type="number" label="ID Number" min="1000"/>
+      <maz-select v-model="role" required label="Role" :options="['ADMINISTRATOR', 'NURSE']"/>
+      <maz-select
+          v-model="facility"
+          v-if="role !== 'ADMINISTRATOR'"
+          required
+          label="Facility"
+          :options="facilityOptions"
+      />
 
       <div class="col-span-full border-b-2 text-primary">Contact details</div>
       <maz-input v-model="email" required label="Email Address" type="email"/>
@@ -30,7 +38,8 @@
           required
           label="Confirm Password"
           type="password"
-          :hint="showPasswordError ? 'Passwords do not match': null"/>
+          :hint="showPasswordError ? 'Passwords do not match': null"
+      />
 
 
       <div
@@ -61,11 +70,14 @@
 <script setup>
 import {useRegisterUser} from "../hooks/useRegisterUser.js";
 import {useRouter} from "vue-router";
-import {watch} from "vue";
+import {onMounted, watch} from "vue";
 import MazDialog from "maz-ui/components/MazDialog";
 import MazBtn from "maz-ui/components/MazBtn";
+import {useLocationStore} from "../../../shared/store/locationStore.js";
+import {useAllFacilities} from "../hooks/useAllFacilities.js";
 
 const router = useRouter()
+
 
 const {
   submit,
@@ -78,8 +90,16 @@ const {
   password,
   confirmPassword,
   showPasswordError,
-  isDialogOpen
+  isDialogOpen,
+  facility,
+  role,
+  getAllFacilities,
+  facilityOptions
 } = useRegisterUser()
+
+onMounted(() => {
+  getAllFacilities()
+})
 
 watch([password, confirmPassword], (values) => {
   if (values[0].length > 0 && values[1].length > 0) {

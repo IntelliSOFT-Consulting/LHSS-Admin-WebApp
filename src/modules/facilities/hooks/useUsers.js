@@ -19,7 +19,7 @@ export const useUsers = () => {
                 url: "/auth/provider/users",
             })
 
-            users.value = response?.users.filter(user => user?.role)
+            users.value = response?.users?.filter(user => user?.role)
         } catch (e) {
             toast.error("Error getting users")
         } finally {

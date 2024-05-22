@@ -1,6 +1,8 @@
 import {ref} from "vue";
 import axios from "axios"
 import {useAuthStore} from "../store/authStore.js";
+import {useRouter} from "vue-router";
+import {useToast} from "maz-ui";
 
 export const useAxios = () => {
     const data = ref(null)
@@ -9,6 +11,10 @@ export const useAxios = () => {
     const loading = ref(false)
 
     const authStore = useAuthStore()
+
+    const router = useRouter()
+
+    const toast = useToast()
 
     const FHIRAxiosInstance = axios.create({
         baseURL: "https://hiedhs.intellisoftkenya.com/hapi/fhir",
@@ -23,6 +29,22 @@ export const useAxios = () => {
             Authorization: `Bearer ${authStore.accessToken}`,
         }
     })
+
+    /**
+     * When token expires ask the user to login again
+     */
+    normalAxiosInstance.interceptors.response.use(
+        response => response,
+        async error => {
+            if (error.response && error.response.status === 401) {
+                toast.info("Your session has expired please login again")
+                authStore.logout()
+                await router.push("/")
+            }
+
+            return Promise.reject(error)
+        }
+    )
 
 
     const makeFHIRRequest = async (config) => {
@@ -48,7 +70,7 @@ export const useAxios = () => {
                 loading.value = true
                 const response = await normalAxiosInstance(config)
                 data.value = response?.data
-                status.value = response.status
+                status.value = response?.status
                 resolve(response.data)
             } catch (e) {
                 error.value = e

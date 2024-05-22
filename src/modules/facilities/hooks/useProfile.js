@@ -29,8 +29,8 @@ export const useProfile = () => {
                 url: "/auth/provider/me"
             })
             email.value = response.user.email
+            firstName.value = response.user.firstName
             lastName.value = response.user.lastName
-            firstName.value = response.user.lastName
             idNumber.value = response.user.idNumber
             phone.value = response.user.phone
         } catch (e) {
@@ -53,7 +53,6 @@ export const useProfile = () => {
                     email: email.value,
                     lastName: lastName.value,
                     firstName: firstName.value,
-                    idNumber: idNumber.value,
                     phone: phone.value,
                 }
             })
@@ -62,11 +61,7 @@ export const useProfile = () => {
                 isDialogOpen.value = !isDialogOpen.value
                 setTimeout(() => {
                     isDialogOpen.value = false
-                    idNumber.value = ""
-                    email.value = ""
-                    firstName.value = ""
-                    lastName.value = ""
-                    phone.value = ""
+                    getMyInfo()
                 }, 1000)
             }
 

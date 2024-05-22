@@ -12,7 +12,7 @@
       <div class="col-span-full border-b-2 text-primary">Personal details</div>
       <maz-input v-model="firstName" required label="First Name"/>
       <maz-input v-model="lastName" required label="Last Name"/>
-      <maz-input v-model="idNumber" required type="number" label="ID Number" min="1000"/>
+      <maz-input disabled v-model="idNumber" type="number" label="ID Number" min="1000"/>
 
       <div class="col-span-full border-b-2 text-primary">Contact details</div>
       <maz-input v-model="email" required label="Email Address" type="email"/>

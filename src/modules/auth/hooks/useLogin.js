@@ -48,7 +48,7 @@ export const useLogin = () => {
             }
 
         } catch (e) {
-            toast.error(e.response.data.error)
+            toast.error(e?.message || e?.response?.data?.error)
         } finally {
             loading.value = false
         }

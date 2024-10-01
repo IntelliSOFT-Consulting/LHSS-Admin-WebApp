@@ -59,7 +59,5 @@ const iterateFacilities =  async() =>{
 
 }
 
-
-
 iterateFacilities()
 

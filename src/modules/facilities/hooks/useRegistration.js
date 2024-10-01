@@ -34,6 +34,7 @@ export const useRegistration = () => {
 
 
     const submit = async (evt) => {
+        console.log("selected facility", selectedFacility.value)
         evt.preventDefault()
         loading.value = true;
         try {
@@ -44,7 +45,7 @@ export const useRegistration = () => {
                     resourceType: "Location",
                     id: resourceID ? resourceID : selectedFacility.value.name,
                     name: selectedFacility.value.name,
-                    level: selectedFacility.value.level,
+                    level: selectedFacility.value.keph_level_name,
                     partOf: {
                         reference: `Location/${selectedFacility.value.county}`
                     },

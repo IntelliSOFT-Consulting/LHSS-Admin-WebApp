@@ -2,7 +2,6 @@ import {ref} from "vue";
 import axios from "axios"
 import {useAuthStore} from "../store/authStore.js";
 import {useRouter} from "vue-router";
-import {useToast} from "maz-ui";
 
 export const useAxios = () => {
     const data = ref(null)
@@ -14,7 +13,6 @@ export const useAxios = () => {
 
     const router = useRouter()
 
-    const toast = useToast()
 
     const FHIRAxiosInstance = axios.create({
         baseURL: "https://hiedhs.intellisoftkenya.com/hapi/fhir",
@@ -37,7 +35,6 @@ export const useAxios = () => {
         response => response,
         async error => {
             if (error.response && error.response.status === 401) {
-                toast.info("Your session has expired please login again")
                 authStore.logout()
                 await router.push("/")
             }

@@ -1,0 +1,189 @@
+id,regulatory_status_name,facility_type_name,owner_name,operation_status_name,county,constituency,ward_name,sub_county_name,keph_level_name,name,code
+038ed8ed-50a0-4f95-84c5-a90d81091d79,Gazetted,Medical Clinic,Ministry of Health,Operational,Busia,Teso South,Angorom,Teso South,Level 2,KEMRI ALUPE HIV LAB,32079
+52e22e38-18ed-4347-a879-f4f138726361,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Teso South,Amukura Central,Teso Central,Level 2,Obekai Health Centre,16087
+d6d5abc0-e3c7-402e-9902-0258f9186ebb,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Nambale,Bukhayo East,Nambale,Level 2,MWEIN MEDICAL SERVICES,31749
+87141a4c-3f5d-40c9-9374-45e0b716e817,Pending Registration,Dispensary,Christian Health Association of Kenya,Operational,Busia,Butula,Marachi North,Butula,Level 2,Bukuyudi Parish ACK Dispensary,23984
+b7be8bdd-1508-4b6f-bade-fdec85326e58,Registered,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Teso South,Chakol South,Teso South,Level 2,MATIBABU AMASAASE MEDICAL CLINIC,31704
+d795dafb-b36e-48f5-9509-5a4c93dc3be2,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Butula,Elugulu,Butula,Level 2,Hope Hill Medical Clinic,31703
+8b86958a-06ef-4261-9de8-79ce9ff8014e,Licensed,Medical Clinic,Private Practice - Medical Specialist,Operational,Busia,Funyula,Nangina,Samia,Level 2,Heart Clinic and Hub,31671
+8777e12c-5faf-4bd8-8b82-10b26477655d,Registered,Medical Center,Private Practice - General Practitioner,Operational,Busia,Butula,Elugulu,Butula,Level 3,Bulwani Private Hospital Limited,31705
+306a1a4f-72f0-41e1-8aed-5aaa29f96f4d,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Butula,Marachi West,Butula,Level 2,Utunzaji Medical,31532
+00776935-d8a2-41f1-b7b0-ac67e47b0d5c,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Butula,Marachi North,Butula,Level 2,Sikarira Health Centre,16485
+4394d797-764c-4438-817b-fff5fa08a703,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Butula,Marachi East,Butula,Level 3,Bumala B Sub County Hospital,15824
+9b272eff-7c2d-4e30-a200-288d0f45b90c,Licensed,Medical Center,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Javid Townview Medical Centre,27716
+9e90bd80-0a7b-4f65-ac77-90b5afc91e00,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Afya Bora Clinic(Busia),22740
+6bcbd65b-1799-4c75-b4fe-dee920ccb686,Pending License,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Matayos,Matayos South,Matayos,Level 2,Matayos Community Clinic,16003
+a373ac91-ab50-4be8-9b43-f688b7c3e2e8,Registered,Radiology Clinic,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Planar Imaging Centre,24241
+bc34eeb7-3031-4437-9fc8-aece99f73099,Licensed,HEALTH CENTRE,Christian Health Association of Kenya,Operational,Busia,Teso South,Angurai East,Teso South,Level 3,Kolanya Salvation Army Health Centre,15953
+61956c70-7f0f-4bb3-aa21-1065f97ef581,Licensed,Nursing Homes,Private Practice - Clinical Officer,Operational,Busia,Nambale,Nambale,Nambale,Level 3,Pynet Healthcare Limited,27224
+b20479e7-66eb-449c-8df0-372a399e5ec0,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Taslim Healthcare Services,31177
+30a4bfbe-79ff-4452-bdec-fcd85bc0d2f6,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Funyula,Ageng'a Nanguba,Samia,Level 2,Alijay Medical Calinic,31010
+bdbb06a0-8f64-4466-9b8d-74703891d33f,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Marachi East,Butula,Level 2,Mafubu Dispensary,21058
+79cf74da-73d2-4174-8d05-3cf370eb525e,Pending Registration,Dispensary,Other Faith Based,Operational,Busia,Butula,Marachi West,Butula,Level 2,Bujumba Mission Dispensary,15816
+10f83611-3e36-4a3e-8719-b9516873a29c,Pending Gazettement,Medical Center,Private Practice - Medical Specialist,Operational,Busia,Teso South,Angorom,Teso South,Level 3,St James Infirmary Busia,28408
+0978a290-3836-4527-a843-0ac0d4832e80,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Nambale,Bukhayo North/Walatsi,Nambale,Level 4,Lupida sub county hospital,15975
+471c12b4-dc92-4475-a8e4-de454ee46754,Pending Registration,Dispensary,Other Faith Based,Operational,Busia,Butula,Marachi Central,Butula,Level 2,St. Lukes (ACK) Busiada Dispensary,21064
+00d9c6b7-4f44-47a3-a8db-54a03bc6d9b7,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Marachi East,Butula,Level 2,Musibiriri Dispensary,16486
+5983953f-fabf-415a-bae7-372f1be0cc5d,Pending Registration,Medical Clinic,Private Practice - Private Institution Academic,Operational,Busia,Butula,Marachi East,Butula,Level 2,Marachi HealthCare Clinic,20727
+657a8671-7858-4633-a4dc-6a2bc4b86eb9,Pending License,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Butula,Marachi Central,Butula,Level 2,Turning Point Medical Centre,21057
+5c876200-2721-4258-aade-b90695a44475,Pending Registration,Medical Clinic,Non-Governmental Organizations,Operational,Busia,Butula,Marachi West,Butula,Level 2,Bumala CFW clinic,20572
+1405b96b-fb3e-4695-b186-4f71da79c604,Registered,Medical Center,Non-Governmental Organizations,Operational,Busia,Butula,Marachi West,Butula,Level 3,Mayday Ring of Hope Health Services,25990
+d9b9d352-6298-4b9f-857f-8a53370dd566,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Marachi Central,Butula,Level 2,Neela Dispensary,21060
+6d3f6648-2302-4497-8281-4f4049620fe5,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Butula,Elugulu,Butula,Level 2,St. Peters Medical Centre Bulwani,22128
+ef762a4c-7add-47ec-8f37-970f8297b434,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Butula,Marachi West,Butula,Level 3,Bumala A Health Centre,15823
+0b6ce340-edad-4809-8fa1-6050a80d07a2,Registered,Blood Bank,Ministry of Health,Operational,Busia,Matayos,Burumba,Matayos,Level 2,KNBTS Busia setllite,24219
+c2c014d5-c579-433a-9d10-fe3769e47436,Pending Registration,Basic Health Centre,Other Faith Based,Operational,Busia,Butula,Marachi North,Butula,Level 3,Butula Mission Health Centre,15838
+7059f4bf-ea53-4068-961f-6875b157d2aa,Pending License,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Matayos,Bukhayo West,Matayos,Level 2,Mubwekas Medical Clinic,18127
+d2436e69-c86e-40ee-92e4-6f6b4b5c2362,Pending License,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Matayos,Bukhayo West,Matayos,Level 2,Your Family Clinic,16165
+354bb334-5e92-4cd1-a409-2dfb1d5239a6,Pending Gazettement,Medical Clinic,Private Practice - General Practitioner,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Agakhan Medical Centre-Busia,22053
+ead2926c-4f1b-4f19-8a71-891b65019e42,Registered,Primary care hospitals,Private Practice - General Practitioner,Operational,Busia,Matayos,Burumba,Matayos,Level 4,Amane Cottage Hospital,23811
+3d3e47da-cc59-44d6-b689-ca09e8babb8c,Pending Registration,Primary care hospitals,Private Practice - Private Institution Academic,Operational,Busia,Matayos,Burumba,Matayos,Level 4,Tanaka Nursing Home,16149
+e1f8f7f0-ad4a-4acf-b8df-a611dbbe39b7,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Elugulu,Butula,Level 2,Namusala Dispensary,21059
+8a082517-2cec-4dac-9956-3cac8a88122a,Pending License,Dispensary,Ministry of Health,Operational,Busia,Butula,Marachi Central,Butula,Level 2,Igula Dispensary,26002
+34fa93db-45d3-4b14-9635-0b45f0e885d8,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Butula,Kingandole,Butula,Level 3,Ikonzo Model Health Centre,17165
+72dfa2e6-67c2-44ce-a74c-2e3fb891c20c,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Elugulu,Butula,Level 2,Bwaliro Dispensary,15840
+0ea30cb8-5f40-4ea0-a815-9e8d5d63cdeb,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Marachi Central,Butula,Level 2,Bukhalalire Dispensary,17158
+cabf61f6-74c3-445f-9af8-942730dc2bdb,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Marachi Central,Butula,Level 2,Bumutiru Dispensary,15826
+4b5ed7bf-5b40-4f43-be1e-f7475b3a6280,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Butula,Kingandole,Butula,Level 4,Khunyangu Sub County Hospital,15939
+7ecd56b5-2fec-4a8d-b707-3e6a3b83b79d,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Marachi West,Butula,Level 2,Burinda Dispensary,15830
+bd70ce53-37cb-4000-9c8c-e339b5669398,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Butula,Marachi North,Butula,Level 2,Masendebale Dispensary,17157
+960593f1-b869-44a4-8edc-0962a6652c58,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Burumba Dispensary,21041
+5791538a-59a0-4b5e-a2d8-594073e20b59,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Busibwabo,Matayos,Level 2,Nasira Dispensary,19887
+d72505aa-dfe3-4780-9bd9-deed733375e4,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Bukhayo West,Matayos,Level 2,Bukalama Dispensary,17156
+fab19d78-8732-4ae4-b6f0-7caa18b1475c,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Bukhayo West,Matayos,Level 2,GK Prisons Dispensary (Busia),15891
+dd6002b5-e91c-4253-8235-a19e7e2ebcde,Pending License,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Ugua Pole Clinic,20444
+d591a201-ceb6-4e2f-84ca-6ab5a53406b4,Pending License,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Equator Clinic,20443
+fa87678e-7af5-4421-bf94-150b8ce9b011,Registered,Medical Clinic,Private Practice - General Practitioner,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Busia Healthsidelab Medical Clinic,23382
+f6298d06-4c4e-4b51-aa5d-a9079bc500bd,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Bukhayo West,Matayos,Level 2,Esikulu Dispensary,20171
+bceaf279-bbdd-4775-924d-f1bc8c35b208,Registered,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Nagwebonia Highway Medical Clinic,23563
+4f2229cb-5d36-4046-9ae5-fe62a6c7127b,Registered,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Maupe E.N.T Centre,23809
+6e4b3e82-ab99-4177-b39a-630bb564897a,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Jannie Prime Care Medical Clinic,24089
+f658511f-43c3-42cd-93e8-d22636320773,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Mayenje,Matayos,Level 2,Mayenje Dispensary,21042
+4f81a1be-b336-4305-9161-ba01247d2f52,Registered,Radiology Clinic,Private Practice - Private Institution Academic,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Busia Medical Imaging Centre,23807
+5bd5dd9f-b470-42f8-b56f-ca287d4645d7,Pending License,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Medspar Medical Centre,24109
+5863e8e9-7c14-45c3-ba0e-afd9c14a35b6,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Chakol South,Teso South,Level 2,Ochude Dispensary,16420
+7dcdfe7a-98e7-46ac-8950-2ede449c13f3,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Teso South,Amukura West,Teso Central,Level 3,Lukolis Model Health Centre,15968
+949e179d-f3c2-4b4b-894f-1ad19c5f166b,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Chakol North,Teso South,Level 2,Ngelechom Community Dispensary,20181
+849e1286-ed16-41ba-b851-065c118838ec,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Chakol South,Teso South,Level 2,Amaase Dispensary,15797
+faf34495-0943-4fc3-9c5b-655108debfb2,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Teso South,Chakol South,Teso South,Level 2,Rehema Health Care Clinic,28311
+19667f77-2757-4a6c-9489-55dc40f636e1,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Chakol South,Teso South,Level 2,Among'ura Community Dispensary,20170
+d5898fab-9813-4929-9390-5d1ff5111d39,Pending Registration,Basic Health Centre,Kenya Episcopal Conference-Catholic Secretariat,Operational,Busia,Teso South,Amukura East,Teso Central,Level 3,Amukura Mission Health Centre,15799
+161211a4-71e0-4972-95be-c3dab94e798f,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Matayos South,Matayos,Level 2,Muyafwa Dispensary,21040
+11c420bb-345b-4068-a6b0-7c8ee86cbb73,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Beyond Zero Mobile Clinic(Busia),21749
+bafe9e33-06f7-44c9-b90a-6d9550f1bd3d,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Matayos,Matayos South,Matayos,Level 3,Nasewa Health Centre,16074
+20256330-bea3-4c2c-a7c0-fd94bb7f86d1,Pending License,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Teso South,Chakol South,Teso South,Level 2,Adungosi Medical Clinic,21741
+70ec22d7-7eb3-4b9a-af58-70466dd43219,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Funyula,Ageng'a Nanguba,Samia,Level 2,Ageng'a Dispensary (Samia),15790
+3699599c-030a-43a8-8b6f-3914a7d842c6,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Teso South,Angorom,Teso South,Level 4,Alupe Sub County Referral Hospital,15795
+8b0eecb2-aa72-463e-8f3c-dff8b67af5c6,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Budalangi,Bunyala Central,Bunyala,Level 3,Mukhobola Health Centre,16029
+979602c2-bee2-4fde-ab54-785dc85cf022,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Budalangi,Bunyala South,Bunyala,Level 3,Rukala Model Health Centre,16095
+1f3effdd-4632-45c6-bf5d-c0070d1a620a,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Funyula,Nangina,Samia,Level 2,Wakhungu Dispensary,16479
+4e26268d-e3d0-4579-b2a4-20f54be3ca49,Pending Registration,Dispensary,Kenya Episcopal Conference-Catholic Secretariat,Operational,Busia,Budalangi,Bunyala North,Bunyala,Level 2,Sirimba Dispensary,16129
+e53c35d8-3a30-4cc6-be91-35c12fc747b0,Pending Registration,Medical Center,Private Practice - Medical Specialist,Operational,Busia,Teso South,Angorom,Teso South,Level 3,Pesi Medical Centre,20167
+3f8d174e-b7d5-4775-87bd-38992ce86ba5,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Funyula,Ageng'a Nanguba,Samia,Level 4,Sio Port Sub County Hospital,16128
+9c9889b1-90da-4911-a797-b30cb206fc72,Gazetted,Dispensary,Ministry of Health,Operational,Busia,Funyula,Namboboto-nambuku,Samia,Level 2,Mukonjo Dispensary,25252
+67f649cf-0417-4739-9a63-e1712d955a31,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Budalangi,Bunyala South,Bunyala,Level 2,Bulwani Dispensary,15822
+91c9c42a-dc81-4934-9ef1-d69f95d3f4e1,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Budalangi,Bunyala South,Bunyala,Level 2,Osieko Dispensary,17680
+66290705-a085-448e-b6d6-8a260e4f0a68,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Budalangi,Bunyala North,Bunyala,Level 2,Sisenye Dispensary,16131
+2193f52e-1e74-4cd5-8f3c-a59519cc10e8,Pending Registration,Dispensary,Christian Health Association of Kenya,Operational,Busia,Funyula,Namboboto-nambuku,Samia,Level 2,Namboboto Dispensary,16067
+51c0a4ae-da31-4192-ac74-ae02e54e7260,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Funyula,Nangina,Samia,Level 2,Nangina Dispensary,16072
+4f7f9441-8ee0-4952-9e81-3a54bea58722,Licensed,Nursing Homes,Private Practice - Clinical Officer,Operational,Busia,Funyula,Nangina,Samia,Level 3,Nassi Hospitals,24722
+ca6ce09e-c074-483f-bc60-da7d49c83a4c,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Funyula,Nangina,Samia,Level 2,Kabuodo Dispensary,16480
+c80e069b-3912-4d04-880f-5d2fb388ce78,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Funyula,Bwiri,Samia,Level 2,Namuduru Dispensary,16069
+6d134660-ac44-44b4-8df6-749ca20d2ddc,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Funyula,Bwiri,Samia,Level 2,Busembe Dispensary,15831
+905ebc6c-59d1-41d5-be4f-e1592e36d1be,Pending License,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Funyula,Nangina,Samia,Level 2,Namenya (CFW) Clinic,18091
+30241b4f-835a-454d-b358-43bfef37f009,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Matayos,Bukhayo West,Matayos,Level 2,Munongo Dispensary,16043
+476bd2ce-2e73-4f69-9856-45d51c0cdc76,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo North/Walatsi,Nambale,Level 2,Musokoto Dispensary,21046
+66fa1067-9602-4879-8873-6c2889f70622,Pending Registration,Medical Clinic,Other Faith Based,Operational,Busia,Nambale,Nambale,Nambale,Level 2,St Clare Medical Centre,16137
+2066296a-b865-435e-a6ab-9ae2feb399be,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo East,Nambale,Level 2,Mundembu Dispensary,21044
+216fbf1e-6afc-4ad0-a766-67f0bdefe431,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo North/Walatsi,Nambale,Level 2,Igara Dispensary,15897
+10802ccf-230f-48ba-9539-d7eb7f30e8b0,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Chakol North,Teso South,Level 2,Moru Karisa Dispensary,16024
+8959f17f-0f0d-4c6e-be4a-17090f271c25,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Teso South,Amukura East,Teso Central,Level 3,Amukura Health Centre,15798
+770db5ed-df49-4a8c-b694-0b6f3ca2633f,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo Central,Nambale,Level 2,Esidende Dispensary,26227
+29a707a4-81ff-41e4-8035-b75502e60071,Pending Registration,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura East,Teso Central,Level 2,Akobwait Community Dispensary,26021
+0f3176a9-3fc2-469b-baa9-33a74e281325,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Nambale,Bukhayo East,Nambale,Level 3,Madende Health Centre,15985
+54575763-050d-4115-8ae2-34c6ac38cb20,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Nambale,Nambale,Nambale,Level 4,Nambale Sub County Hospital,16066
+a7a47eed-5e17-4130-a684-14ca8e48150f,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Budalangi,Bunyala Central,Bunyala,Level 2,Busagwa Dispensary,21037
+c7b819c7-c5c5-4f7c-911d-733c71c18bb4,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo Central,Nambale,Level 2,Malanga Dispensary,15995
+d6660e3b-4560-465d-92a7-17d0279b7ab0,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura East,Teso Central,Level 2,Kwangamor Dispensary,21033
+8c570f5f-9876-4006-9cde-5f232b19ac97,Registered,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Nambale,Nambale,Nambale,Level 2,Fahelma community CFW Clinic,23087
+5b6abe3a-a84c-4c85-9a8b-9bae31629ed8,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura Central,Teso Central,Level 2,Apokor Dispensary,15802
+042925f1-ed8b-44a8-b696-24f42856e791,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo North/Walatsi,Nambale,Level 2,Kapina Dispensary,26151
+31fc5c7d-f030-49f0-b022-f7bd2402e84c,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Budalangi,Bunyala West,Bunyala,Level 4,Port Victoria Hospital,16091
+cdccdb19-7565-4028-909e-c95809953956,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Funyula,Namboboto-nambuku,Samia,Level 3,Nambuku Model Health Centre,16068
+5f1f0bfc-5eea-479c-b44f-c1f1d7fa77d1,Pending Registration,Primary care hospitals,Kenya Episcopal Conference-Catholic Secretariat,Operational,Busia,Funyula,Nangina,Samia,Level 4,Holy Family Nangina Mission Hospital,16073
+e5f1e73c-3a0d-4905-b2c5-07043d2dfc04,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Funyula,Ageng'a Nanguba,Samia,Level 2,Buduta Dispensary,15813
+eae1d5fc-4a65-4a83-87a8-42496c89ea10,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Funyula,Ageng'a Nanguba,Samia,Level 2,Rumbiye Dispensary,16096
+a68e08d0-f510-4649-b547-368adb48ce6e,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Nambale,Nambale,Level 2,Segero Dispensary (Nambale),21045
+8bc62e58-5ab3-4be5-84b8-be1e87b7e7a5,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo East,Nambale,Level 2,Khayo Dispensary,15937
+8ff19b18-c8fc-4eaf-8f76-48bffac088e1,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura West,Teso Central,Level 2,Okook Dispensary,17245
+52f57511-ce28-4f1b-b2da-eda675eb44e6,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo Central,Nambale,Level 2,Lwanyange Dispensary,17155
+bfb8ed5d-7ed9-4562-ad31-e3f7e5545a00,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura Central,Teso Central,Level 2,Apatit Dispensary,21035
+b5d90d02-9546-409b-9431-6c0ffe0ec1cc,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura West,Teso Central,Level 2,Akiriamasi Dispensary,21034
+af899dda-51c3-4a6a-adf4-3ed0bd0abf00,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Nambale,Nambale,Nambale,Level 2,Zanik Medical Centre,26950
+4d4a8e51-a555-4f3d-bcd2-9018dd8db8f9,Registered,Medical Center,Private Practice - Private Institution Academic,Operational,Busia,Nambale,Nambale,Nambale,Level 2,Stirling Medical Centre,23604
+fa96da1a-7e3f-440d-84c5-06d5af6228cc,Pending Registration,Dispensary,Other Faith Based,Operational,Busia,Funyula,Namboboto-nambuku,Samia,Level 2,Cornestone Baptist Clinic,18119
+540e81bf-dbd3-4748-9a05-e2a35b8b3796,Licensed,Medical Center,Private Practice - Clinical Officer,Operational,Busia,Matayos,Matayos South,Matayos,Level 2,Mama Sofia Memorial Medical Centre,24091
+b7a03ae8-9560-4c17-8969-3b7c2ce30b96,Gazetted,Dispensary,Ministry of Health,Operational,Busia,Matayos,Mayenje,Matayos,Level 2,Buyosi Dispensary,26025
+526da306-1acb-4e51-b548-f57642c60b69,,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura Central,Teso Central,Level 2,Odeng'ero Dispensary,26184
+ccb2bf9b-abdf-48e1-bf9f-84c6e7a07bfa,Pending Registration,Medical Clinic,Ministry of Health,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Busia Trailer Park Clinic,18126
+13a9628a-ad06-43f9-a458-05749300c31f,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Matayos,Busibwabo,Matayos,Level 3,Busibwabo Health Centre,15835
+1b2cfe05-9f54-4a72-9d91-7f9c876c8ce3,Pending Gazettement,HOSPITALS,Ministry of Health,Operational,Busia,Matayos,Matayos South,Matayos,Level 4,Matayos Sub County Hospital,16004
+db2b8c12-0b69-4f6b-879b-4006faac3597,Pending Registration,HOSPITALS,Private Practice - Private Institution Academic,Operational,Busia,Matayos,Mayenje,Matayos,Level 4,New Busia Maternity & Nursing Home,16080
+f17efa7a-b2e5-4ca9-95c4-04ab1090dd41,Registered,Medical Clinic,Private Practice - Medical Specialist,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Busia Dental Solutions,23876
+bd87a4ed-526c-408e-9b43-f3dfc1712594,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Teso North,Malaba Central,Teso North,Level 2,Helina Medical Clinic,28344
+6da3ed33-5929-447a-a19a-de069ee80f59,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Teso North,Malaba Central,Teso North,Level 2,Comfy Health Care Ltd,27085
+8fa3034a-54ec-45c8-9e68-f3af7c465e53,Licensed,Medical Clinic,Private Practice - Medical Specialist,Operational,Busia,Teso North,Malaba Central,Teso North,Level 2,Etop Medical Centre,27045
+3fc1c2e0-ceef-4f13-92a3-ec4b83563b8b,,Medical Center,Private Practice- Pharmacist,Operational,Busia,Teso North,Malaba North,Teso North,Level 3,Raimu Hospital Ltd Malaba,28280
+a26ba2bf-20a0-4202-b83e-2b188f39bf42,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Teso North,Angurai North,Teso North,Level 3,Angurai Sub County Hospital,15800
+656c279a-75cc-42ca-9e62-837c98398985,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Angurai East,Teso South,Level 2,Changara GK Health Centre,16421
+eba9f2f9-0b69-4e69-a5f4-333e2e7d9e5f,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso North,Malaba North,Teso North,Level 2,Kamuriai GK  Dispensary,21024
+b520c163-8929-441a-9308-1d227fa5a63f,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Teso North,Malaba Central,Teso North,Level 2,Malaba Health center,15993
+436a0438-9518-4039-8dce-09d89613bc5a,Pending License,Primary care hospitals,Private Practice - Clinical Officer,Operational,Busia,Teso North,Malaba Central,Teso North,Level 4,Appex Hosp,21136
+00b892db-fd50-47fa-9a6c-95e6aca032ca,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso North,Angurai South,Teso North,Level 2,Aboloi Dispensary,15789
+93d670e7-e876-4b03-9e2d-fb7eec355c33,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso North,Malaba South,Teso North,Level 2,Kamolo Dispensary,17242
+5986aa6c-89c9-4988-bc8c-219ea1ac75b7,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Teso North,Malaba Central,Teso North,Level 2,Center View Medical Health Care,22557
+96a0da9b-d28e-4d27-a021-9440b93d297c,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Teso North,Malaba South,Teso North,Level 4,Teso  North Sub county Hospital,16150
+9da0d8a5-a8e8-41c5-863c-7023bdfee318,Pending Gazettement,Basic Health Centre,Ministry of Health,Operational,Busia,Teso North,Angurai North,Teso North,Level 3,Moding Health Centre,16021
+98069f73-ecfa-4bb4-b0ff-dd587bcd499d,Pending Registration,Dispensary,Ministry of Health,Operational,Busia,Teso South,Angurai East,Teso South,Level 2,ALoete Disp,24603
+8f8cd3d3-5ff3-44a8-8a98-9a7a14871b00,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Teso North,Malaba Central,Teso North,Level 2,Emormor clinic,24354
+317cbdf5-1c6f-4df0-9e6d-8119e6cd4394,Pending Registration,Comprehensive Health Centre,Kenya Episcopal Conference-Catholic Secretariat,Operational,Busia,Teso North,Angurai North,Teso North,Level 3,St Mary's Health Unit Chelelemuk,16140
+375cd222-6834-4936-98da-a4f390e78473,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso North,Angurai South,Teso North,Level 2,Akichelesit Dispensary,15792
+453a4c26-af0c-419e-bb83-7fd59d68d570,Pending License,Dispensary,Ministry of Health,Operational,Busia,Teso North,Angurai South,Teso North,Level 2,Akolong Dispensary,26001
+543f78a3-63e9-47c5-b113-7137afd2f58d,Licensed,Basic Health Centre,Private Practice - Clinical Officer,Operational,Busia,Teso North,Malaba Central,Teso North,Level 3,West side cottage,23835
+0dae254c-6831-4819-bc24-aeb277f43040,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Teso North,Malaba Central,Teso North,Level 2,Isegere Toto Medical Clinic,28142
+9fae73f3-0800-4b39-a04b-d7f022e341ce,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Teso North,Angurai North,Teso North,Level 2,Keha Medical Clinic,27380
+e6b2faf0-0d5f-49d7-a952-2f8832759e83,Registered,Primary care hospitals,Private Practice Lab Technician/Technologist,Operational,Busia,Matayos,Burumba,Matayos,Level 4,Brimaxa Hospital Limited,30736
+72e55e6c-1946-4e89-a6e1-a8ea097b4748,Registered,Medical Clinic,Private Practice - Private Company,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Doruex Health care,26835
+7167db89-c5d2-4b1c-9bb5-7a5feffeb17b,Licensed,Dental Clinic,Private Practice - Private Company,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Busia Prime Dental Clinic,26955
+0171d591-758a-4325-b127-b14cc3323a3f,Registered,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Visiongate Eye Care Consultant-Busia,24129
+9a0fc2b0-cc71-4d11-9e2d-26151a6f2f2e,Registered,Medical Center,Private Practice - Private Company,Operational,Busia,Matayos,Burumba,Matayos,Level 3,Busia Medical Specialist Diagnostic Centre,27705
+43f842d2-bef7-42a8-a064-c79cd73712ef,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Matayos,Mayenje,Matayos,Level 2,Bumala Uzima Clinic,30600
+fe0cd3a3-c927-4f26-9c1f-e3a8f491315e,Licensed,Basic Health Centre,Private Practice - Private Company,Operational,Busia,Butula,Marachi Central,Butula,Level 3,Esikoma Community Hospital,30602
+2464d6bf-3daa-4500-a336-5d6c08ea0187,Registered,Medical Clinic,Private Practice - General Practitioner,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Bliss Healthcare LTD-Busia,26951
+a7aee447-a4c2-45d0-9614-00159b5e80fc,Licensed,Medical Clinic,Private Practice - General Practitioner,Operational,Busia,Matayos,Mayenje,Matayos,Level 2,Lumola Medical Clinic,30599
+66e085a2-760b-4d0c-a1d3-c8e9a32cbfca,Licensed,Medical Center,Private Practice - Clinical Officer,Operational,Busia,Teso South,Amukura East,Teso Central,Level 3,The Dawameds Medical Centre (Amukura),29656
+735c352f-3ceb-40b8-89d2-7af0ddb39831,Registered,Medical Center,Private Practice - Clinical Officer,Operational,Busia,Butula,Marachi West,Butula,Level 3,Brilliance Care Medical,25088
+bd02002c-6356-47b3-b065-dfff930882f4,Registered,Primary care hospitals,Private Practice - Private Company,Operational,Busia,Matayos,Burumba,Matayos,Level 4,Goodhope Health LTD,27026
+45f1b82c-8c88-4fde-96d3-08398813c583,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Funyula,Namboboto-nambuku,Samia,Level 2,MULUANDA MEDICAL CENTRE.,29963
+86562089-6cce-4ca8-8aa1-4e642bb207b7,Licensed,VCT,Non-Governmental Organizations,Operational,Busia,Teso North,Malaba Central,Teso North,Level 2,Survivors Organization,29764
+3558a69d-0dc6-4864-bb60-635cda4d74ad,Registered,Medical Center,Private Practice Lab Technician/Technologist,Operational,Busia,Matayos,Busibwabo,Matayos,Level 3,Cardinal Nursing Home Limited,29411
+2cc482a8-5d33-40c6-a09e-f86251789dfb,Licensed,Medical Clinic,Private Practice - Medical Specialist,Operational,Busia,Teso South,Angorom,Teso South,Level 2,Oasis Doctor's Plaza Busia,29399
+373c6c2d-1b37-411d-b5b5-f33147f7688d,Licensed,Medical Clinic,Private Practice- Pharmacist,Operational,Busia,Budalangi,Bunyala North,Bunyala,Level 2,Tanaja HospitalTanaja Hospital Limited,28620
+1ec01472-2cd7-4deb-abc6-cae008627f67,Pending Registration,Dispensary,Ministry of Health,Operational,Busia,Funyula,Namboboto-nambuku,Samia,Level 2,Buyingi Dispensary,29325
+95a19caa-a8c8-4ea3-8009-95bea32ab233,Registered,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Teso South,Chakol South,Teso South,Level 2,Tomaps Medical Clinic,29318
+c89a0452-f8c7-4ccb-b057-7a5a1c47faad,Gazetted,Dispensary,Ministry of Health,Operational,Busia,Nambale,Bukhayo East,Nambale,Level 2,Buyofu Dispensary,29300
+c43694c0-f2d2-442f-b772-3cd31db598b0,Pending License,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura West,Teso Central,Level 2,Okwata Community Dispensary,28989
+4e9d7e64-46e9-4cf8-9e3c-277d1418321b,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Teso South,Amukura East,Teso Central,Level 2,Kotur Dispensary,28964
+1d7b9a68-45cc-4385-b28f-d3f0a56505ae,Pending Registration,Medical Clinic,Private Practice - General Practitioner,Operational,Busia,Matayos,Burumba,Matayos,Level 2,Stirling Healthcare Consultants LTD-Busia,28811
+92556d09-b95c-4406-b448-528bb6bda0e5,,Medical Clinic,Non-Governmental Organizations,Operational,Busia,Teso South,Angorom,Teso South,Level 2,KALRO TRC Medical Clinic,22580
+7cbba0d9-6c70-4901-8749-efb31de3fc70,,Medical Clinic,Non-Governmental Organizations,Operational,Busia,Teso South,Angorom,Teso South,Level 2,Survivors Organization Clinic,21966
+d2d1426f-d295-4b9c-9635-697bd4aa9b65,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Teso South,Angorom,Teso South,Level 2,Faith Medical Clinic (Amerikwai),23709
+3d55337f-6286-4abc-9f7e-43eaa815fb9a,Licensed,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Teso South,Angorom,Teso South,Level 2,Fribas Medical Clinic,25248
+b954892a-12c0-4346-a9db-72293a223e91,Pending Registration,Medical Clinic,Non-Governmental Organizations,Operational,Busia,Funyula,Ageng'a Nanguba,Samia,Level 2,Buburi Community Health Clinic,18120
+3f1d021d-c0e6-444e-9b0f-25612e90d884,Registered,Medical Clinic,Public Institution - Academic,Operational,Busia,Butula,Marachi North,Butula,Level 2,St Catherene Special School (Butula),24807
+4b2ebbea-78d0-4490-b3d7-a40b47d6a874,Licensed,Medical Clinic,Private Practice - Clinical Officer,Operational,Busia,Teso South,Angorom,Teso South,Level 2,Faith Medical Clinic (Rest),24101
+fe033f51-738b-408c-b23f-208ed83c3813,Pending License,Medical Clinic,Private Practice - Nurse / Midwifery,Operational,Busia,Butula,Marachi North,Butula,Level 2,Rural Education and Enhancement Programme,18128
+e4a1376f-2c47-4c5a-ad55-cb52320092f4,Pending License,Medical Clinic,Non-Governmental Organizations,Operational,Busia,Teso South,Angorom,Teso South,Level 2,KEMRI Medical Clinic,22582
+7bef54c6-3581-4f71-8886-ee86aa734c15,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Budalangi,Bunyala South,Bunyala,Level 2,Khajula Dispensary,21036
+7ae54d8f-35b0-4fec-a832-23e82c454c0e,Pending Gazettement,Primary care hospitals,Ministry of Health,Operational,Busia,Matayos,Burumba,Matayos,Level 4,Busia County Referral Hospital,15834
+c0df4179-616c-40d9-ae77-e7319d035970,Pending Gazettement,Dispensary,Ministry of Health,Operational,Busia,Budalangi,Bunyala North,Bunyala,Level 2,Budalangi Dispensary,15811

@@ -74,7 +74,7 @@ const {
 } = useRegistration()
 
 
-onMounted(() => {
+onMounted(async() => {
   getCountries()
   if(resourceID)
     populateFields()

@@ -17,7 +17,7 @@ const router = createRouter({
 router.beforeEach((to) => {
     const authStore = useAuthStore(pinia)
     if (to.meta.requiresAuth && !authStore.accessToken) {
-        return {name: "login"}
+        // return {name: "login"}
     }
 })
 

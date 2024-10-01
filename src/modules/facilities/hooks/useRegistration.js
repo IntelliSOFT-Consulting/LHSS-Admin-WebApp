@@ -3,6 +3,8 @@ import {useRoute, useRouter} from "vue-router";
 import {useToast} from "maz-ui";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {useLocationStore} from "../../../shared/store/locationStore.js";
+import axios from "axios";
+import {fetchMOHFacilities} from "../../../shared/utils/fetchMOHFacilites.js";
 
 export const useRegistration = () => {
 
@@ -156,6 +158,7 @@ export const useRegistration = () => {
         router.push('/facility/registered-facilities')
     }
 
+    fetchMOHFacilities({})
 
     return {
         isOpen,
@@ -176,6 +179,6 @@ export const useRegistration = () => {
         levelOptions,
         populateFields,
         getDistricts,
-        districtOptions,
+        districtOptions
     }
 }

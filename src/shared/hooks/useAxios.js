@@ -70,8 +70,8 @@ export const useAxios = () => {
                 status.value = response?.status
                 resolve(response.data)
             } catch (e) {
-                error.value = e
-                reject(e)
+                error.value = e?.response?.data?.error || e.message
+                reject( e?.response?.data?.error || e.message)
             } finally {
                 loading.value = false
             }

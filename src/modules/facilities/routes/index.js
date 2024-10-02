@@ -62,6 +62,11 @@ export const facilityRoutes = [
                 path: "profile",
                 component: () => import ("../views/Profile.vue")
             },
+            {
+                name: "providers",
+                path: "providers",
+                component: () => import ("../views/RegisterProvider.vue")
+            },
         ]
     }
 ]

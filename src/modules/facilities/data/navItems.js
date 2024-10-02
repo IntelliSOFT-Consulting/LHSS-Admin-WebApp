@@ -31,6 +31,12 @@ export const navItems = [
     },
     {
         id: "6",
+        icon: false,
+        path: "/facility/providers",
+        title: "Providers",
+    },
+    {
+        id: "7",
         icon: true,
         path: "/facility/profile",
         iconName: "fa-solid fa-user-circle"

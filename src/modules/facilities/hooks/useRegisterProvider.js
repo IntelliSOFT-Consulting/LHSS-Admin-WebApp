@@ -19,19 +19,34 @@ export const useRegisterProvider = () => {
 
     const toast = useToast();
 
-    const {makeNormalRequest, error} = useAxios();
+    const {makeNormalRequest} = useAxios();
+
+    const resetState = () => {
+        state.idNumber = "";
+        state.email = "";
+        state.role = "";
+        state.firstName = "";
+        state.lastName = "";
+        state.facility = "";
+        state.phone = "";
+        state.password = "";
+        state.confirmPassword = "";
+    };
+
 
     const handleSubmit = async(e) => {
         e.preventDefault();
         try{
             loading.value = true;
-            const response  = await makeNormalRequest({
+             await makeNormalRequest({
                 method: "POST",
                 url: "auth/provider/register",
                 data: {
                     ...state
                 }
             })
+            resetState();
+            toast.success("Register successfully.");
         } catch (e){
             toast.error(e)
             return e;

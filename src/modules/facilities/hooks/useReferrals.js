@@ -24,7 +24,28 @@ export const useReferrals = () => {
     const print = () => {
         const csvHeaders = ["Name", "Gender", "Registration Date", "Referred From", "Referred To", "Reason For Referral", "Referral Received"];
 
-        let csvData = filteredReferrals.value.map(item => [`${item?.patient?.name[0]?.text}`, `${item?.patient?.gender}`, `${new Date(item.service.occurrenceDateTime).toDateString()}`, `${(item?.service?.supportingInfo?.find(item => item?.display === "REFERRING_FROM"))?.reference.split("/")[1]}`, `${(item?.service?.supportingInfo?.find(item => item?.display === "REFERRING_TO"))?.reference?.split("/")[1]}`, `${item?.service?.reasonCode[0].text}`, `${item?.service?.status == 'draft' ? 'Pending' : item?.service?.status == 'active' ? 'Recieved' : ''}`])
+
+
+        let csvData = filteredReferrals.value.map(item => {
+            const name = item?.patient?.name[0]?.text;
+            const gender = item?.patient?.gender;
+            const registrationDate = new Date(item.service.occurrenceDateTime).toDateString();
+            const referredFrom = (item?.service?.supportingInfo?.find(item => item?.display === "REFERRING_FROM"))?.reference.split("/")[1];
+            const referredTo = (item?.service?.supportingInfo?.find(item => item?.display === "REFERRING_TO"))?.reference?.split("/")[1];
+            const reasonForReferral = item?.service?.reasonCode[0].text;
+
+            let referralStatus = "";
+
+            if (item?.service?.status == 'draft') {
+                referralStatus = "pending"
+            } else if (item?.service?.status == 'active') {
+                referralStatus = "received"
+            } else {
+                referralStatus = "unknown"
+            }
+
+            return [name, gender, registrationDate, referredFrom, referredTo, reasonForReferral, referralStatus]
+        })
 
         csvData = [csvHeaders, ...csvData]
 

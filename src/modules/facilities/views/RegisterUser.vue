@@ -73,8 +73,6 @@ import {useRouter} from "vue-router";
 import {onMounted, watch} from "vue";
 import MazDialog from "maz-ui/components/MazDialog";
 import MazBtn from "maz-ui/components/MazBtn";
-import {useLocationStore} from "../../../shared/store/locationStore.js";
-import {useAllFacilities} from "../hooks/useAllFacilities.js";
 
 const router = useRouter()
 

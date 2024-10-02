@@ -13,6 +13,7 @@ declare module 'vue' {
     MazDataListItem: typeof import('maz-ui/components/MazDataListItem')['default']
     MazIcon: typeof import('maz-ui/components/MazIcon')['default']
     MazInput: typeof import('maz-ui/components/MazInput')['default']
+    MazPhone: typeof import('maz-ui/components/MazPhone')['default']
     MazPhoneNumberInput: typeof import('maz-ui/components/MazPhoneNumberInput')['default']
     MazSelect: typeof import('maz-ui/components/MazSelect')['default']
     MazSp: typeof import('maz-ui/components/MazSp')['default']

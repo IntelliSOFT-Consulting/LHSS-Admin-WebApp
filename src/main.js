@@ -16,13 +16,13 @@ import {
     faChevronLeft,
     faChevronRight,
     faFileExport,
-    faUserCircle,
+    faUserCircle, faUserDoctor,
     faUserPlus,
     faXmarkCircle
 } from "@fortawesome/free-solid-svg-icons";
 import pinia from "./shared/store/index.js";
 
-library.add(faChevronRight, faChevronLeft, faUserCircle, faFileExport, faCheckCircle, faUserPlus, faXmarkCircle, faBars, faArrowRightFromBracket)
+library.add(faChevronRight, faChevronLeft, faUserCircle, faFileExport, faCheckCircle, faUserPlus, faXmarkCircle, faBars, faArrowRightFromBracket, faUserDoctor)
 
 const app = createApp(App)
 

@@ -9,9 +9,6 @@ export const useRegistration = () => {
 
     const isOpen = ref(false)
     const loading = ref(false)
-    const name = ref("")
-    const level = ref("")
-    const district = ref("")
     const listOfFacilities = ref([])
     const searchString = ref("")
     const selectedFacility = ref({
@@ -34,7 +31,6 @@ export const useRegistration = () => {
 
 
     const submit = async (evt) => {
-        console.log("selected facility", selectedFacility.value)
         evt.preventDefault()
         loading.value = true;
         try {

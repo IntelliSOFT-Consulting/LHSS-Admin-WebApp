@@ -29,8 +29,8 @@ export const usePatients = () => {
     }
 
     const clearFilters = () => {
-        gender.value=""
-        surname.value=""
+        gender.value = ""
+        surname.value = ""
     }
 
     const getCBDId = (array) => {
@@ -54,8 +54,22 @@ export const usePatients = () => {
         const csvHeaders = ['Name', 'Gender', 'Registration Date', 'CB-ID', 'Phone']
 
         let csvData = data.value.map(item => {
+            const name = (item.resource.name[0].family || "") + " " + (item?.resource?.name[0]?.given || "");
+            const gender = item.resource.gender;
+            const registrationDate = new Date(item.resource.meta.lastUpdated).toLocaleDateString();
+            const cbID = getCBDId(item.resource.identifier);
+
+            let phone = '';
+
+            if (item.resource.contact && item?.resource?.contact[0]?.telecom[0]?.value) {
+                phone = item?.resource?.contact[0]?.telecom[0]?.value;
+            } else if (item?.resource?.telecom && item?.resource?.telecom[0]?.value) {
+                phone = item.resource.telecom[0].value
+            }
+
+
             return [
-                `${item.resource.name[0].family}`, `${item.resource.gender}`, `${new Date(item.resource.meta.lastUpdated).toLocaleDateString()}`, `${getCBDId(item.resource.identifier)}`, `${item.resource.contact ? item?.resource?.contact[0]?.telecom[0]?.value : item?.resource?.telecom ? item?.resource?.telecom[0]?.value : ''}`
+                name, gender, registrationDate, cbID, phone
             ]
         })
 

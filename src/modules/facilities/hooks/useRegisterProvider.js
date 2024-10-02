@@ -19,7 +19,7 @@ export const useRegisterProvider = () => {
 
     const toast = useToast();
 
-    const {makeNormalRequest, error} = useAxios();
+    const {makeNormalRequest} = useAxios();
 
     const handleSubmit = async(e) => {
         e.preventDefault();

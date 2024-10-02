@@ -27,10 +27,7 @@
           :headers="headers">
         <template #item-id="item">
           <div class="flex items-center gap-4">
-            <router-link class="underline text-[#2b4fb1] font-medium" :to="`/facility/${item.resource.id}`">View
-            </router-link>
-            <router-link class="underline text-[#2b4fb1] font-medium" :to="`/facility/edit/${item.resource.id}`">Edit
-            </router-link>
+            <router-link class="underline text-[#2b4fb1] font-medium" :to="`/facility/${item.resource.id}`">View</router-link>
           </div>
         </template>
       </EasyDataTable>

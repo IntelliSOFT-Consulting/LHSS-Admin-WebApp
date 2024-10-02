@@ -2,35 +2,25 @@ import {ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import {useToast} from "maz-ui";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
-import {useLocationStore} from "../../../shared/store/locationStore.js";
+import facilitiesCSV from "../../../shared/assets/facilities.csv"
+import {csvToArrayOfObjects} from "../../../shared/utils/csvOperations.js";
 
 export const useRegistration = () => {
 
     const isOpen = ref(false)
     const loading = ref(false)
     const name = ref("")
-    const country = ref("")
     const level = ref("")
-    const region = ref("")
     const district = ref("")
-    const code = ref("")
-    const districtOptions = ref([])
-    const regionOptions = ref([])
-    const countryOptions = ref([])
+    const listOfFacilities = ref([])
+    const searchString = ref("")
+    const selectedFacility = ref({
+        name: "",
+        code: "",
+        level: "",
+        county: ""
+    });
 
-    const levelOptions = ref([
-        "Hospital",
-        "Health Centre_IV",
-        "Health Centre_III",
-        "Health Centre_II",
-        "Health Post",
-        "Comprehensive Health Post",
-        "Surveillance office",
-        "Primary Clinic",
-        "Drug Vendor"
-    ])
-
-    const locationStore = useLocationStore()
 
     const route = useRoute()
 
@@ -42,72 +32,9 @@ export const useRegistration = () => {
 
     const toast = useToast()
 
-    const getCountries = async () => {
-        try {
-            loading.value = true;
-            const response = await makeFHIRRequest({url: `Location?type=COUNTRY`})
-            if (!response?.entry)
-                return
-            countryOptions.value = response.entry.map(entry => entry.resource.name)
-        } catch (error) {
-            toast.error('Error getting countries')
-        } finally {
-            loading.value = false;
-        }
-    }
-
-    const getRegions = async (country) => {
-        try {
-            loading.value = true;
-            const response = await makeFHIRRequest({url: `Location?type=REGION&partof=${country}`})
-            if (!response?.entry)
-                return
-            regionOptions.value = response.entry.map(entry => entry.resource.name)
-        } catch (error) {
-            toast.error('Error getting regions')
-        } finally {
-            loading.value = false;
-        }
-    }
-
-    const getDistricts = async (region) => {
-        try {
-            loading.value = true;
-            const response = await makeFHIRRequest({url: `Location?type=DISTRICT&partof=${region}`});
-            if (!response?.entry)
-                return
-            districtOptions.value = response.entry.map(entry => entry.resource.name)
-        } catch (e) {
-            toast.error('Error getting districts')
-        } finally {
-            loading.value = false;
-        }
-    }
-
-    const populateFields = async () => {
-        try {
-            loading.value = true;
-
-            const response = await makeFHIRRequest({
-                url: `/Location/${resourceID}`
-            })
-
-            await getRegions(locationStore.getParentLocation(response.partOf.reference.split("/")[1]))
-
-            await getCountries(locationStore.getParentLocation(locationStore.getParentLocation(response.partOf.reference.split("/")[1])))
-
-            name.value = response.name
-            district.value = response.partOf.reference.split("/")[1]
-            region.value = locationStore.getParentLocation(response.partOf.reference.split("/")[1])
-            country.value = locationStore.getParentLocation(locationStore.getParentLocation(response.partOf.reference.split("/")[1]))
-        } catch (error) {
-            toast.error('Error populating fields')
-        } finally {
-            loading.value = false;
-        }
-    }
 
     const submit = async (evt) => {
+        console.log("selected facility", selectedFacility.value)
         evt.preventDefault()
         loading.value = true;
         try {
@@ -116,11 +43,11 @@ export const useRegistration = () => {
                 url: resourceID ? `Location/${resourceID}` : "Location",
                 data: {
                     resourceType: "Location",
-                    id: resourceID ? resourceID : name.value,
-                    name: name.value,
-                    level: level.value,
+                    id: resourceID ? resourceID : selectedFacility.value.name,
+                    name: selectedFacility.value.name,
+                    level: selectedFacility.value.keph_level_name,
                     partOf: {
-                        reference: `Location/${district.value}`
+                        reference: `Location/${selectedFacility.value.county}`
                     },
                     search: {
                         mode: "match"
@@ -156,26 +83,26 @@ export const useRegistration = () => {
         router.push('/facility/registered-facilities')
     }
 
+    const getListOfFacilities = () => {
+        fetch(facilitiesCSV)
+            .then(res => res.text())
+            .then(data => {
+                const arrayOfFacilities = csvToArrayOfObjects(data)
+                listOfFacilities.value = arrayOfFacilities;
+                return arrayOfFacilities
+            })
+            .catch(err => err)
+    }
+
 
     return {
         isOpen,
         loading,
-        name,
-        country,
-        level,
-        region,
-        district,
-        code,
-        regionOptions,
-        countryOptions,
-        getRegions,
-        getCountries,
         submit,
         close,
-        resourceID,
-        levelOptions,
-        populateFields,
-        getDistricts,
-        districtOptions,
+        getListOfFacilities,
+        listOfFacilities,
+        searchString,
+        selectedFacility
     }
 }

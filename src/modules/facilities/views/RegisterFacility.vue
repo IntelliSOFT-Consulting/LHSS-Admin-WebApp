@@ -10,12 +10,32 @@
         autocomplete="off"
         @submit="submit"
         class="grid grid-cols-1 md:grid-cols-2 px-4 pb-24 lg:px-11 pt-11 gap-8 lg:gap-x-[100px] gap-y-10">
-      <maz-input label="Health facility name" required v-model="name"/>
-      <maz-select label="Country" required v-model="country" :options="countryOptions"/>
-      <maz-select label="Level" v-model="level" :options="levelOptions"/>
-      <maz-select label="Region" :disabled="!country" required v-model="region" :options="regionOptions"/>
-      <maz-input label="Code" v-model="code"/>
-      <maz-select label="District" :disabled="!region" required v-model="district" :options="districtOptions"/>
+
+      <maz-select
+          class=""
+          size="sm"
+          search
+          v-model="searchString"
+          label="Search facility"
+          :options="listOfFacilities"
+          optionLabelKey="name"
+          optionValueKey="code"
+          optionInputValueKey="name"
+      />
+      <div />
+
+      <maz-input disabled v-model="selectedFacility.name" label="Name"/>
+      <maz-input disabled v-model="selectedFacility.code" label="Code"/>
+      <maz-input disabled v-model="selectedFacility.keph_level_name" label="Level"/>
+      <maz-input disabled v-model="selectedFacility.facility_type_name" label="Facility type"/>
+      <maz-input disabled v-model="selectedFacility.county" label="County"/>
+      <maz-input disabled v-model="selectedFacility.sub_county_name" label="Sub county"/>
+      <maz-input disabled v-model="selectedFacility.constituency" label="Constituency"/>
+      <maz-input disabled v-model="selectedFacility.ward_name" label="Ward"/>
+      <maz-input disabled v-model="selectedFacility.owner_name" label="Owner"/>
+      <maz-input disabled v-model="selectedFacility.operation_status_name" label="Operation Status"/>
+      <maz-input disabled v-model="selectedFacility.regulatory_status_name" label="Regulatory Status"/>
+
       <div
           class="flex items-center w-full col-span-full justify-end gap-[25px] border-t-[.5px] border-t-[#C4C4C4] py-[11px] px-5 mt-auto absolute bottom-0 left-0">
         <MazSpinner color="secondary" v-if="loading"/>
@@ -24,6 +44,7 @@
           <maz-btn type="submit" class="w-20 h-8 lg:w-[165px] lg:h-[46px]">Submit</maz-btn>
         </div>
       </div>
+
     </form>
 
     <maz-dialog v-model="isOpen" title="Success" class="border-[.5px]">
@@ -44,7 +65,7 @@ import MazIcon from 'maz-ui/components/MazIcon'
 import MazDialog from 'maz-ui/components/MazDialog'
 import MazSpinner from 'maz-ui/components/MazSpinner'
 import MazBtn from 'maz-ui/components/MazBtn'
-import {onMounted, watch,} from "vue";
+import {computed, onMounted, watch,} from "vue";
 import {useRegistration} from "../hooks/useRegistration.js";
 import {useRouter} from "vue-router";
 
@@ -54,39 +75,22 @@ const router = useRouter()
 const {
   isOpen,
   loading,
-  name,
-  country,
-  region,
   submit,
   close,
-  resourceID,
-  getRegions,
-  getCountries,
-  countryOptions,
-  regionOptions,
-  levelOptions,
-  level,
-  code,
-  populateFields,
-  district,
-  getDistricts,
-  districtOptions,
+  getListOfFacilities,
+  listOfFacilities,
+  searchString,
+  selectedFacility
 } = useRegistration()
 
 
 onMounted(() => {
-  getCountries()
-  if(resourceID)
-    populateFields()
+  getListOfFacilities()
 })
 
 
-watch(country, value => {
-  getRegions(value)
-})
-
-watch(region, value => {
-  getDistricts(value)
+watch(searchString, value => {
+  selectedFacility.value = listOfFacilities.value.find(facility => facility.code === value)
 })
 
 

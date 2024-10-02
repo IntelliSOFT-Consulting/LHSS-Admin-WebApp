@@ -1,11 +1,9 @@
-import {useAuthStore} from "../../../shared/store/authStore.js";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {ref} from "vue";
 import {useToast} from "maz-ui";
 
 export const useProfile = () => {
 
-    const authStore = useAuthStore()
 
     const firstName = ref("")
     const lastName = ref("")

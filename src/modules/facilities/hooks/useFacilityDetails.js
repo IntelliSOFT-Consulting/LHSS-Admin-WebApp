@@ -1,14 +1,11 @@
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {reactive, ref} from "vue";
 import {useToast} from "maz-ui";
-import {useLocationStore} from "../../../shared/store/locationStore.js";
 
 
 export const useFacilityDetails = () => {
     const {makeFHIRRequest} = useAxios()
 
-
-    const locationStore = useLocationStore()
 
     const toast = useToast()
 

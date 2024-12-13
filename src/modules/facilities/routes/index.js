@@ -13,11 +13,6 @@ export const facilityRoutes = [
                 component: () => import ("../views/Dashboard.vue")
             },
             {
-                name: "register facility",
-                path: "register",
-                component: () => import ("../views/RegisterFacility.vue")
-            },
-            {
                 name: "edit facility",
                 path: "edit/:resourceID",
                 component: () => import ("../views/RegisterFacility.vue")

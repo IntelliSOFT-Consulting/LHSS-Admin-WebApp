@@ -15,17 +15,12 @@ const router = createRouter({
 })
 
 
-/**
- * return this line of code when the authentication is fixed
- *
- * router.beforeEach((to) => {
- *     const authStore = useAuthStore(pinia)
- *     return
- * })
- *     if (to.meta.requiresAuth && !authStore.accessToken) {
- *         // return {name: "login"}
- *     }
- */
+router.beforeEach(to=>{
+    const authStore = useAuthStore(pinia)
+    if(to.meta.requiresAuth && !authStore.accessToken){
+        return {name: "login"}
+    }
+})
 
 
 router.beforeEach((to) => {

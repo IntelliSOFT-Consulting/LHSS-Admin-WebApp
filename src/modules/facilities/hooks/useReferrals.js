@@ -77,26 +77,27 @@ export const useReferrals = () => {
             const response = await makeFHIRRequest({
                 url: `ServiceRequest`
             })
-            if (response.entry)
+            if (response.entry){
                 referrals.value = []
 
-            for (const entry of response.entry) {
-                let patientObject = await getPatient(entry.resource.subject.reference.split("/")[1])
+                for (const entry of response.entry) {
+                    let patientObject = await getPatient(entry.resource.subject.reference.split("/")[1])
 
-                referrals.value = [...referrals.value,
-                    {
-                        service: {...entry.resource},
-                        patient: {...patientObject}
-                    }];
+                    referrals.value = [...referrals.value,
+                        {
+                            service: {...entry.resource},
+                            patient: {...patientObject}
+                        }];
 
-                filteredReferrals.value = [
-                    ...filteredReferrals.value,
-                    {
-                        service: {...entry.resource},
-                        patient: {...patientObject}
-                    }
-                ]
+                    filteredReferrals.value = [
+                        ...filteredReferrals.value,
+                        {
+                            service: {...entry.resource},
+                            patient: {...patientObject}
+                        }
+                    ]
 
+                }
             }
         } catch (e) {
             toast.error('Error getting referrals')

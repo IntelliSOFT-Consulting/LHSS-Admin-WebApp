@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "axios": "^1.6.8",
+    "dayjs": "^1.11.13",
     "libphonenumber-js": "^1.11.10",
     "maz-ui": "^3.34.0",
     "pinia": "^2.1.7",

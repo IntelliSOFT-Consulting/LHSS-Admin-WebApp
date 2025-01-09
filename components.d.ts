@@ -15,6 +15,7 @@ declare module 'vue' {
     MazInput: typeof import('maz-ui/components/MazInput')['default']
     MazPhone: typeof import('maz-ui/components/MazPhone')['default']
     MazPhoneNumberInput: typeof import('maz-ui/components/MazPhoneNumberInput')['default']
+    MazPicker: typeof import('maz-ui/components/MazPicker')['default']
     MazSelect: typeof import('maz-ui/components/MazSelect')['default']
     MazSp: typeof import('maz-ui/components/MazSp')['default']
     MazSpinner: typeof import('maz-ui/components/MazSpinner')['default']

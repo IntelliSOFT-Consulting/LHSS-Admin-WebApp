@@ -16,6 +16,11 @@
       <form class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 w-full">
         <maz-input id="name" v-model="surname" label="Name"/>
         <maz-select :options=" ['male', 'female']" label="Gender" v-model="gender"/>
+        <MazPicker
+            auto-close
+            v-model="registrationDate"
+            label="Registration date"
+        />
         <maz-btn
             @click="clearFilters"
             class="col-span-full lg:col-span-1 mt-10 lg:mt-0 h-9 lg:h-full py-1"
@@ -83,9 +88,9 @@ import {usePatients} from "../hooks/usePatients.js";
 
 const router = useRouter()
 
-const {data, gender, getPatients, print, loading, filterPatients, surname, clearFilters} = usePatients()
+const {data, gender, getPatients, print, loading, filterPatients, surname, clearFilters, registrationDate} = usePatients()
 
-watch([gender, surname], () => {
+watch([gender, surname, registrationDate], (values) => {
   filterPatients()
 })
 

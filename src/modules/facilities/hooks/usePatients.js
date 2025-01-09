@@ -9,6 +9,8 @@ export const usePatients = () => {
 
     const gender = ref("")
 
+    const registrationDate = ref("")
+
     const surname = ref("")
 
     const {makeFHIRRequest, loading} = useAxios()
@@ -31,6 +33,7 @@ export const usePatients = () => {
     const clearFilters = () => {
         gender.value = ""
         surname.value = ""
+        registrationDate.value = ""
     }
 
     const getCBDId = (array) => {
@@ -45,6 +48,9 @@ export const usePatients = () => {
             filterString = filterString + `&gender=${gender.value}`;
         if (surname.value)
             filterString = filterString + `&name=${surname.value}`;
+
+        if(registrationDate.value)
+            filterString = filterString + `&_lastUpdated=${registrationDate.value}`
 
         getPatients({filter: filterString})
 
@@ -92,5 +98,5 @@ export const usePatients = () => {
 
     }
 
-    return {data, gender, getPatients, print, filterPatients, loading, surname, clearFilters}
+    return {data, gender, getPatients, print, filterPatients, loading, surname, clearFilters, registrationDate}
 }

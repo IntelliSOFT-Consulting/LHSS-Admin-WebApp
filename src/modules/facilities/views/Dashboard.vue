@@ -41,7 +41,7 @@ const getStats = async () => {
     loading.value = true
 
     const patientResponse = await makeFHIRRequest({
-      url: `/Patient?_summary=count`
+      url: `/Patient?_summary=count&_tag:not=GOLDEN_RECORD`
     })
 
     const referralsResponse = await makeFHIRRequest({

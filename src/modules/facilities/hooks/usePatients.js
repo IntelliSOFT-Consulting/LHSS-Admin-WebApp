@@ -16,7 +16,7 @@ export const usePatients = () => {
     const getPatients = async ({filter = ""}) => {
         try {
             const response = await makeFHIRRequest({
-                url: `/Patient?${filter}&_count=1000`
+                url: `/Patient?${filter}&_count=1000&_tag:not=GOLDEN_RECORD`
             })
 
             if (response.entry)

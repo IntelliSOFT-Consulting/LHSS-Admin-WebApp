@@ -13,7 +13,7 @@
     </div>
 
     <div class="flex flex-col p-6 gap-11">
-      <form class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 w-full">
+      <form class="grid grid-cols-1 md:grid-cols-4 items-center gap-4 w-full">
         <maz-input id="name" v-model="surname" label="Name"/>
         <maz-select :options=" ['male', 'female']" label="Gender" v-model="gender"/>
         <MazPicker

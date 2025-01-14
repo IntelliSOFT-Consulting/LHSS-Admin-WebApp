@@ -20,9 +20,9 @@
           search
           v-model="state.facility"
           label="Facility"
-          :options="listOfFacilities"
+          :options="flattenedFacilities"
           optionLabelKey="name"
-          optionValueKey="name"
+          optionValueKey="value"
           optionInputValueKey="name"
       />
       <MazPhoneNumberInput
@@ -59,17 +59,23 @@ import MazBtn from "maz-ui/components/MazBtn";
 import MazSpinner from "maz-ui/components/MazSpinner";
 import {useRegisterProvider} from "../hooks/useRegisterProvider.js";
 import {useRouter} from "vue-router";
-import {useRegistration} from "../hooks/useRegistration.js";
-import {computed, onMounted} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
+import {useAllFacilities} from "../hooks/useAllFacilities.js";
 
 const router = useRouter()
 const {handleSubmit, state, loading} = useRegisterProvider();
-const {getListOfFacilities, listOfFacilities} = useRegistration();
+const {getAllFacilities, data: facilityData} = useAllFacilities()
+const flattenedFacilities = ref([]);
+
+watch(facilityData, value=>{
+  console.log("facilities", value)
+  flattenedFacilities.value = value.map(item=> ({value: item.resource.id, name: item.resource.name}))
+})
 
 const isFormValid = computed(()=> state.confirmPassword === state.password)
 
 onMounted(() => {
-  getListOfFacilities()
+  getAllFacilities({})
 });
 
 </script>

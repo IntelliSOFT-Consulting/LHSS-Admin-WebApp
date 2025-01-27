@@ -5,7 +5,7 @@
         <font-awesome-icon icon="fa-solid fa-user-circle" class="w-6 h-6 text-primary"/>
         <p class="text-xs lg:text-lg font-medium text-[#292929]">Users</p>
       </div>
-      <maz-btn size="mini" @click="router.push('/facility/register-user')" class="w-20 h-8 lg:w-[165px] lg:h-[40px] ml-auto">Add New</maz-btn>
+      <maz-btn size="mini" @click="router.push('/facility/providers')" class="w-20 h-8 lg:w-[165px] lg:h-[40px] ml-auto">Add New</maz-btn>
     </div>
 
     <div class="flex flex-col lg:p-11 gap-[55px] px-4 lg:px-8">

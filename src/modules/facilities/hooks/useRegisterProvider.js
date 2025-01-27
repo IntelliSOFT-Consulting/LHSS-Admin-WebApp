@@ -1,10 +1,11 @@
 import {reactive, ref} from "vue";
 import {useAxios} from "../../../shared/hooks/useAxios.js";
 import {useToast} from "maz-ui";
+import {useRouter} from "vue-router";
 
 export const useRegisterProvider = () => {
     const loading = ref(false);
-
+    const router = useRouter();
     const state = reactive({
         idNumber: "",
         email: "",
@@ -47,6 +48,7 @@ export const useRegisterProvider = () => {
             })
             resetState();
             toast.success("Register successfully.");
+            router.push("/facility/users")
         } catch (e){
             toast.error(e)
             return e;

@@ -67,7 +67,6 @@ const {getAllFacilities, data: facilityData} = useAllFacilities()
 const flattenedFacilities = ref([]);
 
 watch(facilityData, value=>{
-  console.log("facilities", value)
   flattenedFacilities.value = value.map(item=> ({value: item.resource.id, name: item.resource.name}))
 })
 

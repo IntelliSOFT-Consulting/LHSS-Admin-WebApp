@@ -33,7 +33,7 @@ export const navItems = [
         id: "6",
         icon: false,
         path: "/facility/providers",
-        title: "Providers",
+        title: "Register User",
     },
     {
         id: "7",

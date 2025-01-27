@@ -3,7 +3,7 @@
 
     <div class="flex items-center gap-4 w-full border-b-[.5px] border-b-[#c4c4c4] p-6">
       <font-awesome-icon icon="fa-solid fa-user-doctor" class="w-6 h-6 text-primary"/>
-      <p class="text-xl font-medium text-[#292929]">Register Provider</p>
+      <p class="text-xl font-medium text-[#292929]">Register User</p>
     </div>
 
     <form
@@ -30,7 +30,6 @@
           v-model="state.phone"
           size="sm"
           required
-          :only-countries="['KE', 'UG']"
           country-selector-display-name
           country-code="KE"
       />
